@@ -2,10 +2,10 @@ import React from "react";
 import Slider from "react-slick";
 import styled from "styled-components";
 // Assets
-import ClientLogo01 from "../../assets/img/clients/logo01.svg"
-import ClientLogo02 from "../../assets/img/clients/logo02.svg";
-import ClientLogo03 from "../../assets/img/clients/logo03.svg";
-import ClientLogo04 from "../../assets/img/clients/logo04.svg";
+import ClientLogo01 from "../../assets/img/clients/frisby.png"
+import ClientLogo02 from "../../assets/img/clients/eafit.png";
+import ClientLogo03 from "../../assets/img/clients/UPB.png";
+import ClientLogo04 from "../../assets/img/clients/santafe.png";
 import ClientLogo05 from "../../assets/img/clients/logo05.svg";
 import ClientLogo06 from "../../assets/img/clients/logo06.svg";
 
@@ -42,18 +42,20 @@ export default function ClientSlider() {
   };
   return (
     <div>
+            <h1 className="font50 extraBold">Clientes que confían en nosotros</h1>
+
       <Slider {...settings}>
         <LogoWrapper className="flexCenter">
-          <ImgStyle src={ClientLogo01} alt="client logo" />
+          <ImgStyle src={ClientLogo01} alt="client logo" style={{ width: '100px' }} />
         </LogoWrapper>
         <LogoWrapper className="flexCenter">
-          <ImgStyle src={ClientLogo02} alt="client logo" />
+          <ImgStyle src={ClientLogo02} alt="client logo" style={{ width: '150px',height: '130px'}}/>
         </LogoWrapper>
         <LogoWrapper className="flexCenter">
-          <ImgStyle src={ClientLogo03} alt="client logo" />
+          <ImgStyle src={ClientLogo03} alt="client logo" style={{ width: '100px' }}/>
         </LogoWrapper>
         <LogoWrapper className="flexCenter">
-          <ImgStyle src={ClientLogo04} alt="client logo" />
+          <ImgStyle src={ClientLogo04} alt="client logo" style={{ width: '150px', height: '130px' }}/>
         </LogoWrapper>
         <LogoWrapper className="flexCenter">
           <ImgStyle src={ClientLogo05} alt="client logo" />

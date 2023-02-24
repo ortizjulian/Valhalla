@@ -16,7 +16,7 @@ export default function Navbar() {
                 </UlWrapper>
             </Wrapper>
             <Content>
-                <Heading>
+                <Heading >
                     El mejor gimnasio en la
                     <br />
                     cuidad de Medellín
@@ -94,5 +94,5 @@ const Container = styled.div`
   background-size: cover;
   height: 100vh;
   min-height: 144px;
-  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQC4nCOSPmffOuly13F6nwnzSU3y6kIKEYPhw&usqp=CAU");
+  background-image: url("https://blog.smartfit.com.mx/wp-content/uploads/2021/05/gimnasios-definicion-e-historia-1.jpg");
 `;
