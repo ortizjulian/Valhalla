@@ -9,26 +9,26 @@ export default function Pricing() {
       <div className="whiteBg">
         <div className="container">
           <HeaderInfo>
-            <h1 className="font40 extraBold">Check Our Pricing</h1>
-            <p className="font13">
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-              <br />
-              labore et dolore magna aliquyam erat, sed diam voluptua.
+            <h1 className="font40 extraBold">Mira nuestros precios</h1>
+            <p className="font20">
+              Solicita día de prueba GRATIS.
             </p>
           </HeaderInfo>
           <TablesWrapper className="flexSpaceNull">
             <TableBox>
               <PricingTable
                 icon="roller"
-                price="$29,99/mo"
-                title="Starter"
-                text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor."
+                price="$59,900/m"
+                title="Guerrero"
+                text="Nuestro plan básico, que te permitirá acceder a la sede de tu preferencia."
                 offers={[
-                  { name: "Product Offer", cheked: true },
-                  { name: "Offer", cheked: true },
-                  { name: "Product Offer #2", cheked: false },
-                  { name: "Product", cheked: false },
-                  { name: "Product Offer", cheked: false },
+                  { name: "Una sola sede", cheked: true },
+                  { name: "Plan Personalizado", cheked: true },
+                  { name: "Acceso a la Plataforma", cheked: true },
+                  { name: "Cita con Deportólogo", cheked: false },
+                  { name: "Acesso a los retos", cheked: false },
+                  { name: "Cita con Nutricionista", cheked: false },
+                  { name: "Clases Premium", cheked: false },
                 ]}
                 action={() => alert("clicked")}
               />
@@ -36,15 +36,17 @@ export default function Pricing() {
             <TableBox>
               <PricingTable
                 icon="monitor"
-                price="$49,99/mo"
-                title="Basic"
-                text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor."
+                price="$89,900/m"
+                title="Valkiria"
+                text="Nuestro plan Valkiria, te permitirá acceder a lo mejor de su rango."
                 offers={[
-                  { name: "Product Offer", cheked: true },
-                  { name: "Offer", cheked: true },
-                  { name: "Product Offer #2", cheked: true },
-                  { name: "Product", cheked: true },
-                  { name: "Product Offer", cheked: false },
+                  { name: "Una sola sede", cheked: true },
+                  { name: "Plan Personalizado", cheked: true },
+                  { name: "Acceso a la Plataforma", cheked: true },
+                  { name: "Cita con Deportólogo", cheked: true },
+                  { name: "Acesso a los retos", cheked: true },
+                  { name: "Cita con Nutricionista", cheked: false },
+                  { name: "Clases Premium", cheked: false },
                 ]}
                 action={() => alert("clicked")}
               />
@@ -52,15 +54,17 @@ export default function Pricing() {
             <TableBox>
               <PricingTable
                 icon="browser"
-                price="$59,99/mo"
-                title="Golden"
-                text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor."
+                price="$99,900/m"
+                title="Odín"
+                text="Nuestro plan Odín, es el más top. Te permite acceder a todos los beneficios posibles."
                 offers={[
-                  { name: "Product Offer", cheked: true },
-                  { name: "Offer", cheked: true },
-                  { name: "Product Offer #2", cheked: true },
-                  { name: "Product", cheked: true },
-                  { name: "Product Offer", cheked: true },
+                  { name: "Una sola sede", cheked: true },
+                  { name: "Plan Personalizado", cheked: true },
+                  { name: "Acceso a la Plataforma", cheked: true },
+                  { name: "Cita con Deportólogo", cheked: true },
+                  { name: "Acesso a los retos", cheked: true },
+                  { name: "Cita con Nutricionista", cheked: true },
+                  { name: "Clases Premium", cheked: true },
                 ]}
                 action={() => alert("clicked")}
               />
