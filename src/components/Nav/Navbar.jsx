@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import { Link } from "react-scroll";
 
 export default function Navbar() {
     return (
@@ -19,7 +18,7 @@ export default function Navbar() {
                 <Heading >
                     El mejor gimnasio en la
                     <br />
-                    cuidad de Medellín
+                    ciudad de Medellín
                 </Heading>
             </Content>
             </HeroContainer>

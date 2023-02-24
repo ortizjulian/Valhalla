@@ -42,7 +42,7 @@ export default function ClientSlider() {
   };
   return (
     <div>
-            <h1 className="font50 extraBold">Clientes que confían en nosotros</h1>
+            <h1 className="font50 extraBold">Aliados que confían en nosotros</h1>
 
       <Slider {...settings}>
         <LogoWrapper className="flexCenter">
