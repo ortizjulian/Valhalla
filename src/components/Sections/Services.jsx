@@ -31,27 +31,27 @@ export default function Services() {
             <ServiceBoxWrapper>
               
               <ServiceBox
-                icon="monitor"
+                icon="clock"
                 title="Los horarios más flexibles"
                 subtitle="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
               />
             </ServiceBoxWrapper>
             <ServiceBoxWrapper>
               <ServiceBox
-                icon="monitor"
+                icon="weight"
                 title="Entrenamiento Personalizado"
-                subtitle="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore."
+                subtitle="Nuestros entrenadores estan 100% cualificados para ponerte en esa figura ideal."
               />
             </ServiceBoxWrapper>
             <ServiceBoxWrapper>
               <ServiceBox
-                icon="browser"
+                icon="smartphone"
                 title="Seguimiento por la App"
-                subtitle="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat."
+                subtitle="Cor app podras ver tus progresos, rutinas y estar pendiente de los eventos."
               />
             </ServiceBoxWrapper>
             <ServiceBoxWrapper>
-              <ServiceBox icon="printer" title="Bonificaciones y Descuentos" subtitle="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor." />
+              <ServiceBox icon="discount" title="Bonificaciones y Descuentos" subtitle="Constantemente estamos sacando descuentos y promociones y si eres constante te podras ganar algunas sorpresitas 😉." />
             </ServiceBoxWrapper>
           </ServiceBoxRow>
         </div>
@@ -61,10 +61,10 @@ export default function Services() {
               <AddLeft>
                 <h4 className="font15 semiBold">Empieza a trabajar en ti</h4>
                 <h2 className="font40 extraBold">Un paso más cerca de la Felicidad</h2>
-                <p className="font12">
+                {/* <p className="font12">
                   Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed
                   diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
-                </p>
+                </p> */}
                 <ButtonsRow className="flexNullCenter" style={{ margin: "30px 0"}}>
                   <div style={{ width: "190px" }}>
                     <FullButton title="Únete" action={() => alert("Pronto")} />

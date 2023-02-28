@@ -2,31 +2,29 @@ import React from "react";
 import styled from "styled-components";
 // Components
 import FullButton from "../Buttons/FullButton";
-// Assets
-import RollerIcon from "../../assets/svg/Services/RollerIcon";
-import MonitorIcon from "../../assets/svg/Services/MonitorIcon";
-import BrowserIcon from "../../assets/svg/Services/BrowserIcon";
-import PrinterIcon from "../../assets/svg/Services/PrinterIcon";
+//Iconos
+import { GiVikingHelmet } from 'react-icons/gi';
+import { GiAngelWings } from 'react-icons/gi';
+import { GiCrenelCrown } from 'react-icons/gi';
+
 import CheckMark from "../../assets/svg/Checkmark";
+
 
 export default function PricingTable({ icon, price, title, text,  offers, action }) {
   let getIcon;
 
   switch (icon) {
-    case "roller":
-      getIcon = <RollerIcon />;
+    case "viking":
+      getIcon = <GiVikingHelmet className="icon-large" />;
       break;
-    case "monitor":
-      getIcon = <MonitorIcon />;
+    case "wings":
+      getIcon = <GiAngelWings className="icon-large" />;
       break;
-    case "browser":
-      getIcon = <BrowserIcon />;
-      break;
-    case "printer":
-      getIcon = <PrinterIcon />;
+    case "crown":
+      getIcon = <GiCrenelCrown className="icon-large" />;
       break;
     default:
-      getIcon = <RollerIcon />;
+      getIcon = <GiVikingHelmet className="icon-large" />;
       break;
   }
 

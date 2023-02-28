@@ -17,7 +17,7 @@ export default function Pricing() {
           <TablesWrapper className="flexSpaceNull">
             <TableBox>
               <PricingTable
-                icon="roller"
+                icon="viking"
                 price="$59,900/m"
                 title="Guerrero"
                 text="Nuestro plan básico, que te permitirá acceder a la sede de tu preferencia."
@@ -35,7 +35,7 @@ export default function Pricing() {
             </TableBox>
             <TableBox>
               <PricingTable
-                icon="monitor"
+                icon="wings"
                 price="$89,900/m"
                 title="Valkiria"
                 text="Nuestro plan Valkiria, te permitirá acceder a lo mejor de su rango."
@@ -53,7 +53,7 @@ export default function Pricing() {
             </TableBox>
             <TableBox>
               <PricingTable
-                icon="browser"
+                icon="crown"
                 price="$99,900/m"
                 title="Odín"
                 text="Nuestro plan Odín, es el más top. Te permite acceder a todos los beneficios posibles."
