@@ -1,29 +1,31 @@
 import React from "react";
 import styled from "styled-components";
-// Assets
-import RollerIcon from "../../assets/svg/Services/RollerIcon";
-import MonitorIcon from "../../assets/svg/Services/MonitorIcon";
-import BrowserIcon from "../../assets/svg/Services/BrowserIcon";
-import PrinterIcon from "../../assets/svg/Services/PrinterIcon";
+//Iconos
+import { BsClockFill } from 'react-icons/bs';
+import { GiWeightLiftingUp } from 'react-icons/gi';
+import { FcSmartphoneTablet } from 'react-icons/fc';
+import { TbDiscount2 } from 'react-icons/tb';
+
+
 
 export default function ServiceBox({icon, title, subtitle}) {
   let getIcon;
 
   switch (icon) {
-    case "roller":
-      getIcon = <RollerIcon />;
+    case "clock":
+      getIcon = <BsClockFill className="icon-large"/>;
       break;
-    case "monitor":
-      getIcon = <MonitorIcon />;
+    case "weight":
+      getIcon = <GiWeightLiftingUp className="icon-large"/>;
       break;
-    case "browser":
-      getIcon = <BrowserIcon />;
+    case "smartphone":
+      getIcon = <FcSmartphoneTablet className="icon-large"/>;
       break;
-    case "printer":
-      getIcon = <PrinterIcon />;
+    case "discount":
+      getIcon = <TbDiscount2 className="icon-large"/>;
       break;
     default:
-      getIcon = <RollerIcon />;
+      getIcon = <GiWeightLiftingUp className="icon-large"/>;
       break;
   }
 
@@ -40,6 +42,7 @@ export default function ServiceBox({icon, title, subtitle}) {
 const Wrapper = styled.div`
   width: 100%;
 `;
+
 const IconStyle = styled.div`
   @media (max-width: 860px) {
     margin: 0 auto;
