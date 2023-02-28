@@ -40,7 +40,7 @@ export default function Pricing() {
                 title="Valkiria"
                 text="Nuestro plan Valkiria, te permitirá acceder a lo mejor de su rango."
                 offers={[
-                  { name: "Una sola sede", cheked: true },
+                  { name: "Todas las sedes", cheked: true },
                   { name: "Plan Personalizado", cheked: true },
                   { name: "Acceso a la Plataforma", cheked: true },
                   { name: "Cita con Deportólogo", cheked: true },
@@ -58,7 +58,7 @@ export default function Pricing() {
                 title="Odín"
                 text="Nuestro plan Odín, es el más top. Te permite acceder a todos los beneficios posibles."
                 offers={[
-                  { name: "Una sola sede", cheked: true },
+                  { name: "Todas las sedes", cheked: true },
                   { name: "Plan Personalizado", cheked: true },
                   { name: "Acceso a la Plataforma", cheked: true },
                   { name: "Cita con Deportólogo", cheked: true },
