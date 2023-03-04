@@ -1,13 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { GiVikingHead } from 'react-icons/gi';
+import { Link } from 'react-router';
+import ButtonNavBar from "../Buttons/ButtonNavBar";
+import Backdrop from "../Elements/Backdrop";
 
+import { BiMenu } from 'react-icons/bi';
+import Sidebar from "../Nav/Sidebar";
+import NavLink from "../Nav/NavLink";
+import BurgerIcon from "../../assets/svg/BurgerIcon";
 export default function Navbar() {
+  const [sidebarOpen, toggleSidebar] = useState(false);
+
     return (
     <>
         <Container>
             <HeroContainer>
+            <Sidebar sidebarOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
+            {sidebarOpen && <Backdrop toggleSidebar={toggleSidebar} />}       
             <Wrapper>
+              
               <NavInner className="container flexSpaceCenter">
                 <Titulo>
                   <IconStyle>
@@ -15,16 +27,22 @@ export default function Navbar() {
                   </IconStyle>
                   <h1>Valhalla</h1>
                 </Titulo>
-
+                <BurderWrapper className="pointer" onClick={() => toggleSidebar(!sidebarOpen)}>
+                  <BiMenu className="icon-burder"/>
+                </BurderWrapper>
                 <UlWrapper>
-                      <NavLink href="/#">Sedes</NavLink>
-                      <NavLink href="/#">Servicios</NavLink>
-                      <NavLink href="/#">Precios</NavLink>
-                      <NavLink href="/#">Contacto</NavLink>
+                <NavLink nombre="Sedes"/>
+                <NavLink nombre="Servicios"/>
+                <NavLink nombre="Clases"/>
+                <NavLink nombre="Precios"/>
+                <NavLink nombre="Contacto"/>
+                      
                 </UlWrapper>
-                  <LoginButton>
-                    <NavLinkButton className="semiBold font15 pointer flexCenter">Log in</NavLinkButton>
-                  </LoginButton>
+                <LoginButton>
+                    <ButtonNavBar title="Ingresar" route="/Login"/>
+                    <ButtonNavBar title="Registrarse" route="/Signup"/>
+
+                </LoginButton>
               </NavInner>
             </Wrapper>
             <Content>
@@ -41,16 +59,27 @@ export default function Navbar() {
   );
 }
 
+const BurderWrapper = styled.button`
+  outline: none;
+  border: 0px;
+  background-color: transparent;
+  height: 100%;
+  padding: 0 15px;
+  display: none;
+  @media (max-width: 975px) {
+    display: block;
+  }
+`;
+
 const IconStyle = styled.div`
   
-  @media (max-width: 860px) {
+  @media (max-width: 975px) {
     margin: 0 auto;
   }
 `;
 
 const Titulo = styled.div`
     display: flex;
-    
     padding : 10px;
     justify-content: center;
     color #FFFFFF;
@@ -61,28 +90,16 @@ const Titulo = styled.div`
     font-weight: 600; 
     letter-spacing: 0.025em; 
     color #FFFFFF;
+    
 `;
 const NavInner = styled.div`
 position: relative;
 height: 100%;
 `;
 const LoginButton = styled.ul`
-
-`;
-
-const NavLinkButton= styled.button`
-  padding : 5px;
-  border-radius: 15px;
-  width: 90px;
-  display: inline-block;
-  background-color:#FFFFFF;
-  color #000000;
-  font-size: 1.125rem;
-  line-height: 1.75rem;
-  padding-bottom: 0.25rem; 
-  transition-duration: 300ms; 
-  font-weight: 600; 
-  letter-spacing: 0.025em; 
+  @media (max-width: 975px) {
+    display: none;
+  }
 `;
 
 const HeroContainer = styled.div`
@@ -115,31 +132,21 @@ const Heading = styled.h1`
 
 `;
 
-const NavLink = styled.a`
-    padding : 20px;
-    display: inline-block;
-    color #FFFFFF;
-    font-size: 1.125rem;
-    line-height: 1.75rem;
-    padding-bottom: 0.25rem; 
-    transition-duration: 300ms; 
-    font-weight: 600; 
-    letter-spacing: 0.025em; 
-`;
+
 
 const Wrapper = styled.nav`
   width: 100%;
   top: 0;
   left: 0;
   z-index: 999;
+
 `;
 
 
 const UlWrapper = styled.ul`
-display: flex;
-
-list-style-type: none;
-  @media (max-width: 760px) {
+  display: flex;
+  list-style-type: none;
+  @media (max-width: 975px) {
     display: none;
   }
 `;
