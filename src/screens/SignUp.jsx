@@ -1,106 +1,129 @@
-import React, { useState } from 'react';
-import styled from "styled-components";
+import * as React from 'react';
+import Button from '@mui/material/Button';
+import CssBaseline from '@mui/material/CssBaseline';
+import TextField from '@mui/material/TextField';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
+import Link from '@mui/material/Link';
+import Paper from '@mui/material/Paper';
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { GiVikingHead } from 'react-icons/gi';
 
-import { GiVikingHelmet } from 'react-icons/gi';
-
-import FullButton from "../components/Buttons/FullButton"
 
 
-function SignUpPage() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
 
-  const handleUsernameChange = (event) => {
-    setUsername(event.target.value);
-  };
+const theme = createTheme();
 
-  const handlePasswordChange = (event) => {
-    setPassword(event.target.value);
-  };
-
+//Para manejar los datos
+export default function SignUpSide() {
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Aquí puedes agregar la lógica de autenticación con el username y password ingresados
+    const data = new FormData(event.currentTarget);
+    console.log({
+      email: data.get('email'),
+      password: data.get('password'),
+    });
   };
 
+  //El grid princiapl se divide en dos grid
+  //Primer grid: Contiene inputs
+  //Segundo grid: imagen
   return (
-    <LoginContainer>
-      <LoginForm onSubmit={handleSubmit}>
-        <GiVikingHelmet fontSize= "400%" > </GiVikingHelmet>
-        <LoginField>
-            
-                <Label htmlFor='username'>Ingresa tu cedula: </Label>
-              
-            <div height = "1000" width = "500" />
-            <input
-              type="text"
-              id="username"
-              value={username}
-              onChange={handleUsernameChange}
-            />
-        </LoginField>
-
-        <LoginField>
-        <Label htmlFor='password'>Contraseña: </Label>
-        <input
-              type="password"
-              id="password"
-              value={password}
-              onChange={handlePasswordChange}
-          />
-        </LoginField>
-        <a href='' className='font20 extraBold' color="black"> Olvidaste tu contraseña?</a>
-        <FullButton type="submit" title="Log In" action={() => alert("clicked")} />
+    <ThemeProvider theme={theme}>
+      <Grid container component="main" sx={{ height: '100vh' }}>
+        <CssBaseline />
+        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square >
         
-      </LoginForm>
-    </LoginContainer>
-      
-    
+          <Box
+          //Propiedades css del Box
+            sx={{
+              my: 8,
+              mx: 4,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              height: '70vh',
+            }}
+          >
+            <GiVikingHead className='icon-large'/>
+              
+            
+            <Typography component="h1" variant="h5">
+              Sign Up
+            </Typography>
+            <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
+              {/* Form email */}
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                id="email"
+                label="Email Address"
+                name="email"
+                autoComplete="email"
+                autoFocus
+              />
+              {/* Form password */}
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                name="password"
+                label="Password"
+                type="password"
+                id="password"
+                autoComplete="current-password"
+              />
+              {/* Checkbox de remember me */}
+              <FormControlLabel
+                control={<Checkbox value="remember" color="primary" />}
+                label="Remember me"
+              />
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}
+                
+              >
+                Sign Up
+              </Button>
+              <Grid container>
+                <Grid item xs>
+                  <Link href="#" variant="body2">
+                    Forgot password?
+                  </Link>
+                </Grid>
+                <Grid item>
+                  <Link href="#" variant="body2">
+                    {"Don't have an account? Sign Up"}
+                  </Link>
+                </Grid>
+              </Grid>
+              
+            </Box>
+          </Box>
+        </Grid>
+        <Grid
+          item
+          xs={false}
+          sm={4}
+          md={7}
+          sx={{
+            backgroundImage: 'url(https://blog.smartfit.com.mx/wp-content/uploads/2021/05/gimnasios-definicion-e-historia-1.jpg)',
+            backgroundRepeat: 'no-repeat',
+            backgroundColor: (t) =>
+              t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        />
+        
+      </Grid>
+    </ThemeProvider>
   );
 }
-
-export default SignUpPage;
-
-const LoginContainer = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-image: url("https://blog.smartfit.com.mx/wp-content/uploads/2021/05/gimnasios-definicion-e-historia-1.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    position: relative;
-    
-`;
-
-const LoginForm = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
-    padding: 10%;
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-    opacity: 95%;
-`;
-
-const LoginField = styled.div`
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 16px;
-`;
-
-const Label = styled.label`
-    margin-bottom: 8px;
-    font-weight: bold;
-`;
-
-
-
-
-
-
-
-

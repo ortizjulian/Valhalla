@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { GiVikingHead } from 'react-icons/gi';
-import { Link } from 'react-router';
 import ButtonNavBar from "../Buttons/ButtonNavBar";
 import Backdrop from "../Elements/Backdrop";
 
 import { BiMenu } from 'react-icons/bi';
 import Sidebar from "../Nav/Sidebar";
 import NavLink from "../Nav/NavLink";
-import BurgerIcon from "../../assets/svg/BurgerIcon";
+
 export default function Navbar() {
   const [sidebarOpen, toggleSidebar] = useState(false);
 
