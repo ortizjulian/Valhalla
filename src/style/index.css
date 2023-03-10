@@ -445,5 +445,101 @@
     font-size: 200%;
     color: #fff;
   }
+
+  .icon-navbar {
+    font-size: 120%;
+    color: #fff;
+  }
+ 
+  .icon-burder {
+    font-size: 200%;
+    color: #fff;
+  }
+ 
+  /*Rouleta*/
+ 
+  .button-roulette {
+    font-size: larger;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: black;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: fit-content;
+    width: fit-content;
+    padding: 5px;
+    cursor: pointer;
+  }
+ 
+  .roulette-container {
+    position: relative;
+    width: 100%;
+    max-width: 550px;
+    aspect-ratio: 1;
+    margin: 0 auto;
+  }
+ 
+  .roulette-container>div {
+    width: 100%;
+    height: 100%;
+    max-width: unset;
+    max-height: unset;
+  }
+ 
+ 
+  .main-form-roulette {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+ 
+  .result-image {
+    width: 1rem;
+    height: 1rem;
+    object-fit: contain;
+    margin-right: 25px;
+    border-radius: 8px;
+    display: block;
+  }
+ 
+  .input-roulette {
+   border: 1px solid #dcdcdc;
+   margin-right: 10px;
+   height: 2rem;
+   border-radius: 5px;
+   min-width: 200px;
+   padding-left: 15px;
+   flex: 1;
+ }
+ 
+ .img-input-roulette {
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   width: 100%;
+   height: 100%;
+   opacity: 0;
+   cursor: pointer;
+ }
+ 
+ .img-content-roulette {
+   position: relative;
+   width: 80px;
+   height: 45px;
+   object-fit: cover;
+   margin-right: 15px;
+   position: relative;
+ }
+ 
+ 
+ .item-roulette {
+   padding: 10px 0;
+   display: flex;
+   align-items: center;
+ }
   
   
