@@ -40,6 +40,7 @@ export default function LogInSide() {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     alert("Cedula: " + data.get('cedula') + " Password: " + data.get('contrasena'));
+    window.location.href='/User';
   };
 
   return (
@@ -60,8 +61,6 @@ export default function LogInSide() {
           }}
         />
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square sx={{backgroundColor: '#0d1117'}} >
-        
-        
           <Box
             sx={{
               my: 8,
@@ -93,6 +92,7 @@ export default function LogInSide() {
               <Button title = "Iniciar Sesion" 
                   onClick = {() => {
                     LogInSide();
+                    
                   }}/>
               <Grid container>
                 <Grid item xs>
