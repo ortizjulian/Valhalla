@@ -11,7 +11,7 @@ import AddImage4 from "../../assets/img/add/chico-jalando.jpg";
 
 export default function Services() {
   return (
-    <Wrapper id="services">
+    <Wrapper id="Servicios">
       <div className="lightBg" style={{ padding: "50px 0" }}>
         <div className="container">
           <ClientSlider />

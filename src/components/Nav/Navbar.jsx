@@ -1,18 +1,48 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { GiVikingHead } from 'react-icons/gi';
+import ButtonNavBar from "../Buttons/ButtonNavBar";
+import Backdrop from "../Elements/Backdrop";
+
+import { BiMenu } from 'react-icons/bi';
+import Sidebar from "../Nav/Sidebar";
+import NavLink from "../Nav/NavLink";
 
 export default function Navbar() {
+  const [sidebarOpen, toggleSidebar] = useState(false);
+
     return (
     <>
         <Container>
             <HeroContainer>
+            <Sidebar sidebarOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
+            {sidebarOpen && <Backdrop toggleSidebar={toggleSidebar} />}       
             <Wrapper>
+              
+              <NavInner className="container flexSpaceCenter">
+                <Titulo>
+                  <IconStyle>
+                    <GiVikingHead className="icon-navbar"/>
+                  </IconStyle>
+                  <h1>Valhalla</h1>
+                </Titulo>
+                <BurderWrapper className="pointer" onClick={() => toggleSidebar(!sidebarOpen)}>
+                  <BiMenu className="icon-burder"/>
+                </BurderWrapper>
                 <UlWrapper>
-                    <NavLink href="/#">Sedes</NavLink>
-                    <NavLink href="/#">Servicios</NavLink>
-                    <NavLink href="/#">Precios</NavLink>
-                    <NavLink href="/#">Contacto</NavLink>
+                <NavLink nombre="Sedes"/>
+                <NavLink nombre="Servicios"/>
+                <NavLink nombre="Clases"/>
+                <NavLink nombre="Precios"/>
+                <NavLink nombre="Contacto"/>
+                      
                 </UlWrapper>
+                <LoginButton>
+                    <ButtonNavBar title="Ingresar" route="/Login"/>
+                    <ButtonNavBar title="Registrarse" route="/Signup"/>
+
+                </LoginButton>
+              </NavInner>
             </Wrapper>
             <Content>
                 <Heading >
@@ -22,10 +52,54 @@ export default function Navbar() {
                 </Heading>
             </Content>
             </HeroContainer>
+            
         </Container>
     </>
   );
 }
+
+const BurderWrapper = styled.button`
+  outline: none;
+  border: 0px;
+  background-color: transparent;
+  height: 100%;
+  padding: 0 15px;
+  display: none;
+  @media (max-width: 975px) {
+    display: block;
+  }
+`;
+
+const IconStyle = styled.div`
+  
+  @media (max-width: 975px) {
+    margin: 0 auto;
+  }
+`;
+
+const Titulo = styled.div`
+    display: flex;
+    padding : 10px;
+    justify-content: center;
+    color #FFFFFF;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    padding-bottom: 0.25rem; 
+    transition-duration: 300ms; 
+    font-weight: 600; 
+    letter-spacing: 0.025em; 
+    color #FFFFFF;
+    
+`;
+const NavInner = styled.div`
+position: relative;
+height: 100%;
+`;
+const LoginButton = styled.ul`
+  @media (max-width: 975px) {
+    display: none;
+  }
+`;
 
 const HeroContainer = styled.div`
     display: flex; 
@@ -50,39 +124,28 @@ const Content = styled.div`
 `;
 
 const Heading = styled.h1`
-color #FFFFFF!important;
-font-size: 4.25rem; /* 36px */
-line-height: 4.5rem; /* 40px */
-text-align: center; 
+  color #FFFFFF!important;
+  font-size: 4.25rem; /* 36px */
+  line-height: 4.5rem; /* 40px */
+  text-align: center; 
 
 `;
 
-const NavLink = styled.a`
-    padding : 20px;
-    display: inline-block;
-    color #FFFFFF;
-    font-size: 1.125rem;
-    line-height: 1.75rem;
-    padding-bottom: 0.25rem; 
-    transition-duration: 300ms; 
-    font-weight: 600; 
-    letter-spacing: 0.025em; 
-`;
+
 
 const Wrapper = styled.nav`
   width: 100%;
-  text-align: center;
   top: 0;
   left: 0;
   z-index: 999;
+
 `;
 
 
 const UlWrapper = styled.ul`
-align-items: center; 
-
-list-style-type: none;
-  @media (max-width: 760px) {
+  display: flex;
+  list-style-type: none;
+  @media (max-width: 975px) {
     display: none;
   }
 `;
