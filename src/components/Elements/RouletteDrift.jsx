@@ -3,6 +3,7 @@ import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import { BiTrash, BiGridVertical, BiPlus } from "react-icons/bi";
 import { v4 as uuidv4 } from "uuid";
 import Roulette from "./Roulette";
+import styled from "styled-components";
 
 const RouletteDrift = () => {
   const [inputList, setInputList] = useState([
@@ -54,7 +55,7 @@ const RouletteDrift = () => {
   }
 
   return (
-    <div className="main-form">
+    <div className="main-form-roulette">
       <div className="text-title">
         <h2>Listo para Ganar bicho? SIU</h2>
       </div>
@@ -79,19 +80,19 @@ const RouletteDrift = () => {
                         {...provided.dragHandleProps}
                         className="list-item"
                       >
-                        <div className="item">
+                        <div className="item-roulette">
                           <BiGridVertical />
                           <input
                             name="text"
-                            placeholder="Введи что-нибудь(или нет)"
+                            placeholder="Ingresa un premio"
                             value={x.text}
                             onChange={(e) => handleInputChange(e, index)}
-                            className="input"
+                            className="input-roulette"
                           />
                           <div className="btn-box">
                             {inputList.length !== 1 && (
                               <button
-                                className="button"
+                                className="button-roulette"
                                 onClick={() => handleRemoveClick(index)}
                               >
                                 <BiTrash />
@@ -112,7 +113,7 @@ const RouletteDrift = () => {
       <button
         onClick={handleAddClick}
         style={{ marginLeft: "2.1rem" }}
-        className="button"
+        className="button-roulette"
       >
         <BiPlus />
       </button>

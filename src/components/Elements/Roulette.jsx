@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Wheel } from "react-custom-roulette";
+import styled from "styled-components";
 
 const Roulette = ({ data }) => {
   const [mustSpin, setMustSpin] = useState(false);
@@ -59,20 +60,52 @@ const Roulette = ({ data }) => {
             setMustSpin(false);
           }}
         />
-        <button className="button roulette-button" onClick={handleSpinClick}>
+        <Girador className="button-roulette" onClick={handleSpinClick}>
           GIRA
-        </button>
+        </Girador>
       </div>
       <br />
-      <button
-        className="prize-message"
+      <MensajePremio
         onClick={handleSpinClick}
         disabled={mustSpin}
       >
         {!mustSpin ? rouletteData[prizeNumber].completeOption : "Girando..."}
-      </button>
+      </MensajePremio>
     </>
   );
 };
 
 export default Roulette;
+
+//Estilos
+
+const Girador = styled.button`
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: +9;
+    border-radius: 5rem;
+    width: 5rem;
+    height: 5rem;
+    transform: translate(-55%, -55%);
+    background: white;
+    color: #000;
+    font-size: 0.8rem;
+    font-weight: bold;
+`
+
+const MensajePremio = styled.button`
+border: 1px solid #dcdcdc;
+    padding: 20px 35px;
+    border-radius: 0.5rem;
+    color: #fff;
+    max-width: 450px;
+    margin: 0 auto;
+    cursor: pointer;
+    background: #7eb62e;
+    background: rgb(35, 155, 99);
+    background: linear-gradient(
+      0deg,
+      rgba(35, 155, 99, 1) 0%,
+      rgba(100, 176, 49, 1) 100%
+    );`
