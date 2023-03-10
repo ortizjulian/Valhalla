@@ -287,11 +287,16 @@
   }
 
   .icon-navbar{
-    font-size: 120%;
+    font-size: 200%;
     color: #fff;
   }
   .icon-burder{
     font-size: 200%;
+    color: #fff;
+  }
+
+  .icon-logo{
+    font-size: 600%;
     color: #fff;
   }
   

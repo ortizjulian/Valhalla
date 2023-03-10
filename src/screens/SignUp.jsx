@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Button from '@mui/material/Button';
+import Button from '../components/Buttons/ButtonSessions';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -53,7 +53,7 @@ export default function SignUpSide() {
               
             
             <Typography component="h1" variant="h5">
-              Sign Up
+              Registrate
             </Typography>
             <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
               {/* Form email */}
@@ -83,15 +83,10 @@ export default function SignUpSide() {
                 control={<Checkbox value="remember" color="primary" />}
                 label="Remember me"
               />
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2 }}
-                
-              >
-                Sign Up
-              </Button>
+              <Button title = "Inicias Sesion" 
+                  onClick = {() => {
+                    SignUpSide();
+                  }}/>
               <Grid container>
                 <Grid item xs>
                   <Link href="#" variant="body2">

@@ -1,28 +1,45 @@
 import * as React from 'react';
-import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
+//import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
+import Button from "../components/Buttons/ButtonSessions";
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { GiVikingHead } from 'react-icons/gi';
+import TextField from '../components/Elements/TextField_sessions';
 
 
+const primary = "#0c1415";
 
 
-const theme = createTheme();
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#0d1117',
+    },
+    secondary: {
+      
+      main: '#1f6feb',
+  
+    },
+    font:
+    {
+      main: '#8e24aa',
+    }
+  },
+});
 
 //Funcion para tomar los datos
 export default function LogInSide() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    alert("Email: " + data.get('email') + " Password: " + data.get('password'));
+    alert("Cedula: " + data.get('cedula') + " Password: " + data.get('contrasena'));
   };
 
   return (
@@ -37,13 +54,12 @@ export default function LogInSide() {
           sx={{
             backgroundImage: 'url(https://blog.smartfit.com.mx/wp-content/uploads/2021/05/gimnasios-definicion-e-historia-1.jpg)',
             backgroundRepeat: 'no-repeat',
-            backgroundColor: (t) =>
-              t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
+            backgroundColor: 'white',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
         />
-        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square >
+        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square sx={{backgroundColor: '#0d1117'}} >
         
         
           <Box
@@ -55,63 +71,37 @@ export default function LogInSide() {
               alignItems: 'center',
               justifyContent: 'center',
               height: '70vh',
+              
             }}
           >
-              <GiVikingHead className='icon-large'/>
+              <GiVikingHead className='icon-logo'/>
               
             
-            <Typography component="h1" variant="h5">
-              Log In
+            <Typography component="h1" variant="h5" sx={{color: 'white'}}>
+              Inicia Sesion
             </Typography>
             <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
             
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
-                autoFocus                
-              />
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="current-password"
-                
-              />
+              <TextField label={"Cedula"} id = {"cedula"}/>
+              <TextField label={"Contraseña"} id = {"contrasena"}/>
               <FormControlLabel
-                control={<Checkbox value="remember" color="primary" sx={{color: '#7620FF'}}/>}
+                sx={{color: 'white' }}
+                control={<Checkbox value="remember" color="secondary" sx={{color: 'white'}}/>}
                 label="Remember me"
               />
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2, backgroundColor: '#7620FF'}}
-                onClick={() => {
-                  LogInSide();
-                }}
-                
-              >
-                Sign In
-              </Button>
+              
+              <Button title = "Iniciar Sesion" 
+                  onClick = {() => {
+                    LogInSide();
+                  }}/>
               <Grid container>
                 <Grid item xs>
-                  <Link href="#" variant="body2" sx={{color
-                  : '#7620FF'}}>
+                  <Link href="#" variant="body2" color="secondary">
                     Forgot password?
                   </Link>
                 </Grid>
                 <Grid item>
-                  <Link href="./SignUp" variant="body2" sx={{color
-                  : '#7620FF'}} >
+                  <Link href="./SignUp" variant="body2" color="secondary" >
                     {"Don't have an account? Sign Up"}
                   </Link>
                 </Grid>
