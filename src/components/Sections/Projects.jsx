@@ -20,7 +20,9 @@ export default function Projects() {
           <HeaderInfo>
             <h1 className="font40 extraBold">Nuestras clases</h1>
             <p className="font13">
-            <h2 className="font25 extraBold">Semanalmente muchas clases para ti</h2>
+              <h2 className="font25 extraBold">
+                Semanalmente muchas clases para ti
+              </h2>
               <br />
               <h2 className="font15 extraBold">Reserva aquí:</h2>
             </p>
@@ -84,6 +86,8 @@ export default function Projects() {
           </div>
         </div>
       </div>
+
+      {/*
       <div className="lightBg">
         <div className="container">
           <Advertising className="flexSpaceCenter">
@@ -113,6 +117,7 @@ export default function Projects() {
           </Advertising>
         </div>
       </div>
+  */}
     </Wrapper>
   );
 }

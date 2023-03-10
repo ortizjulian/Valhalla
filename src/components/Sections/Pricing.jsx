@@ -6,13 +6,11 @@ import PricingTable from "../Elements/PricingTable";
 export default function Pricing() {
   return (
     <Wrapper id="Precios">
-      <div className="whiteBg">
+      <div className="lightBg">
         <div className="container">
           <HeaderInfo>
             <h1 className="font40 extraBold">Mira nuestros precios</h1>
-            <p className="font20">
-              Solicita día de prueba GRATIS.
-            </p>
+            <p className="font20">Solicita día de prueba GRATIS.</p>
           </HeaderInfo>
           <TablesWrapper className="flexSpaceNull">
             <TableBox>
@@ -96,10 +94,6 @@ const TableBox = styled.div`
   @media (max-width: 860px) {
     width: 100%;
     max-width: 370px;
-    margin: 0 auto
+    margin: 0 auto;
   }
 `;
-
-
-
-

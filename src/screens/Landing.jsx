@@ -5,21 +5,20 @@ import Services from "../components/Sections/Services";
 import Projects from "../components/Sections/Projects";
 import Blog from "../components/Sections/Blog";
 import Pricing from "../components/Sections/Pricing";
-import CarruselSedes from "../components/Sections/CarruselSedes"
-import Footer from "../components/Sections/Footer"
+import CarruselSedes from "../components/Sections/CarruselSedes";
+import Footer from "../components/Sections/Footer";
 
 export default function Landing() {
   return (
     <>
-      <Navbar/>
-      <Services />
+      <Navbar />
+      <CarruselSedes />
+
       <Projects />
-      <Blog />
+      {/*<Blog />*/}
       <Pricing />
-      <CarruselSedes/>
+      <Services />
       <Footer />
     </>
   );
 }
-
-

@@ -1,10 +1,14 @@
-
 import styled from "styled-components";
-import React, { Component } from 'react'
+import React from "react";
 import FullButton from "../Buttons/FullButton";
 
-
-export default function CardSede({ imagen, barrio, ciudad, direccion, action }) {
+export default function CardSede({
+  imagen,
+  barrio,
+  ciudad,
+  direccion,
+  action,
+}) {
   return (
     <CardWrapper>
       <ImageWrapper>
@@ -20,10 +24,10 @@ export default function CardSede({ imagen, barrio, ciudad, direccion, action }) 
       </ContentWrapper>
     </CardWrapper>
   );
-} 
+}
 
- const CardWrapper = styled.div`
-  border-radius: 5px;
+const CardWrapper = styled.div`
+  border-radius: 10px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   margin-left: 5px;
   margin-right: 5px;
@@ -80,10 +84,6 @@ const ButtonWrapper = styled.div`
   margin-top: auto;
   text-align: right;
 `;
-
-
-
-
 
 /* export default function CardSede({ imagen, barrio, ciudad, direccion, action }) {
   return (

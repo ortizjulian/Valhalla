@@ -1,59 +1,58 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { GiVikingHead } from 'react-icons/gi';
+import { GiVikingHead } from "react-icons/gi";
 import ButtonNavBar from "../Buttons/ButtonNavBar";
 import Backdrop from "../Elements/Backdrop";
 
-import { BiMenu } from 'react-icons/bi';
+import { BiMenu } from "react-icons/bi";
 import Sidebar from "../Nav/Sidebar";
 import NavLink from "../Nav/NavLink";
 
 export default function Navbar() {
   const [sidebarOpen, toggleSidebar] = useState(false);
 
-    return (
+  return (
     <>
-        <Container>
-            <HeroContainer>
-            <Sidebar sidebarOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
-            {sidebarOpen && <Backdrop toggleSidebar={toggleSidebar} />}       
-            <Wrapper>
-              
-              <NavInner className="container flexSpaceCenter">
-                <Titulo>
-                  <IconStyle>
-                    <GiVikingHead className="icon-navbar"/>
-                  </IconStyle>
-                  <h1>Valhalla</h1>
-                </Titulo>
-                <BurderWrapper className="pointer" onClick={() => toggleSidebar(!sidebarOpen)}>
-                  <BiMenu className="icon-burder"/>
-                </BurderWrapper>
-                <UlWrapper>
-                <NavLink nombre="Sedes"/>
-                <NavLink nombre="Servicios"/>
-                <NavLink nombre="Clases"/>
-                <NavLink nombre="Precios"/>
-                <NavLink nombre="Contacto"/>
-                      
-                </UlWrapper>
-                <LoginButton>
-                    <ButtonNavBar title="Ingresar" route="/Login"/>
-                    <ButtonNavBar title="Registrarse" route="/Signup"/>
-
-                </LoginButton>
-              </NavInner>
-            </Wrapper>
-            <Content>
-                <Heading >
-                    El mejor gimnasio en la
-                    <br />
-                    ciudad de Medellín
-                </Heading>
-            </Content>
-            </HeroContainer>
-            
-        </Container>
+      <Container>
+        <HeroContainer>
+          <Sidebar sidebarOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
+          {sidebarOpen && <Backdrop toggleSidebar={toggleSidebar} />}
+          <Wrapper>
+            <NavInner className="container flexSpaceCenter">
+              <Titulo>
+                <IconStyle>
+                  <GiVikingHead className="icon-navbar" />
+                </IconStyle>
+                <h1>Valhalla</h1>
+              </Titulo>
+              <BurderWrapper
+                className="pointer"
+                onClick={() => toggleSidebar(!sidebarOpen)}
+              >
+                <BiMenu className="icon-burder" />
+              </BurderWrapper>
+              <UlWrapper>
+                <NavLink nombre="Sedes" />
+                <NavLink nombre="Servicios" />
+                <NavLink nombre="Clases" />
+                <NavLink nombre="Precios" />
+                <NavLink nombre="Contacto" />
+              </UlWrapper>
+              <LoginButton>
+                <ButtonNavBar title="Ingresar" route="/Login" />
+                <ButtonNavBar title="Registrarse" route="/Signup" />
+              </LoginButton>
+            </NavInner>
+          </Wrapper>
+          <Content>
+            <Heading>
+              El mejor gimnasio en la
+              <br />
+              ciudad de Medellín
+            </Heading>
+          </Content>
+        </HeroContainer>
+      </Container>
     </>
   );
 }
@@ -71,7 +70,6 @@ const BurderWrapper = styled.button`
 `;
 
 const IconStyle = styled.div`
-  
   @media (max-width: 975px) {
     margin: 0 auto;
   }
@@ -92,8 +90,8 @@ const Titulo = styled.div`
     
 `;
 const NavInner = styled.div`
-position: relative;
-height: 100%;
+  position: relative;
+  height: 100%;
 `;
 const LoginButton = styled.ul`
   @media (max-width: 975px) {
@@ -102,25 +100,25 @@ const LoginButton = styled.ul`
 `;
 
 const HeroContainer = styled.div`
-    display: flex; 
-    position: relative; 
-    z-index: 20; 
-    padding-left: 1.5rem;
-    padding-right: 1.5rem; 
-    margin-left: auto;
-    margin-right: auto; 
-    flex-direction: column; 
-    height: 100%; 
+  display: flex;
+  position: relative;
+  z-index: 20;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  flex-direction: column;
+  height: 100%;
 `;
 
 const Content = styled.div`
-    display: flex; 
-    padding-left: 1rem;
-    padding-right: 1rem; 
-    flex-direction: column; 
-    flex: 1 1 0%; 
-    justify-content: center; 
-    align-items: center; 
+  display: flex;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  flex-direction: column;
+  flex: 1 1 0%;
+  justify-content: center;
+  align-items: center;
 `;
 
 const Heading = styled.h1`
@@ -131,16 +129,12 @@ const Heading = styled.h1`
 
 `;
 
-
-
 const Wrapper = styled.nav`
   width: 100%;
   top: 0;
   left: 0;
   z-index: 999;
-
 `;
-
 
 const UlWrapper = styled.ul`
   display: flex;
@@ -152,7 +146,7 @@ const UlWrapper = styled.ul`
 
 const Container = styled.div`
   background-position: center;
-  position : relative;
+  position: relative;
   background-size: cover;
   height: 100vh;
   min-height: 144px;

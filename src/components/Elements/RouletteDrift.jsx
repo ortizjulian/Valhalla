@@ -3,25 +3,24 @@ import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import { BiTrash, BiGridVertical, BiPlus } from "react-icons/bi";
 import { v4 as uuidv4 } from "uuid";
 import Roulette from "./Roulette";
-import styled from "styled-components";
 
 const RouletteDrift = () => {
   const [inputList, setInputList] = useState([
     {
       id: uuidv4(),
-      text: "Barra a una mano"
+      text: "Barra a una mano",
     },
     {
       id: uuidv4(),
-      text: "2x1 Próxima suscripción"
+      text: "2x1 Próxima suscripción",
     },
     {
       id: uuidv4(),
-      text: "Gatorade morado"
+      text: "Gatorade morado",
     },
     {
       id: uuidv4(),
-      text: "Outfit Nike"
+      text: "Outfit Nike",
     },
   ]);
   // handle input change
