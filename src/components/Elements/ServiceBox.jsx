@@ -41,6 +41,7 @@ export default function ServiceBox({icon, title, subtitle}) {
 
 const Wrapper = styled.div`
   width: 100%;
+  text-align:center;
 `;
 
 const IconStyle = styled.div`

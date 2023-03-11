@@ -12,6 +12,7 @@ import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { GiVikingHead } from "react-icons/gi";
 import TextField from "../components/Elements/TextField_sessions";
+import Slide from '@mui/material/Slide'
 
 const theme = createTheme({
   palette: {
@@ -27,6 +28,8 @@ const theme = createTheme({
   },
 });
 
+
+
 //Funcion para tomar los datos
 export default function LogInSide() {
   const handleSubmit = (event) => {
@@ -37,11 +40,21 @@ export default function LogInSide() {
     );
     window.location.href = "/User";
   };
+   //Estado con valor inicial false
+ const [checked, setChecked] = React.useState(false);
+
+ //Para que cuando se monte el componente se dispare la transicion
+ React.useEffect(()=>{
+  setChecked(true)
+},[])
 
   return (
+    
     <ThemeProvider theme={theme}>
-      <Grid container component="main" sx={{ height: "100vh" }}>
+    <Slide in={checked} direction="right" mountOnEnter unmountOnExit {...(checked ? { timeout: 900 } : {})}>
+      <Grid container component="main" sx={{ height: "100vh", backgroundColor:'black'}}>
         <CssBaseline />
+        {/* grid imagenes */}
         <Grid
           item
           xs={false}
@@ -56,6 +69,7 @@ export default function LogInSide() {
             backgroundPosition: "center",
           }}
         />
+        {/* Grid de textfiels */}
         <Grid
           item
           xs={12}
@@ -89,7 +103,7 @@ export default function LogInSide() {
               sx={{ mt: 1 }}
             >
               <TextField label={"Cedula"} id={"cedula"} />
-              <TextField label={"Contraseña"} id={"contrasena"} />
+              <TextField label={"Contraseña"} id={"contrasena"} type="password"/>
               <FormControlLabel
                 sx={{ color: "white" }}
                 control={
@@ -105,18 +119,18 @@ export default function LogInSide() {
               <Button
                 title="Iniciar Sesion"
                 onClick={() => {
-                  LogInSide();
+                  handleSubmit();
                 }}
               />
               <Grid container>
                 <Grid item xs>
                   <Link href="#" variant="body2" color="secondary">
-                    Forgot password?
+                    Olvidaste tu contraseña?
                   </Link>
                 </Grid>
                 <Grid item>
                   <Link href="./SignUp" variant="body2" color="secondary">
-                    {"Don't have an account? Sign Up"}
+                    {"No tienes cuenta? Registrate"}
                   </Link>
                 </Grid>
               </Grid>
@@ -124,6 +138,7 @@ export default function LogInSide() {
           </Box>
         </Grid>
       </Grid>
+      </Slide>
     </ThemeProvider>
   );
 }
