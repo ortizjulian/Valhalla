@@ -1,20 +1,19 @@
 import React from "react";
 import styled from "styled-components";
-
+import { Link } from "react-router-dom";
 export default function ButtonNavBar(props) {
   return (
-    <a href={props.route}>
-        <Wrapper
-
-        className="semiBold font15 pointer flexCenter"
-        >
-        {props.title} 
+    <>
+      <Link to={props.route}>
+        <Wrapper className="semiBold font15 pointer flexCenter">
+          {props.title}
         </Wrapper>
-    </a>
+      </Link>
+    </>
   );
 }
 
-const Wrapper= styled.button`
+const Wrapper = styled.button`
   margin: 10px; 
   padding : 5px;
   border-radius: 15px;

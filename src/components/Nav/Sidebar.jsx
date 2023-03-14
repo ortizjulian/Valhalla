@@ -16,8 +16,7 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
           <CloseIcon />
         </CloseBtn>
       </SidebarHeader>
-
-      <UlStyle className="flexNullCenter flexColumn">
+      <UlStyle className="flexSpaceCenter flexColumn">
         <li className="semiBold font15 pointer">
           <Link
             onClick={() => toggleSidebar(!sidebarOpen)}
@@ -84,6 +83,10 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
 }
 
 const Wrapper = styled.nav`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 400px;
   height: 100vh;
   position: fixed;
@@ -96,7 +99,11 @@ const Wrapper = styled.nav`
   }
 `;
 const SidebarHeader = styled.div`
-  padding: 20px 0;
+  position: absolute;
+  top: 0;
+  left: 20px;
+  right: 0;
+  padding-top: 20px;
 `;
 const CloseBtn = styled.button`
   border: 0px;
@@ -105,6 +112,9 @@ const CloseBtn = styled.button`
   padding: 10px;
 `;
 const UlStyle = styled.ul`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   padding: 40px;
   li {
     margin: 20px 0;
