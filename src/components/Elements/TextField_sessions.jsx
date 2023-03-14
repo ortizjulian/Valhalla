@@ -23,16 +23,17 @@ const CssTextField = styled(TextField)({
     
   });
 
-  export default function TextField_sessions({ label, id, type = ""}) {
+  export default function TextField_sessions({ label, id, type = "", select = false}) {
     return (
       <CssTextField 
+        
         label={label} 
         id={id}
         margin="normal"
+        select = {select}
         fullWidth
         type={type}
         name={id}
-        autoComplete={label}
         autoFocus  
         InputLabelProps={{
           style: {

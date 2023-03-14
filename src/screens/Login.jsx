@@ -36,7 +36,7 @@ export default function LogInSide() {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     alert(
-      "Cedula: " + data.get("cedula") + " Password: " + data.get("contrasena")
+      "Cedula: " + data.get("cedula") + " Password: " + data.get("contrasena") + " " + data.get("remember")
     );
     window.location.href = "/User";
   };
@@ -52,13 +52,13 @@ export default function LogInSide() {
     
     <ThemeProvider theme={theme}>
     <Slide in={checked} direction="right" mountOnEnter unmountOnExit {...(checked ? { timeout: 900 } : {})}>
-      <Grid container component="main" sx={{ height: "100vh", backgroundColor:'black'}}>
+      <Grid container component="main"  sx={{ height: "100vh", backgroundColor:'black'}}>
         <CssBaseline />
         {/* grid imagenes */}
         <Grid
           item
           xs={false}
-          sm={4}
+          sm={false}
           md={7}
           sx={{
             backgroundImage:
@@ -73,7 +73,7 @@ export default function LogInSide() {
         <Grid
           item
           xs={12}
-          sm={8}
+          sm={12}
           md={5}
           component={Paper}
           elevation={6}
@@ -109,6 +109,7 @@ export default function LogInSide() {
                 control={
                   <Checkbox
                     value="remember"
+                    name="remember"
                     color="secondary"
                     sx={{ color: "white" }}
                   />
