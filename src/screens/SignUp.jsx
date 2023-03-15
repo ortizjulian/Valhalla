@@ -1,6 +1,5 @@
 import * as React from "react";
 import CssBaseline from "@mui/material/CssBaseline";
-import Link from "@mui/material/Link";
 import Button from "../components/Buttons/ButtonSessions";
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
@@ -15,6 +14,8 @@ import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
+import {Link as Route} from "react-router-dom"
+import Link from "@mui/material/Link";
 
 const theme = createTheme({
   palette: {
@@ -35,10 +36,10 @@ export default function LogInSide() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    alert(
-      "Cedula: " + data.get("nombre") + "Apellido: "+ data.get("apellidos") + " Password: " + data.get("contrasena") + data.get("sexo")
-    );
-    window.location.href = "/User";
+    // alert(
+    //   "Cedula: " + data.get("nombre") + "Apellido: "+ data.get("apellidos") + " Password: " + data.get("contrasena") + data.get("sexo")
+    // );
+    
   };
 
   //Transicion
@@ -109,18 +110,23 @@ export default function LogInSide() {
                 </RadioGroup>
               </FormControl>
 
+              <Route to="/User">
               <Button
                 title="Registrarse"
                 onClick={() => {
                   handleSubmit();
                 }}
               />
+              </Route>
+              
               <Grid container>
                 
                 <Grid item>
-                  <Link href="./Login" variant="body2" color="secondary">
-                    {"Ya tienes cuenta? Inicia sesion"}
-                  </Link>
+                  <Route to="/Login" >
+                    <Link href="" variant="body2" color="secondary">
+                      {"Ya tienes cuenta? Inicia sesion."}
+                    </Link>
+                  </Route>
                 </Grid>
               </Grid>
             </Box>
@@ -134,7 +140,7 @@ export default function LogInSide() {
           md={7}
           sx={{
             backgroundImage:
-              "url(https://blog.smartfit.com.mx/wp-content/uploads/2021/05/gimnasios-definicion-e-historia-1.jpg)",
+              "url(https://fondosmil.com/fondo/4053.jpg)",
             backgroundRepeat: "no-repeat",
             backgroundColor: "white",
             backgroundSize: "cover",
