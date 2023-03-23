@@ -33,9 +33,9 @@ export default function Navbar() {
               </BurderWrapper>
               <UlWrapper>
                 <NavLink nombre="Sedes" />
-                <NavLink nombre="Servicios" />
                 <NavLink nombre="Clases" />
                 <NavLink nombre="Precios" />
+                <NavLink nombre="Servicios" />
                 <NavLink nombre="Contacto" />
               </UlWrapper>
               <LoginButton>
@@ -126,7 +126,6 @@ const Heading = styled.h1`
   font-size: 4.25rem; /* 36px */
   line-height: 4.5rem; /* 40px */
   text-align: center; 
-
 `;
 
 const Wrapper = styled.nav`

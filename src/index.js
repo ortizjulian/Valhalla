@@ -10,6 +10,7 @@ import Landing from "./screens/Landing.jsx";
 import Login from "./screens/Login.jsx";
 import SignUp from "./screens/SignUp";
 import User from "./screens/User";
+import Admin from "./screens/Admin";
 import { Helmet } from "react-helmet";
 
 ReactDOM.render(
@@ -28,6 +29,7 @@ ReactDOM.render(
         <Route exact path="/Login" element={<Login />} />
         <Route exact path="/Signup" element={<SignUp />} />
         <Route exact path="/User" element={<User />} />
+        <Route exact path="/Admin" element={<Admin />} />
       </Routes>
     </Router>
   </>,
