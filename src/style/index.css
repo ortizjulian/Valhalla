@@ -439,6 +439,11 @@
    font-size: 400%;
    color: #0B093B;
  }
+ 
+ .icon-arrow {
+  color: #0B093B;
+  
+ }
 
   .icon-navbar{
     font-size: 120%;
@@ -447,6 +452,11 @@
   .icon-burder{
     font-size: 200%;
     color: #fff;
+  }
+  .icon-footer{
+    font-size: 180%;
+    color: #fff;
+    padding-bottom: 10%;
   }
 
 
