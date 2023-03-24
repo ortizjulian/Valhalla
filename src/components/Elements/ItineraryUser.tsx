@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState } from "react";
+
 import { Button, DialogActions } from "@mui/material";
 import EVENTS from "../../data/data";
 
@@ -7,7 +6,6 @@ import { Scheduler } from "@aldabil/react-scheduler";
 
 import type {
   ProcessedEvent,
-  SchedulerHelpers
 } from "@aldabil/react-scheduler/types";
 
 const handleReservar = (event: ProcessedEvent) => {

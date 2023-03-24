@@ -1,18 +1,22 @@
-import { useState } from 'react';
-import styled from 'styled-components';
-import { Link } from 'react-scroll';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowUp, faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { faFacebook, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { useState } from "react";
+import styled from "styled-components";
+import { Link } from "react-scroll";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowUp, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import {
+  faFacebook,
+  faInstagram,
+  faTwitter,
+} from "@fortawesome/free-brands-svg-icons";
 import { GiVikingHead } from "react-icons/gi";
 
 export const Footer = () => {
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Email submitted:', email);
-    setEmail('');
+    console.log("Email submitted:", email);
+    setEmail("");
   };
 
   const getCurrentYear = () => {
@@ -20,7 +24,7 @@ export const Footer = () => {
   };
 
   return (
-    <FooterContainer>
+    <FooterContainer id="Contacto">
       <LogoContainer>
         <GiVikingHead className="icon-footer" />
         <LogoText>Valhalla</LogoText>
@@ -49,7 +53,7 @@ export const Footer = () => {
         </EmailButton>
       </EmailForm>
       <FooterLinks>
-        <BackToTopLink to="home" smooth={true} offset={-80}>
+        <BackToTopLink to="home" offset={-80}>
           <FontAwesomeIcon icon={faArrowUp} />
           Volver al inicio
         </BackToTopLink>
@@ -74,12 +78,6 @@ const LogoContainer = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 30px;
-`;
-
-const LogoImg = styled.img`
-  width: 30px;
-  height: 30px;
-  margin-right: 10px;
 `;
 
 const LogoText = styled.h1`
@@ -164,5 +162,3 @@ const Copyright = styled.p`
   color: #fff;
   text-align: center;
 `;
-
-  

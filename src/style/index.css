@@ -166,7 +166,7 @@
    width: 100%;
    max-width: 1220px;
    margin: 0 auto;
-   padding: 0px 30px;
+   padding: 20px 30px;
  }
 
  @media only screen and (max-width: 859px) {

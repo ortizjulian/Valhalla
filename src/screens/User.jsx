@@ -1,8 +1,6 @@
-import React from "react";
 // Sections
 import RouletteDrift from "../components/Elements/RouletteDrift";
 import ItineraryUser from "../components/Elements/ItineraryUser";
-import ItineraryAdmin from "../components/Elements/ItineraryAdmin";
 
 export default function User() {
   return (

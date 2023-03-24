@@ -11,8 +11,8 @@ import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { GiVikingHead } from "react-icons/gi";
 import TextField from "../components/Elements/TextField_sessions";
-import Slide from '@mui/material/Slide'
-import {Link as Route} from "react-router-dom"
+import Slide from "@mui/material/Slide";
+import { Link as Route } from "react-router-dom";
 import Link from "@mui/material/Link";
 
 const theme = createTheme({
@@ -29,31 +29,37 @@ const theme = createTheme({
   },
 });
 
-
-
 //Funcion para tomar los datos
 export default function LogInSide() {
   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
+    //const data = new FormData(event.currentTarget);
     // alert(
     //   "Cedula: " + data.get("cedula") + " Password: " + data.get("contrasena") + " " + data.get("remember")
     // );
-
   };
   //Estado con valor inicial false
   const [checked, setChecked] = React.useState(false);
 
   //Para que cuando se monte el componente se dispare la transicion
   React.useEffect(() => {
-    setChecked(true)
-  }, [])
+    setChecked(true);
+  }, []);
 
   return (
-
     <ThemeProvider theme={theme}>
-      <Slide in={checked} direction="left" mountOnEnter unmountOnExit {...(checked ? { timeout: 900 } : {})}>
-        <Grid container component="main" sx={{ height: "100vh", backgroundColor: 'black' }}>
+      <Slide
+        in={checked}
+        direction="left"
+        mountOnEnter
+        unmountOnExit
+        {...(checked ? { timeout: 900 } : {})}
+      >
+        <Grid
+          container
+          component="main"
+          sx={{ height: "100vh", backgroundColor: "black" }}
+        >
           <CssBaseline />
           {/* grid imagenes */}
           <Grid
@@ -62,12 +68,12 @@ export default function LogInSide() {
             sm={false}
             md={7}
             sx={{
-              backgroundImage: "url(https://pilarfitness.com.ar/wp-content/uploads/2022/06/back-fitness-gym-power-pose.jpg)",
+              backgroundImage:
+                "url(https://pilarfitness.com.ar/wp-content/uploads/2022/06/back-fitness-gym-power-pose.jpg)",
               backgroundRepeat: "no-repeat",
               backgroundColor: "white",
               backgroundSize: "cover",
               backgroundPosition: "center",
-             
             }}
           />
           {/* Grid de textfiels */}
@@ -104,7 +110,11 @@ export default function LogInSide() {
                 sx={{ mt: 1 }}
               >
                 <TextField label={"Cedula"} id={"cedula"} />
-                <TextField label={"Contraseña"} id={"contrasena"} type="password" />
+                <TextField
+                  label={"Contraseña"}
+                  id={"contrasena"}
+                  type="password"
+                />
                 <FormControlLabel
                   sx={{ color: "white" }}
                   control={
@@ -123,28 +133,26 @@ export default function LogInSide() {
                     onClick={() => {
                       handleSubmit();
                     }}
-                  
                   />
                 </Route>
 
                 <Grid container>
-                
-                <Grid item xs>
-                <Route to="/SignUp" >
-                <Link href="" variant="body2" color="secondary">
-                    {"No tienes cuenta? Registrate"}
-                  </Link>
-                </Route>
-                </Grid>
+                  <Grid item xs>
+                    <Route to="/SignUp">
+                      <Link href="" variant="body2" color="secondary">
+                        {"No tienes cuenta? Registrate"}
+                      </Link>
+                    </Route>
+                  </Grid>
 
-                <Grid item>
-                  <Route to="/SignUp" >
-                    <Link href="" variant="body2" color="secondary">
-                      {"Olvidaste tu contraseña?"}
-                    </Link>
-                  </Route>
+                  <Grid item>
+                    <Route to="/SignUp">
+                      <Link href="" variant="body2" color="secondary">
+                        {"Olvidaste tu contraseña?"}
+                      </Link>
+                    </Route>
+                  </Grid>
                 </Grid>
-              </Grid>
               </Box>
             </Box>
           </Grid>
