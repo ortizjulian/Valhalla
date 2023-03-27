@@ -7,7 +7,7 @@ export default function CardSede({
   barrio,
   ciudad,
   direccion,
-  action,
+  action, 
 }) {
   return (
     <CardWrapper>
@@ -84,31 +84,3 @@ const ButtonWrapper = styled.div`
   margin-top: auto;
   text-align: right;
 `;
-
-/* export default function CardSede({ imagen, barrio, ciudad, direccion, action }) {
-  return (
-    <Wrapper className="whiteBg radius8 shadow">
-      <div className="flexSpaceCenter"> 
-        <img src={imagen} style={{ maxWidth: "400px", maxHeight: "200px", borderRadius: "0.5rem"}}/>
-        <div>
-          <p className="font30 extraBold">{ciudad}</p>
-          <div style={{ margin: "30px 0" }}>
-            <h4 className="font20 extraBold">{barrio}</h4>
-            <p className="font13">{direccion}</p>
-          </div>
-          <div style={{ maxWidth: "120px", margin: "30px auto 0 auto" }}>
-            <FullButton title="Ver más sobre esta sede" action={action} />
-          </div>
-        </div>
-      </div>
-    </Wrapper>
-  );
-}
-
-
-const Wrapper = styled.div`
-  width: 100%;
-  text-align: left;
-  padding: 20px 30px;
-  margin-top: 30px;
-`;  */
