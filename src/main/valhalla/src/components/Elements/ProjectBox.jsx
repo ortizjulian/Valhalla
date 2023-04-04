@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import FullButton from "../Buttons/FullButton";
+
 
 export default function ProjectBox({ imagen, title, text, action}) {
   return (
