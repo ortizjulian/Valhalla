@@ -108,7 +108,7 @@ export default function LogInSide() {
               <GiVikingHead className="icon-logo" />
 
               <Typography component="h1" variant="h5" sx={{ color: "white" }}>
-                Inicia Sesion
+                Registrate
               </Typography>
               <Box
                 component="form"
@@ -116,8 +116,7 @@ export default function LogInSide() {
                 onSubmit={handleSubmit}
                 sx={{ mt: 1 }}
               >
-                <TextField label={"Nombre"} id={"nombre"} />
-                <TextField label={"Apellidos"} id={"apellidos"} />
+                <TextField label={"Nombres y apellidos"} id={"nombre"} />
                 <TextField label={"Cedula"} id={"cedula"} />
                 <TextField label={"Correo"} id={"correo"} />
                 <TextField
