@@ -9,8 +9,8 @@ export default function Projects() {
     <Wrapper id="Clases" className="whiteBg">
       <div className="container">
         <HeaderInfo>
-          <h1 className="font40 extraBold">Nuestras clases</h1>
-          <p className="font13">
+          <h1 className="font40 extraBold lightColor">Nuestras clases</h1>
+          <p className="font13 lightColor">
             <h2 className="font25 extraBold">
               Semanalmente muchas clases para ti
             </h2>

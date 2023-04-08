@@ -152,7 +152,7 @@
 
  body {
    background: black;
-   color: black;
+   color: white;
    font-family: 'Khula', sans-serif;
    overflow-x: hidden;
    font-size: 16px;
@@ -369,6 +369,10 @@
  }
 
  /* COLORS */
+ .buttonColor{
+  background-color: #1f6feb;
+ }
+
  .darkColor {
    color: #0B093B;
  }
@@ -415,7 +419,7 @@
  }
 
  .lightBg {
-   background-color: #F5F5F5;
+   background-color: #0d1117;
  }
 
  .coralBg {
@@ -431,13 +435,13 @@
  }
 
  .whiteBg {
-   background-color: #fff;
+   background-color: #262B32;
  }
 
  /*Iconos*/
  .icon-large {
    font-size: 400%;
-   color: #0B093B;
+   
  }
  
  .icon-arrow {

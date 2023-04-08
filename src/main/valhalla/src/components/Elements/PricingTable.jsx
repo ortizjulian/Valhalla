@@ -15,16 +15,16 @@ export default function PricingTable({ icon, price, title, text,  offers, action
 
   switch (icon) {
     case "viking":
-      getIcon = <GiVikingHelmet className="icon-large" />;
+      getIcon = <GiVikingHelmet className="icon-large lightColor" />;
       break;
     case "wings":
-      getIcon = <GiAngelWings className="icon-large" />;
+      getIcon = <GiAngelWings className="icon-large lightColor" />;
       break;
     case "crown":
-      getIcon = <GiCrenelCrown className="icon-large" />;
+      getIcon = <GiCrenelCrown className="icon-large lightColor" />;
       break;
     default:
-      getIcon = <GiVikingHelmet className="icon-large" />;
+      getIcon = <GiVikingHelmet className="icon-large lightColor" />;
       break;
   }
 
@@ -32,11 +32,11 @@ export default function PricingTable({ icon, price, title, text,  offers, action
     <Wrapper className="whiteBg radius8 shadow">
       <div className="flexSpaceCenter">
         {getIcon}
-        <p className="font30 extraBold">{price}</p>
+        <p className="font30 extraBold ">{price}</p>
       </div>
       <div style={{ margin: "30px 0" }}>
-        <h4 className="font30 extraBold">{title}</h4>
-        <p className="font13">{text}</p>
+        <h4 className="font30 extraBold ">{title}</h4>
+        <p className="font13 ">{text}</p>
       </div>
       <div>
         {offers
@@ -51,7 +51,7 @@ export default function PricingTable({ icon, price, title, text,  offers, action
                     <div style={{ minWidth: "20px" }}></div>
                   )}
                 </div>
-                <p className="font20 extraBold">{item.name}</p>
+                <p className="font20 extraBold ">{item.name}</p>
               </div>
             ))
           : null}

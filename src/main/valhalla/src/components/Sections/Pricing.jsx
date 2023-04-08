@@ -8,8 +8,8 @@ export default function Pricing() {
     <Wrapper id="Precios" className="lightBg">
       <div className="container">
         <HeaderInfo>
-          <h1 className="font40 extraBold">Mira nuestros precios</h1>
-          <p className="font20">Solicita día de prueba GRATIS.</p>
+          <h1 className="font40 extraBold lightColor">Mira nuestros precios</h1>
+          <p className="font20 lightColor">Solicita día de prueba GRATIS.</p>
         </HeaderInfo>
         <TablesWrapper className="flexSpaceNull">
           <TableBox>

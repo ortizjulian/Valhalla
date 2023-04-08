@@ -10,7 +10,7 @@ export default function CardSede({
   action, 
 }) {
   return (
-    <CardWrapper>
+    <CardWrapper >
       <ImageWrapper>
         <Image src={imagen} alt={ciudad} />
       </ImageWrapper>
@@ -32,6 +32,7 @@ const CardWrapper = styled.div`
   margin-left: 5px;
   margin-right: 5px;
   overflow: hidden;
+  
 `;
 
 const ImageWrapper = styled.div`
@@ -54,11 +55,12 @@ const Image = styled.img`
 `;
 
 const ContentWrapper = styled.div`
-  background-color: #ffffff;
+  background-color: #262B32;
   padding: 1rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  
 `;
 
 const CityName = styled.p`

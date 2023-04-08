@@ -24,7 +24,7 @@ export const Footer = () => {
   };
 
   return (
-    <FooterContainer id="Contacto">
+    <FooterContainer id="Contacto" className="lightBg">
       <LogoContainer>
         <GiVikingHead className="icon-footer" />
         <LogoText>Valhalla</LogoText>
@@ -69,7 +69,7 @@ const FooterContainer = styled.footer`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #101522;
+ 
   padding: 50px 0;
   color: #fff;
 `;

@@ -7,7 +7,7 @@ export default function ButtonSessions({title, action}) {
                 type="submit"
                 fullWidth
                 variant="contained"
-                sx={{ mt: 3, mb: 2, backgroundColor: '#1f6feb'}}
+                sx={{ mt: 3, mb: 2, backgroundColor: '#1f6feb', ":hover": {bgcolor: "#49cb86"}}}
                 onClick={action ? () => action() : null}
                 
               >
