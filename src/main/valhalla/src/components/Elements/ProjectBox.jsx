@@ -1,21 +1,27 @@
 import React from "react";
 import styled from "styled-components";
 
-
-export default function ProjectBox({ imagen, title, text, action}) {
+export default function ProjectBox({ imagen, title, text, action }) {
   return (
     <Wrapper>
-      <ImgBtn className="aniamte pointer" onClick={action ? () => action() : null}>
+      <ImgBtn
+        className="aniamte pointer"
+        onClick={action ? () => action() : null}
+      >
         <ImageWrapper>
-          <Image src={imagen}/>
+          <Image src={imagen} />
           <HoverText>Reservar</HoverText>
         </ImageWrapper>
       </ImgBtn>
       <h3 className="font20 extraBold">{title}</h3>
-      <p className="font13">{text}</p>
+      <Text className="font13">{text}</Text>
     </Wrapper>
   );
 }
+
+const Text = styled.p`
+  text-align: justify;
+`;
 
 const Wrapper = styled.div`
   width: 100%;

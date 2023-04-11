@@ -557,4 +557,15 @@
    align-items: center;
  }
  /**/
+
+ .slick-dots li.slick-active button:before {
+  color:White !important;
+}
+
+.slick-dots button:before{
+  color: #ccc  !important;
+}
+
+
+
  

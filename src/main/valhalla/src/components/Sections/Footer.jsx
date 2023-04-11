@@ -40,7 +40,8 @@ export const Footer = () => {
           <FontAwesomeIcon icon={faTwitter} />
         </SocialIcon>
       </SocialContainer>
-      <EmailForm onSubmit={handleSubmit}>
+
+      {/*<EmailForm onSubmit={handleSubmit}>
         <EmailInput
           type="email"
           placeholder="Ingresa tu correo electronico."
@@ -51,7 +52,7 @@ export const Footer = () => {
         <EmailButton type="submit">
           <FontAwesomeIcon icon={faEnvelope} />
         </EmailButton>
-      </EmailForm>
+  </EmailForm>*/}
       <FooterLinks>
         <BackToTopLink to="home" offset={-80}>
           <FontAwesomeIcon icon={faArrowUp} />
@@ -69,7 +70,7 @@ const FooterContainer = styled.footer`
   display: flex;
   flex-direction: column;
   align-items: center;
- 
+
   padding: 50px 0;
   color: #fff;
 `;

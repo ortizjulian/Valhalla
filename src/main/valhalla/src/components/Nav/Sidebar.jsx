@@ -7,7 +7,7 @@ import ButtonNavBar from "../Buttons/ButtonNavBar";
 
 export default function Sidebar({ sidebarOpen, toggleSidebar }) {
   return (
-    <Wrapper className="animate darkBg" sidebarOpen={sidebarOpen}>
+    <Wrapper className="animate lightBg" sidebarOpen={sidebarOpen}>
       <SidebarHeader className="flexSpaceCenter">
         <CloseBtn
           onClick={() => toggleSidebar(!sidebarOpen)}

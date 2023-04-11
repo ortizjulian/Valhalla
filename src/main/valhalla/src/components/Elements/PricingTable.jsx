@@ -3,14 +3,20 @@ import styled from "styled-components";
 // Components
 import FullButton from "../Buttons/FullButton";
 //Iconos
-import { GiVikingHelmet } from 'react-icons/gi';
-import { GiAngelWings } from 'react-icons/gi';
-import { GiCrenelCrown } from 'react-icons/gi';
+import { GiVikingHelmet } from "react-icons/gi";
+import { GiAngelWings } from "react-icons/gi";
+import { GiCrenelCrown } from "react-icons/gi";
 
 import CheckMark from "../../assets/svg/Checkmark";
 
-
-export default function PricingTable({ icon, price, title, text,  offers, action }) {
+export default function PricingTable({
+  icon,
+  price,
+  title,
+  text,
+  offers,
+  action,
+}) {
   let getIcon;
 
   switch (icon) {
@@ -29,7 +35,7 @@ export default function PricingTable({ icon, price, title, text,  offers, action
   }
 
   return (
-    <Wrapper className="whiteBg radius8 shadow">
+    <Wrapper className="whiteBg radius8">
       <div className="flexSpaceCenter">
         {getIcon}
         <p className="font30 extraBold ">{price}</p>
@@ -41,8 +47,18 @@ export default function PricingTable({ icon, price, title, text,  offers, action
       <div>
         {offers
           ? offers.map((item, index) => (
-              <div className="flexNullCenter" style={{ margin: "15px 0" }} key={index}>
-                <div style={{ position: "relative", top: "-1px", marginRight: "15px" }}>
+              <div
+                className="flexNullCenter"
+                style={{ margin: "15px 0" }}
+                key={index}
+              >
+                <div
+                  style={{
+                    position: "relative",
+                    top: "-1px",
+                    marginRight: "15px",
+                  }}
+                >
                   {item.cheked ? (
                     <div style={{ minWidth: "20px" }}>
                       <CheckMark />
@@ -57,7 +73,7 @@ export default function PricingTable({ icon, price, title, text,  offers, action
           : null}
       </div>
       <div style={{ maxWidth: "120px", margin: "30px auto 0 auto" }}>
-        <FullButton title="Buy" action={action} />
+        <FullButton title="Comprar" action={action} />
       </div>
     </Wrapper>
   );

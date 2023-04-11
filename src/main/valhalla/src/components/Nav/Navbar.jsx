@@ -46,11 +46,10 @@ export default function Navbar() {
           </Wrapper>
           <Content>
             <Heading>
-              
               <br />
-              El mejor gimnasio en la
+              Valhalla, el paraíso
               <br />
-              ciudad de Medellín
+              para alcanzar la grandeza
             </Heading>
           </Content>
         </HeroContainer>

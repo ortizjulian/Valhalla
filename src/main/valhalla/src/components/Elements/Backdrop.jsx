@@ -2,7 +2,9 @@ import React from "react";
 import styled from "styled-components";
 
 export default function Backdrop({ toggleSidebar }) {
-  return <Wrapper className="darkBg" onClick={() => toggleSidebar(false)}></Wrapper>;
+  return (
+    <Wrapper className="lightBg" onClick={() => toggleSidebar(false)}></Wrapper>
+  );
 }
 
 const Wrapper = styled.div`

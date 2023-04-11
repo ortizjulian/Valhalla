@@ -9,9 +9,7 @@ export default function Services() {
     <Wrapper id="Servicios" className="whiteBg">
       <div className="container">
         <HeaderInfo>
-          <h1 className="font50 extraBold">
-            Ventajas de afiliarte a valhalla
-          </h1>
+          <h1 className="font50 extraBold">Ventajas de afiliarte a valhalla</h1>
           <p className="font20">
             Todas las sedes de nuestro Gimansio💪 se están adapatando para
             ofrecerte el mejor servicio.
@@ -20,32 +18,16 @@ export default function Services() {
         </HeaderInfo>
         <ServiceBoxRow className="flex">
           <ServiceBoxWrapper>
-            <ServiceBox
-              icon="clock"
-              title="Los horarios más flexibles"
-              
-            />
+            <ServiceBox icon="clock" title="Los horarios más flexibles" />
           </ServiceBoxWrapper>
           <ServiceBoxWrapper>
-            <ServiceBox
-              icon="weight"
-              title="Entrenamiento Personalizado"
-              
-            />
+            <ServiceBox icon="weight" title="Entrenamiento Personalizado" />
           </ServiceBoxWrapper>
           <ServiceBoxWrapper>
-            <ServiceBox
-              icon="smartphone"
-              title="Seguimiento por la App"
-              
-            />
+            <ServiceBox icon="smartphone" title="Seguimiento por la App" />
           </ServiceBoxWrapper>
           <ServiceBoxWrapper>
-            <ServiceBox
-              icon="discount"
-              title="Bonificaciones y Descuentos"
-              
-            />
+            <ServiceBox icon="discount" title="Bonificaciones y Descuentos" />
           </ServiceBoxWrapper>
         </ServiceBoxRow>
       </div>
@@ -64,7 +46,7 @@ const ServiceBoxRow = styled.div`
 const ServiceBoxWrapper = styled.div`
   width: 20%;
   margin-right: 5%;
-  padding: 20px 0;
+  margin-top: 20px;
   @media (max-width: 860px) {
     width: 100%;
     text-align: center;
