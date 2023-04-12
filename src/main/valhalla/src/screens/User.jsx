@@ -1,13 +1,13 @@
-// Sections
 import RouletteDrift from "../components/Elements/RouletteDrift";
-import UseItinerary from "../components/Elements/UserItineray";
+import ItineraryUser from "../components/Elements/ItineraryUser";
 
 export default function User() {
   return (
     <>
-      <RouletteDrift />
+      <NavbarUser></NavbarUser>
+      {/* <RouletteDrift />
       <h1>Este seria el itinerario del usuario</h1>
-      <UseItinerary />
+      <ItineraryUser />
       <p>Holaaa mirenme</p>
       {/*
       <h1>Este seria el itinerario del administrado</h1>
