@@ -161,34 +161,35 @@ const CustomEditor = ({ scheduler }: CustomEditorProps) => {
   );
 };
 
-function App() {
+export default function AdminItinerary() {
   return (
-    <Scheduler
-      events={EVENTS}
-      day={null}
-      month={null}
-      week={{
-        weekDays: [0, 1, 2, 3, 4, 5, 6],
-        weekStartOn: 1,
-        startHour: 6,
-        endHour: 20,
-        step: 120,
-      }}
-      editable={true}
-      deletable={true}
-      draggable={false}
-      customEditor={(scheduler) => <CustomEditor scheduler={scheduler} />}
-      viewerExtraComponent={(fields, event) => {
-        return (
-          <div>
-            <p>Description: {event.description || "Nothing..."}</p>
-            <p>Profesor: {event.profesor || "Nothing..."}</p>
-          </div>
-        );
-      }}
+    <div style={{ color: "#000" }}>
+      <Scheduler
+        events={EVENTS}
+        day={null}
+        month={null}
+        week={{
+          weekDays: [0, 1, 2, 3, 4, 5, 6],
+          weekStartOn: 1,
+          startHour: 6,
+          endHour: 20,
+          step: 120,
+        }}
+        editable={true}
+        deletable={true}
+        draggable={false}
+        customEditor={(scheduler) => <CustomEditor scheduler={scheduler} />}
+        viewerExtraComponent={(fields, event) => {
+          return (
+            <div>
+              <p>Description: {event.description || "Nothing..."}</p>
+              <p>Profesor: {event.profesor || "Nothing..."}</p>
+            </div>
+          );
+        }}
 
-    />
+      />
+    </div>
   );
 }
 
-export default App;
