@@ -1,8 +1,5 @@
 import * as React from "react";
 import CssBaseline from "@mui/material/CssBaseline";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
-//import Link from "@mui/material/Link";
 import Button from "../components/Buttons/ButtonSessions";
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
@@ -32,6 +29,7 @@ const theme = createTheme({
 //Funcion para tomar los datos
 export default function LogInSide() {
   const handleSubmit = (event) => {
+    event.preventDefault();
     const data = new FormData(event.currentTarget);
 
     const params = {
