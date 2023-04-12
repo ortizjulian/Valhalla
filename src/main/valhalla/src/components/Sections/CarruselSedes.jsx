@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import CardSede from "../Elements/CardSede";
 import Slider from "react-slick";
@@ -6,6 +6,15 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 export default function CarruselSedes() {
+  const [sedes, setSedes] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:8080/sedes")
+      .then((response) => response.json())
+      .then((data) => setSedes(data))
+      .catch((error) => console.error(error));
+  }, []);
+
   const settings = {
     dots: true,
     infinite: true,
@@ -51,6 +60,7 @@ export default function CarruselSedes() {
             </p>
           </HeaderInfo>
           <Slider {...settings}>
+            {/*
             <CardSede
               imagen="https://metropolitano.gal/wp-content/uploads/2022/12/gimnasiog-4.jpg"
               barrio="Laureles"
@@ -113,7 +123,17 @@ export default function CarruselSedes() {
               ciudad="Cali"
               direccion="Carrera 45 #16 - 32"
               action={() => alert("clicked")}
-            />
+            />*/}
+
+            {sedes.map((sede) => (
+              <CardSede
+                imagen={sede.linkImagen}
+                barrio={sede.barrio}
+                ciudad={sede.ciudad}
+                direccion={sede.direccion}
+                action={() => alert("clicked")}
+              />
+            ))}
           </Slider>
         </SliderContainer>
       </Wrapper>

@@ -1,20 +1,21 @@
 package com.valhalla.valhalla.models;
 
-/* 
-@Entity
-@Table(name = "persona")
-*/
 public class Sedes {
-    /*
-     * @Id
-     * 
-     * @GeneratedValue(strategy = GenerationType.AUTO)
-     */
+
     int id;
-    String nombre;
+    String ciudad;
     String direccion;
     String linkImagen;
+    String barrio;
     long telefono;
+
+    public String getBarrio() {
+        return barrio;
+    }
+
+    public void setBarrio(String barrio) {
+        this.barrio = barrio;
+    }
 
     public int getId() {
         return id;
@@ -24,12 +25,12 @@ public class Sedes {
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getCiudad() {
+        return ciudad;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setCiudad(String ciudad) {
+        this.ciudad = ciudad;
     }
 
     public String getDireccion() {
@@ -60,11 +61,12 @@ public class Sedes {
 
     }
 
-    public Sedes(int id, String nombre, String direccion, String linkImagen, long telefono) {
+    public Sedes(int id, String ciudad, String direccion, String linkImagen, String barrio, long telefono) {
         this.id = id;
-        this.nombre = nombre;
+        this.ciudad = ciudad;
         this.direccion = direccion;
         this.linkImagen = linkImagen;
+        this.barrio = barrio;
         this.telefono = telefono;
     }
 }
