@@ -32,11 +32,23 @@ const theme = createTheme({
 //Funcion para tomar los datos
 export default function LogInSide() {
   const handleSubmit = (event) => {
-    event.preventDefault();
-    //const data = new FormData(event.currentTarget);
-    // alert(
-    //   "Cedula: " + data.get("cedula") + " Password: " + data.get("contrasena") + " " + data.get("remember")
-    // );
+    const data = new FormData(event.currentTarget);
+
+    const params = {
+      cedula: data.get("cedula"),
+      contrasena: data.get("contrasena"),
+    };
+
+    fetch(
+      "http://localhost:8080/Auth?cedula=" +
+        params.cedula +
+        "&contrasena=" +
+        params.contrasena
+    )
+      .then((response) => response.json())
+      .then((response) => {
+        alert(response);
+      });
   };
   //Estado con valor inicial false
   const [checked, setChecked] = React.useState(false);
@@ -109,33 +121,19 @@ export default function LogInSide() {
                 onSubmit={handleSubmit}
                 sx={{ mt: 1 }}
               >
-                <TextField label={"Cedula"} id={"cedula"} />
+                <TextField label={"Cedula"} id={"cedula"} type="number" />
                 <TextField
                   label={"Contraseña"}
                   id={"contrasena"}
                   type="password"
                 />
-                <FormControlLabel
-                  sx={{ color: "white" }}
-                  control={
-                    <Checkbox
-                      value="remember"
-                      name="remember"
-                      color="secondary"
-                      sx={{ color: "white" }}
-                    />
-                  }
-                  label="Remember me"
+
+                <Button
+                  title="Iniciar Sesion"
+                  onClick={() => {
+                    handleSubmit();
+                  }}
                 />
-                <Route to="/User">
-                  <Button
-                    title="Iniciar Sesion"
-                    onClick={() => {
-                      handleSubmit();
-                    }}
-                  />
-                  
-                </Route>
 
                 <Grid container>
                   <Grid item xs>
@@ -145,8 +143,6 @@ export default function LogInSide() {
                       </Link>
                     </Route>
                   </Grid>
-
-                  
                 </Grid>
               </Box>
             </Box>
@@ -156,5 +152,3 @@ export default function LogInSide() {
     </ThemeProvider>
   );
 }
-
-
