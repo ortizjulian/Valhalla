@@ -146,13 +146,7 @@ export default function LogInSide() {
                     </Route>
                   </Grid>
 
-                  <Grid item>
-                    <Route to="/SignUp">
-                      <Link href="" variant="body2" color="secondary">
-                        {"Olvidaste tu contraseña?"}
-                      </Link>
-                    </Route>
-                  </Grid>
+                  
                 </Grid>
               </Box>
             </Box>
@@ -162,3 +156,5 @@ export default function LogInSide() {
     </ThemeProvider>
   );
 }
+
+
