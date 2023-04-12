@@ -1,6 +1,6 @@
 import RouletteDrift from "../components/Elements/RouletteDrift";
-import ItineraryUser from "../components/Elements/ItineraryUser";
-
+import UserItineray from "../components/Elements/UserItineray";
+import NavbarUser from "../components/Nav/NavbarUser";
 export default function User() {
   return (
     <>
