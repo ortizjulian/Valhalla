@@ -39,8 +39,8 @@ export default function Navbar() {
                 <NavLink nombre="Contacto" />
               </UlWrapper>
               <LoginButton>
-                <ButtonNavBar title="Ingresar" route="/Login" />
-                <ButtonNavBar title="Registrarse" route="/Signup" />
+                <ButtonNavBar title="Ingresar" route="/login" />
+                <ButtonNavBar title="Registrarse" route="/signup" />
               </LoginButton>
             </NavInner>
           </Wrapper>

@@ -2,12 +2,12 @@ package com.valhalla.valhalla.models;
 
 public class Sedes {
 
-    int id;
-    String ciudad;
-    String direccion;
-    String linkImagen;
-    String barrio;
-    long telefono;
+    private int id;
+    private String ciudad;
+    private String direccion;
+    private String linkImagen;
+    private String barrio;
+    private long telefono;
 
     public String getBarrio() {
         return barrio;

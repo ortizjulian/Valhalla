@@ -38,7 +38,7 @@ export default function LogInSide() {
     };
 
     fetch(
-      "http://localhost:8080/Auth?cedula=" +
+      "http://localhost:8080/auth?cedula=" +
         params.cedula +
         "&contrasena=" +
         params.contrasena
@@ -135,7 +135,7 @@ export default function LogInSide() {
 
                 <Grid container>
                   <Grid item xs>
-                    <Route to="/SignUp">
+                    <Route to="/signUp">
                       <Link href="" variant="body2" color="secondary">
                         {"No tienes cuenta? Registrate"}
                       </Link>

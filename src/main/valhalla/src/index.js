@@ -26,10 +26,10 @@ ReactDOM.render(
     <Router>
       <Routes>
         <Route exact path="/" element={<Landing />} />
-        <Route exact path="/Login" element={<Login />} />
-        <Route exact path="/Signup" element={<SignUp />} />
-        <Route exact path="/User" element={<User />} />
-        <Route exact path="/Admin" element={<Admin />} />
+        <Route exact path="/login" element={<Login />} />
+        <Route exact path="/signup" element={<SignUp />} />
+        <Route exact path="/user" element={<User />} />
+        <Route exact path="/admin" element={<Admin />} />
       </Routes>
     </Router>
   </>,

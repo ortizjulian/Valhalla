@@ -1,9 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 // Components
 import PricingTable from "../Elements/PricingTable";
 
 export default function Pricing() {
+  const [planesConBeneficios, setPlanConBeneficios] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:8080/planes")
+      .then((response) => response.json())
+      .then((data) => {
+        data.forEach((plan) => {
+          fetch(`http://localhost:8080/beneficios/${plan.id}`)
+            .then((response) => response.json())
+            .then((beneficios) => {
+              setPlanConBeneficios((prevState) => [
+                ...prevState,
+                { plan: plan, beneficios: beneficios },
+              ]);
+            })
+            .catch((error) => console.error(error));
+        });
+      })
+      .catch((error) => console.error(error));
+  }, []);
+
   return (
     <Wrapper id="Precios" className="lightBg">
       <div className="container">
@@ -12,6 +33,20 @@ export default function Pricing() {
           <p className="font20 lightColor">Solicita día de prueba GRATIS.</p>
         </HeaderInfo>
         <TablesWrapper className="flexSpaceNull">
+          {planesConBeneficios.map((planConBeneficios) => (
+            <TableBox>
+              <PricingTable
+                price={"$" + planConBeneficios.plan.precio + "/m"}
+                title={planConBeneficios.plan.nombre}
+                text={planConBeneficios.plan.descripcion}
+                offers={planConBeneficios.beneficios.map((beneficio) => ({
+                  name: beneficio.descripcion,
+                  cheked: true,
+                }))}
+                action={() => alert("clicked")}
+              />
+            </TableBox>
+          ))}
           <TableBox>
             <PricingTable
               icon="viking"

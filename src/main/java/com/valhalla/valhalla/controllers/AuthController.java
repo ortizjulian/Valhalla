@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.valhalla.valhalla.models.User;
 
 @RestController
-@RequestMapping("/Auth")
+@RequestMapping("/auth")
 public class AuthController {
 
     @GetMapping()
@@ -26,10 +26,19 @@ public class AuthController {
 
     }
 
-    @PostMapping(value = "/Register")
+    @PostMapping(value = "/register")
     public User RegisterUser(@RequestBody User usuario) {
+        User user = new User();
+        user.setNombre(usuario.getNombre());
+        user.setCorreo(usuario.getCorreo());
+        user.setContrasena(usuario.getContrasena());
+        // user.setFechaNacimiento(usuario.getFechaNacimiento());
+        // user.setTelefono(usuario.getTelefono());
+        user.setRol(User.Rol.CLIENTE);
+        user.setSexo(usuario.getSexo());
+        user.setCedula(usuario.getCedula());
+        return user;
 
-        return usuario;
     }
 
 }

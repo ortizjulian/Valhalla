@@ -35,10 +35,28 @@ export default function LogInSide() {
   //Funcion para tomar los datos
   const handleSubmit = (event) => {
     event.preventDefault();
-    //const data = new FormData(event.currentTarget);
+    const data = new FormData(event.currentTarget);
     // alert(
     //   "Cedula: " + data.get("nombre") + "Apellido: "+ data.get("apellidos") + " Password: " + data.get("contrasena") + data.get("sexo")
     // );
+
+    const user = {
+      nombre: data.get("nombre"),
+      cedula: data.get("cedula"),
+      correo: data.get("correo"),
+      contrasena: data.get("contrasena"),
+      sexo: data.get("sexo"),
+    };
+    fetch("http://localhost:8080/auth/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user),
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+      .catch((error) => console.error(error));
   };
 
   //Transicion
@@ -143,13 +161,13 @@ export default function LogInSide() {
                     row
                   >
                     <FormControlLabel
-                      value="femenino"
+                      value="FEMENINO"
                       control={<Radio color="secondary" />}
                       label="Femenino"
                       sx={{ color: "white" }}
                     />
                     <FormControlLabel
-                      value="masculino"
+                      value="MASCULINO"
                       control={<Radio color="secondary" />}
                       label="Maculino"
                       sx={{ color: "white" }}
@@ -157,18 +175,16 @@ export default function LogInSide() {
                   </RadioGroup>
                 </FormControl>
 
-                <Route to="/User">
-                  <Button
-                    title="Registrarse"
-                    onClick={() => {
-                      handleSubmit();
-                    }}
-                  />
-                </Route>
+                <Button
+                  title="Registrarse"
+                  onClick={() => {
+                    handleSubmit();
+                  }}
+                />
 
                 <Grid container>
                   <Grid item>
-                    <Route to="/Login">
+                    <Route to="/login">
                       <Link href="" variant="body2" color="secondary">
                         {"Ya tienes cuenta? Inicia sesion."}
                       </Link>

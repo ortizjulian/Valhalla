@@ -74,9 +74,9 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
             Contacto
           </Link>
         </li>
-        <ButtonNavBar title="Ingresar" route="/Login" />
+        <ButtonNavBar title="Ingresar" route="/login" />
 
-        <ButtonNavBar title="Registrarse" route="/Signup" />
+        <ButtonNavBar title="Registrarse" route="/signup" />
       </UlStyle>
     </Wrapper>
   );
