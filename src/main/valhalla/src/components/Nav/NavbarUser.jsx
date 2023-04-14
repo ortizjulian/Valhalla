@@ -5,6 +5,7 @@ import Backdrop from "../Elements/Backdrop";
 import { BiMenu } from "react-icons/bi";
 import Sidebar from "./Sidebar";
 import NavLink from "./NavLink";
+import { AiOutlineBarChart, AiFillCalendar, AiFillTrophy } from "react-icons/ai";
 
 export default function NavbarUser() {
   const [sidebarOpen, toggleSidebar] = useState(false);
@@ -28,8 +29,12 @@ export default function NavbarUser() {
               </BurderWrapper>
               <UlWrapper>
                 <NavLink nombre="Estadisticas" />
+                <AiOutlineBarChart/>
                 <NavLink nombre="Calendario" />
+                <AiFillCalendar/>
                 <NavLink nombre="Premios" />
+                <AiFillTrophy/>
+
               </UlWrapper>
               
             </NavInner>
