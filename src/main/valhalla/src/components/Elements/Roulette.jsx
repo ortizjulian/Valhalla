@@ -65,12 +65,16 @@ const Roulette = ({ data }) => {
         </Girador>
       </div>
       <br />
-      <MensajePremio
+
+
+      {/* <MensajePremio
         onClick={handleSpinClick}
         disabled={mustSpin}
       >
         {!mustSpin ? rouletteData[prizeNumber].completeOption : "Girando..."}
-      </MensajePremio>
+      </MensajePremio> */}
+
+
     </>
   );
 };
