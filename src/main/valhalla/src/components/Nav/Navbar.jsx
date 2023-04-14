@@ -127,6 +127,7 @@ const Heading = styled.h1`
   font-size: 4.25rem; /* 36px */
   line-height: 4.5rem; /* 40px */
   text-align: center; 
+  text-shadow: 0px 10px 5px black
 `;
 
 const Wrapper = styled.nav`
