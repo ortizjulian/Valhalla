@@ -1,13 +1,14 @@
 import React from "react";
 // Sections
-
 import AdminItinerary from "../components/Elements/AdminItinerary";
+import Sidebar from "../components/Nav/SidebarAdmin";
 
-export default function Admin() {
+export default function Admin1() {
   return (
     <>
-      <h1>Este seria el itinerario del usuario</h1>
-      <AdminItinerary />
+      <Sidebar>
+        <AdminItinerary />        
+      </Sidebar>
     </>
   );
 }

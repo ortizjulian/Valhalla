@@ -157,7 +157,6 @@
    overflow-x: hidden;
    font-size: 16px;
    font-weight: 400;
-
  }
  
  
@@ -566,6 +565,26 @@
   color: #ccc  !important;
 }
 
+/**Sidebar**/
+
+.link-sidebar{
+  display: flex;
+  color: #fff;
+  padding: 10px 15px;
+  gap: 15px;
+  transition: all 0.5s;
+}
+
+.link-sidebar:hover{
+  background:#1f6feb;
+  color: white;
+  transition: all 0.5s;
+  
+}
+.active-sidebar{
+  background: lightskyblue;
+  color: #000;
+}
 
 
  
