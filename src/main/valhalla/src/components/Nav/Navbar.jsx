@@ -76,6 +76,7 @@ const IconStyle = styled.div`
   }
 `;
 
+
 const Titulo = styled.div`
     display: flex;
     padding : 10px;
@@ -127,7 +128,7 @@ const Heading = styled.h1`
   font-size: 4.25rem; /* 36px */
   line-height: 4.5rem; /* 40px */
   text-align: center; 
-  text-shadow: 0px 10px 5px black
+  text-shadow: 0px 10px 5px black, 10px 0px 15px black
 `;
 
 const Wrapper = styled.nav`
@@ -140,6 +141,7 @@ const Wrapper = styled.nav`
 const UlWrapper = styled.ul`
   display: flex;
   list-style-type: none;
+  0px 10px 5px black;
   @media (max-width: 975px) {
     display: none;
   }

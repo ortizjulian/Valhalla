@@ -11,7 +11,11 @@ import Login from "./screens/Login.jsx";
 import SignUp from "./screens/SignUp";
 import User from "./screens/User";
 import Admin from "./screens/Admin";
-import Admin1 from "./screens/Admin1";
+import AdminCalendar from "./screens/AdminCalendar"
+import AdminRecord from "./screens/AdminRecord"
+import AdminStats from "./screens/AdminStats"
+import AdminGift from "./screens/AdminGift"
+
 import { Helmet } from "react-helmet";
 
 ReactDOM.render(
@@ -31,7 +35,10 @@ ReactDOM.render(
         <Route exact path="/signup" element={<SignUp />} />
         <Route exact path="/user" element={<User />} />
         <Route exact path="/admin" element={<Admin />} />
-        <Route exact path="/admin1" element={<Admin1 />} />
+        <Route exact path="/admincalendar" element={<AdminCalendar />} />
+        <Route exact path="/adminrecord" element={<AdminRecord />} />
+        <Route exact path="/adminstats" element={<AdminStats />} />
+        <Route exact path="/admingift" element={<AdminGift/>} />
       </Routes>
     </Router>
   </>,

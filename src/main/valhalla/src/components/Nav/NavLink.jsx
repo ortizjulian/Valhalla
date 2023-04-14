@@ -8,7 +8,7 @@ class NavLink extends React.Component {
         <Link
           activeClass="active"
           className="whiteColor"
-          style={{ padding: "10px 15px" }}
+          style={{ padding: "10px 15px",textShadow: "0px -3px 5px black, 0px 3px 5px black" }}
           to={this.props.nombre}
 
         >
