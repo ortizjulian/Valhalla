@@ -3,7 +3,7 @@ import styled from "styled-components";
 import RouletteDrift from "../components/Elements/RouletteDrift";
 import NavbarUser from "../components/Nav/NavbarUser";
 import Coupon from "../components/Elements/Coupon";
-export default function Premios() {
+export default function Prizes() {
   return (
     <>
       <NavbarUser></NavbarUser>
@@ -11,60 +11,69 @@ export default function Premios() {
        <div className="container">
         <Titulo>Cupones</Titulo>
           <TablesWrapper className="flexCenter">
-            <TableBox>
+            <TableBox1>
               <Estado>Disponible</Estado>
               <Coupon
                 descripcion={"Conjunto deportivo"}
                 codigo={"ABC-987"}
                 vigencia={"24/03/2023"}
+                color={"#2CA22C"}
               />
               <Coupon
                 descripcion={"Termo"}
                 codigo={"ABC-987"}
                 vigencia={"24/03/2023"}
+                color={"#2CA22C"}
               />
               <Coupon
                 descripcion={"Termo"}
                 codigo={"ABC-987"}
                 vigencia={"24/03/2023"}
+                color={"#2CA22C"}
               />
-            </TableBox>
-            <TableBox>
+            </TableBox1>
+            <TableBox2>
               <Estado>Vencido</Estado>
               <Coupon
                 descripcion={"Termo"}
                 codigo={"ABC-987"}
                 vigencia={"24/03/2023"}
+                color={"#FF0000"}
               />
               <Coupon
                 descripcion={"Termo"}
                 codigo={"ABC-987"}
                 vigencia={"24/03/2023"}
+                color={"#FF0000"}
               />
               <Coupon
                 descripcion={"Termo"}
                 codigo={"ABC-987"}
                 vigencia={"24/03/2023"}
+                color={"#FF0000"}
               />
-            </TableBox>
-            <TableBox>
+            </TableBox2>
+            <TableBox3>
             <Estado>Usado</Estado>
               <Coupon
                 descripcion={"Termo"}
                 codigo={"ABC-987"}
                 vigencia={"24/03/2023"}
+                color={"#808080"}
               />
               <Coupon
                 descripcion={"Termo"}
                 codigo={"ABC-987"}
                 vigencia={"24/03/2023"}
+                color={"#808080"}
               />
               <Coupon
                 descripcion={"Termo"}
                 codigo={"ABC-987"}
                 vigencia={"24/03/2023"}
+                color={"#808080"}
               />
-            </TableBox>
+            </TableBox3>
         </TablesWrapper>
        </div>
 
@@ -87,7 +96,28 @@ const TablesWrapper = styled.div`
   }
 `;
 
-const TableBox = styled.div`
+const TableBox1 = styled.div`
+  width: 20%;
+  margin-left: 70px;
+  margin-right: 70px;
+  @media (max-width: 860px) {
+    width: 100%;
+    max-width: 370px;
+    margin: 0 auto;
+  }
+`;
+
+const TableBox2 = styled.div`
+  width: 20%;
+  margin-left: 70px;
+  margin-right: 70px;
+  @media (max-width: 860px) {
+    width: 100%;
+    max-width: 370px;
+    margin: 0 auto;
+  }
+`;
+const TableBox3 = styled.div`
   width: 20%;
   margin-left: 70px;
   margin-right: 70px;

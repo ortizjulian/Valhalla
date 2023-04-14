@@ -8,7 +8,7 @@ export default function Coupon({
     color,
   }) {  
     return (
-      <Wrapper className="whiteBg radius8">
+      <Wrapper style={{ backgroundColor: color }} className="radius8">
         <div>
           <h4 className="font30 extraBold ">{codigo}</h4>
           <p className="font13 ">{descripcion}</p>

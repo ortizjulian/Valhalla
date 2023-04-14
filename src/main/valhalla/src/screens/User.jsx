@@ -1,5 +1,3 @@
-import RouletteDrift from "../components/Elements/RouletteDrift";
-import UserItineray from "../components/Elements/UserItineray";
 import NavbarUser from "../components/Nav/NavbarUser";
 export default function User() {
   return (

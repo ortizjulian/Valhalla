@@ -11,13 +11,14 @@ import Login from "./screens/Login.jsx";
 import SignUp from "./screens/SignUp";
 import User from "./screens/User";
 import Admin from "./screens/Admin";
-import AdminCalendar from "./screens/AdminCalendar"
-import AdminRecord from "./screens/AdminRecord"
-import AdminStats from "./screens/AdminStats"
-import AdminGift from "./screens/AdminGift"
+import Prizes from "./screens/Prizes";
+import UserCalendar from "./screens/UserCalendar";
+import AdminCalendar from "./screens/AdminCalendar";
+import AdminRecord from "./screens/AdminRecord";
+import AdminStats from "./screens/AdminStats";
+import AdminGift from "./screens/AdminGift";
 
 import { Helmet } from "react-helmet";
-import Premios from "./screens/Premios";
 
 ReactDOM.render(
   <>
@@ -36,6 +37,12 @@ ReactDOM.render(
         <Route exact path="/signup" element={<SignUp />} />
         <Route exact path="/user" element={<User />} />
         <Route exact path="/admin" element={<Admin />} />
+        <Route exact path="/prizes" element={<Prizes />} />
+        <Route exact path="/userCalendar" element={<UserCalendar />} />
+        <Route exact path="/admincalendar" element={<AdminCalendar />} />
+        <Route exact path="/adminrecord" element={<AdminRecord />} />
+        <Route exact path="/adminstats" element={<AdminStats />} />
+        <Route exact path="/admingift" element={<AdminGift/>} />
       </Routes>
     </Router>
   </>,
