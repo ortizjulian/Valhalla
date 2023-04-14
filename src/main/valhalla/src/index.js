@@ -12,6 +12,7 @@ import SignUp from "./screens/SignUp";
 import User from "./screens/User";
 import Admin from "./screens/Admin";
 import { Helmet } from "react-helmet";
+import Premios from "./screens/Premios";
 
 ReactDOM.render(
   <>
@@ -30,6 +31,7 @@ ReactDOM.render(
         <Route exact path="/signup" element={<SignUp />} />
         <Route exact path="/user" element={<User />} />
         <Route exact path="/admin" element={<Admin />} />
+        <Route exact path="/premios" element={<Premios />} />
       </Routes>
     </Router>
   </>,

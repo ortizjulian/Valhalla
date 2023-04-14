@@ -38,7 +38,7 @@ export default function LogInSide() {
     };
 
     fetch(
-      "http://localhost:8080/auth?cedula=" +
+      "/auth?cedula=" +
         params.cedula +
         "&contrasena=" +
         params.contrasena

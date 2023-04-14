@@ -47,7 +47,7 @@ export default function LogInSide() {
       contrasena: data.get("contrasena"),
       sexo: data.get("sexo"),
     };
-    fetch("http://localhost:8080/auth/register", {
+    fetch("/auth/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

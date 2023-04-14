@@ -9,7 +9,7 @@ export default function CarruselSedes() {
   const [sedes, setSedes] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8080/sedes")
+    fetch("/sedes")
       .then((response) => response.json())
       .then((data) => setSedes(data))
       .catch((error) => console.error(error));
