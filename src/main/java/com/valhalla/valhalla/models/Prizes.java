@@ -1,0 +1,27 @@
+package com.valhalla.valhalla.models;
+
+public class Prizes {
+    private int id;
+    private String text;
+
+    public Prizes(int id, String text) {
+        this.id = id;
+        this.text = text;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String descripcion) {
+        this.text = text;
+    }
+}

@@ -17,6 +17,7 @@ import AdminCalendar from "./screens/AdminCalendar";
 import AdminRecord from "./screens/AdminRecord";
 import AdminStats from "./screens/AdminStats";
 import AdminGift from "./screens/AdminGift";
+import UserStats from "./screens/UserStats";
 
 import { Helmet } from "react-helmet";
 
@@ -42,7 +43,8 @@ ReactDOM.render(
         <Route exact path="/admincalendar" element={<AdminCalendar />} />
         <Route exact path="/adminrecord" element={<AdminRecord />} />
         <Route exact path="/adminstats" element={<AdminStats />} />
-        <Route exact path="/admingift" element={<AdminGift/>} />
+        <Route exact path="/admingift" element={<AdminGift />} />
+        <Route exact path="/userstats" element={<UserStats />} />
       </Routes>
     </Router>
   </>,

@@ -37,12 +37,7 @@ export default function LogInSide() {
       contrasena: data.get("contrasena"),
     };
 
-    fetch(
-      "/auth?cedula=" +
-        params.cedula +
-        "&contrasena=" +
-        params.contrasena
-    )
+    fetch("/auth?cedula=" + params.cedula + "&contrasena=" + params.contrasena)
       .then((response) => response.json())
       .then((response) => {
         alert(response);

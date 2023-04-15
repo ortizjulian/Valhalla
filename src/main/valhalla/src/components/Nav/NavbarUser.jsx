@@ -4,8 +4,32 @@ import Backdrop from "../Elements/Backdrop";
 
 import { BiMenu } from "react-icons/bi";
 import Sidebar from "./Sidebar";
-import NavLink from "./NavLink";
-import { AiOutlineBarChart, AiFillCalendar, AiFillTrophy } from "react-icons/ai";
+import { Link } from "react-router-dom";
+import {
+  AiOutlineBarChart,
+  AiFillCalendar,
+  AiFillTrophy,
+} from "react-icons/ai";
+
+class NavLink extends React.Component {
+  render() {
+    return (
+      <li className="semiBold font15 pointer">
+        <Link
+          activeClass="active"
+          className="whiteColor"
+          style={{
+            padding: "10px 15px",
+            textShadow: "0px -3px 5px black, 0px 3px 5px black",
+          }}
+          to={this.props.route}
+        >
+          {this.props.nombre}
+        </Link>
+      </li>
+    );
+  }
+}
 
 export default function NavbarUser() {
   const [sidebarOpen, toggleSidebar] = useState(false);
@@ -28,20 +52,16 @@ export default function NavbarUser() {
                 <BiMenu className="icon-burder" />
               </BurderWrapper>
               <UlWrapper>
-                <NavLink nombre="Estadisticas" />
-                <AiOutlineBarChart/>
-                <NavLink nombre="Calendario" />
-                <AiFillCalendar/>
-                <NavLink nombre="Premios" />
-                <AiFillTrophy/>
-
+                <NavLink nombre="Estadisticas" route="/userstats" />
+                <AiOutlineBarChart />
+                <NavLink nombre="Calendario" route="/userCalendar" />
+                <AiFillCalendar />
+                <NavLink nombre="Premios" route="/prizes" />
+                <AiFillTrophy />
               </UlWrapper>
-              
             </NavInner>
           </Wrapper>
-          <Content>
-            
-          </Content>
+          <Content></Content>
         </HeroContainer>
       </Container>
     </>
@@ -83,7 +103,6 @@ const Titulo = styled.div`
 const NavInner = styled.div`
   position: relative;
   height: 100%;
-  
 `;
 const LoginButton = styled.ul`
   @media (max-width: 975px) {
@@ -101,7 +120,7 @@ const HeroContainer = styled.div`
   margin-right: auto;
   flex-direction: column;
   height: 100%;
-  backgroundColor: #0d1117;
+  backgroundcolor: #0d1117;
 `;
 
 const Content = styled.div`
@@ -126,7 +145,7 @@ const Wrapper = styled.nav`
   top: 0;
   left: 0;
   z-index: 999;
-  backgroundColor: #0d1117;
+  backgroundcolor: #0d1117;
 `;
 
 const UlWrapper = styled.ul`
@@ -138,8 +157,7 @@ const UlWrapper = styled.ul`
 `;
 
 const Container = styled.div`
-  
-  position: relative;  
+  position: relative;
   height: 100%;
   background-color: #0d1117;
 `;

@@ -18,7 +18,7 @@ public class PlanesController {
                 "Nuestro plan básico, que te permitirá acceder a la sede de tu preferencia.", 59900));
         listPlanes.add(new Planes(2, "Valkiria",
                 "Nuestro plan Valkiria, te permitirá acceder a lo mejor de su rango.", 89900));
-        listPlanes.add(new Planes(1, "Odín",
+        listPlanes.add(new Planes(3, "Odín",
                 "Nuestro plan Odín, es el más top. Te permite acceder a todos los beneficios posibles.", 99900));
 
     }
