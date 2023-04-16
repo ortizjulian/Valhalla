@@ -1,7 +1,4 @@
-import React from "react";
 import styled from "styled-components";
-// Components
-
 import ServiceBox from "../Elements/ServiceBox";
 
 export default function Services() {

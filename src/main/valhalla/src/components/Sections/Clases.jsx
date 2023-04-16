@@ -1,8 +1,5 @@
-import React from "react";
 import styled from "styled-components";
-// Components
 import ProjectBox from "../Elements/ProjectBox";
-
 
 export default function Projects() {
   return (
@@ -77,8 +74,7 @@ export default function Projects() {
               width: "200px",
               backgroundColor: "blue",
             }}
-          >
-          </div>
+          ></div>
         </div>
       </div>
     </Wrapper>

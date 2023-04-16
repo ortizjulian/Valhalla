@@ -1,5 +1,3 @@
-import React from "react";
-// Sections
 import Navbar from "../components/Nav/Navbar";
 import Services from "../components/Sections/Services";
 import Clases from "../components/Sections/Clases";

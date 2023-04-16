@@ -52,11 +52,13 @@ export default function NavbarUser() {
                 <BiMenu className="icon-burder" />
               </BurderWrapper>
               <UlWrapper>
-                <NavLink nombre="Estadisticas" route="/userstats" />
+                <NavLink nombre="Bienvenido" route="/user" />
                 <AiOutlineBarChart />
-                <NavLink nombre="Calendario" route="/userCalendar" />
+                <NavLink nombre="Estadisticas" route="/user/stats" />
+                <AiOutlineBarChart />
+                <NavLink nombre="Calendario" route="/user/calendar" />
                 <AiFillCalendar />
-                <NavLink nombre="Premios" route="/prizes" />
+                <NavLink nombre="Premios" route="/user/prizes" />
                 <AiFillTrophy />
               </UlWrapper>
             </NavInner>
