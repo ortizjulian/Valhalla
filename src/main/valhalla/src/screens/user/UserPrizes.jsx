@@ -3,6 +3,24 @@ import RouletteDrift from "../../components/Elements/RouletteDrift";
 import NavbarUser from "../../components/Nav/NavbarUser";
 import Coupon from "../../components/Elements/Coupon";
 export default function UserPrizes() {
+  useEffect(() => {
+    fetch("/prizes")
+      .then((response) => response.json())
+      .then((data) => {
+        data.forEach((coupon) => {
+          fetch(`/beneficios/${plan.id}`)
+            .then((response) => response.json())
+            .then((beneficios) => {
+              setPlanConBeneficios((prevState) => [
+                ...prevState,
+                { plan: plan, beneficios: beneficios },
+              ]);
+            })
+            .catch((error) => console.error(error));
+        });
+      })
+      .catch((error) => console.error(error));
+  }, []);
   return (
     <>
       <RouletteDrift />
@@ -10,7 +28,7 @@ export default function UserPrizes() {
         <Titulo>Cupones</Titulo>
         <TablesWrapper className="flexCenter">
           <TableBox1>
-            <Estado>Disponible</Estado>
+            <Estado>Disponibles</Estado>
             <Coupon
               descripcion={"Conjunto deportivo"}
               codigo={"ABC-987"}
@@ -31,7 +49,7 @@ export default function UserPrizes() {
             />
           </TableBox1>
           <TableBox2>
-            <Estado>Vencido</Estado>
+            <Estado>Vencidos</Estado>
             <Coupon
               descripcion={"Termo"}
               codigo={"ABC-987"}
@@ -52,7 +70,7 @@ export default function UserPrizes() {
             />
           </TableBox2>
           <TableBox3>
-            <Estado>Usado</Estado>
+            <Estado>Usados</Estado>
             <Coupon
               descripcion={"Termo"}
               codigo={"ABC-987"}
