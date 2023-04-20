@@ -36,7 +36,7 @@ export default function NavbarUser() {
 
   return (
     <>
-      <Container id="home">
+      <Container id="home" >
         <HeroContainer>
           <Sidebar sidebarOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
           {sidebarOpen && <Backdrop toggleSidebar={toggleSidebar} />}
@@ -53,7 +53,6 @@ export default function NavbarUser() {
               </BurderWrapper>
               <UlWrapper>
                 <NavLink nombre="Bienvenido" route="/user" />
-                <AiOutlineBarChart />
                 <NavLink nombre="Estadisticas" route="/user/stats" />
                 <AiOutlineBarChart />
                 <NavLink nombre="Calendario" route="/user/calendar" />
@@ -82,11 +81,6 @@ const BurderWrapper = styled.button`
   }
 `;
 
-const IconStyle = styled.div`
-  @media (max-width: 975px) {
-    margin: 0 auto;
-  }
-`;
 
 const Titulo = styled.div`
     display: flex;
@@ -135,12 +129,6 @@ const Content = styled.div`
   align-items: center;
 `;
 
-const Heading = styled.h1`
-  color #FFFFFF!important;
-  font-size: 4.25rem; /* 36px */
-  line-height: 4.5rem; /* 40px */
-  text-align: center; 
-`;
 
 const Wrapper = styled.nav`
   width: 100%;
