@@ -1,28 +1,78 @@
 
 
 import { Button, DialogActions } from "@mui/material";
-import EVENTS from "../../data/data";
+//import EVENTS from "../../data/data";
 import { Scheduler } from "@aldabil/react-scheduler";
 import styled from "styled-components";
+import React, { useEffect, useState } from "react";
+
+
 
 import type {
   ProcessedEvent,
 } from "@aldabil/react-scheduler/types";
 
+interface Evento {
+  event_id: number;
+  title: string;
+  start: Date;
+  end: Date;
+  description: string;
+  profesor: string;
+}
 
-const handleReservar = (event: ProcessedEvent) => {
-  alert(
-    event.event_id + " Con el profesor " + event.profesor + EVENTS.length
 
-  );
-};
 
 export default function UserItineray() {
+
+
+  const handleReservar = (event: ProcessedEvent) => {
+    alert(
+      event.event_id + " Con el profesor " + event.profesor
+
+    );
+  };
+
+  const [clases, setClases] = useState<Evento[]>([]);
+
+
+
+  useEffect(() => {
+    fetch("/calendar")
+      .then((response) => response.json())
+      .then((data) => {
+
+
+        const eventos: Evento[] = data.map((clase: any) => {
+          const start = new Date(clase.fecha_inicio);
+          const end = new Date(clase.fecha_final);
+
+          // Convertir las fechas a strings con el formato que quieres
+          const startStr = `${start.getFullYear()}/${start.getMonth() + 1}/${start.getDate()} ${start.getHours()}:${start.getMinutes()}`;
+          const endStr = `${end.getFullYear()}/${end.getMonth() + 1}/${end.getDate()} ${end.getHours()}:${end.getMinutes()}`;
+
+          return {
+            event_id: clase.id_clase,
+            title: clase.nombre,
+            start: new Date(startStr),
+            end: new Date(endStr),
+            description: clase.descripcion,
+            profesor: clase.id_profesor,
+          };
+        });
+        console.log(eventos);
+        setClases(eventos);
+      })
+      .catch((error) => console.error(error));
+  }, []);
+
+
   return (
     <div style={{ color: "#000" }}>
       <Scheduler
 
-        events={EVENTS}
+        events={clases}
+
         day={null}
         month={null}
         week={{
