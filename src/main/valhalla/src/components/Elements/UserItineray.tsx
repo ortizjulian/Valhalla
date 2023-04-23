@@ -5,11 +5,9 @@ import { Button, DialogActions } from "@mui/material";
 import { Scheduler } from "@aldabil/react-scheduler";
 import styled from "styled-components";
 import React, { useEffect, useState } from "react";
-
-
-
 import type {
   ProcessedEvent,
+  ViewEvent
 } from "@aldabil/react-scheduler/types";
 
 interface Evento {
@@ -44,18 +42,14 @@ export default function UserItineray() {
 
 
         const eventos: Evento[] = data.map((clase: any) => {
-          const start = new Date(clase.fecha_inicio);
-          const end = new Date(clase.fecha_final);
-
-          // Convertir las fechas a strings con el formato que quieres
-          const startStr = `${start.getFullYear()}/${start.getMonth() + 1}/${start.getDate()} ${start.getHours()}:${start.getMinutes()}`;
-          const endStr = `${end.getFullYear()}/${end.getMonth() + 1}/${end.getDate()} ${end.getHours()}:${end.getMinutes()}`;
 
           return {
+
+
             event_id: clase.id_clase,
             title: clase.nombre,
-            start: new Date(startStr),
-            end: new Date(endStr),
+            start: new Date(clase.fecha_inicio),
+            end: new Date(clase.fecha_final),
             description: clase.descripcion,
             profesor: clase.id_profesor,
           };
@@ -69,8 +63,8 @@ export default function UserItineray() {
 
   return (
     <div style={{ color: "#000" }}>
-      <Scheduler
 
+      <Scheduler
         events={clases}
 
         day={null}
@@ -104,7 +98,8 @@ export default function UserItineray() {
             </div>
           );
         }}
-      />
+      /> :
+
     </div>
   );
 }

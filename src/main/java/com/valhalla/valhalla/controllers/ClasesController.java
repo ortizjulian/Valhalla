@@ -19,10 +19,10 @@ public class ClasesController {
 
     public ClasesController() {
 
-        listClases.add(new Clases(1, "Calistenia", "Segundo piso", new Date("2023/4/21 10:00:00"),
-                new Date("2023/4/21 12:00"), 1, 1, 20));
-        listClases.add(new Clases(2, "Zamba", "Segundo piso", new Date("2023/4/21 2:00:00"),
-                new Date("2023/4/21 3:00:00"), 1, 1, 20));
+        listClases.add(new Clases(1, "Calistenia", "Segundo piso", 1, 1, 20, "2023/4/21 10:00",
+                "2023/4/21 12:00"));
+        listClases.add(new Clases(2, "Zamba", "Segundo piso", 1, 1, 20, "2023/4/21 2:00",
+                "2023/4/21 4:00"));
     }
 
     @GetMapping()

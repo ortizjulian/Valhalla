@@ -7,25 +7,38 @@ public class Clases {
     private int id_clase;
     private String nombre;
     private String descripcion;
-    private Date fecha_inicio = new Date();
-    private Date fecha_final = new Date();
+
     private int id_profesor;
     private int id_sede;
     private int capacidad;
+    private String fecha_inicio;
+    private String fecha_final;
 
-    public Date getFecha_inicio() {
+    public Clases(int id_clase, String nombre, String descripcion, int id_profesor, int id_sede, int capacidad,
+            String fecha_inicio, String fecha_final) {
+        this.id_clase = id_clase;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.id_profesor = id_profesor;
+        this.id_sede = id_sede;
+        this.capacidad = capacidad;
+        this.fecha_inicio = fecha_inicio;
+        this.fecha_final = fecha_final;
+    }
+
+    public String getFecha_inicio() {
         return fecha_inicio;
     }
 
-    public void setFecha_inicio(Date fecha_inicio) {
+    public void setFecha_inicio(String fecha_inicio) {
         this.fecha_inicio = fecha_inicio;
     }
 
-    public Date getFecha_final() {
+    public String getFecha_final() {
         return fecha_final;
     }
 
-    public void setFecha_final(Date fecha_final) {
+    public void setFecha_final(String fecha_final) {
         this.fecha_final = fecha_final;
     }
 
@@ -75,20 +88,6 @@ public class Clases {
 
     public void setCapacidad(int capacidad) {
         this.capacidad = capacidad;
-    }
-
-    public Clases(int id_clase, String nombre, String descripcion, Date fecha_inicio, Date fecha_final,
-            int id_profesor,
-            int id_sede, int capacidad) {
-        this.id_clase = id_clase;
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.fecha_inicio = fecha_inicio;
-        this.fecha_final = fecha_final;
-        this.id_profesor = id_profesor;
-        this.id_sede = id_clase;
-        this.capacidad = capacidad;
-
     }
 
     public Clases() {
