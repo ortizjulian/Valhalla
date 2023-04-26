@@ -36,6 +36,7 @@ export default function LogInSide() {
       cedula: data.get("cedula"),
       contrasena: data.get("contrasena"),
     };
+    alert(params.cedula);
 
     fetch("/auth?cedula=" + params.cedula + "&contrasena=" + params.contrasena)
       .then((response) => response.json())

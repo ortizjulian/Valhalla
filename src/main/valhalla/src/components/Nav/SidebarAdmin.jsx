@@ -38,26 +38,20 @@ const Sidebar = ({ children }) => {
   ];
   return (
     <Container>
-      <Sidebarsidebar style={{ width: isOpen ? "300px" : "50px" }}>
+      <Sidebarsidebar>
         <Topsection>
-          <div
-            style={{
-              fontSize: "25px",
-              paddingTop: "15px",
-              display: isOpen ? "block" : "None",
-            }}
+          <Vikingo
             className="icon-sidebar"
           >
-            {<GiVikingHead />}
-          </div>
-          <Logo style={{ display: isOpen ? "block" : "None", marginTop: "5%" }}>
+            {<GiVikingHead/>}
+          </Vikingo>
+          <Logo>
             Valhalla
           </Logo>
           <Bars
-            style={{ marginLeft: isOpen ? "10%" : "0px" }}
             className="bars-sidebar"
           >
-            <FaBars onClick={toggle} />
+            <FaBars/>
           </Bars>
         </Topsection>
         {menuItem.map((item, index) => (
@@ -69,7 +63,6 @@ const Sidebar = ({ children }) => {
           >
             <Iconsidebar className="icon-sidebar">{item.icon}</Iconsidebar>
             <Link_text
-              style={{ display: isOpen ? "block" : "None" }}
               className="link_text-sidebar"
             >
               {item.name}
@@ -83,7 +76,6 @@ const Sidebar = ({ children }) => {
             <IoMdExit />
           </Iconsidebar>
           <Link_text
-            style={{ display: isOpen ? "block" : "None" }}
             className="link_text-sidebar"
           >
             Salida
@@ -104,12 +96,33 @@ const Container = styled.div`
   overflow-y: hidden;
 `;
 
+const Vikingo = styled.div`
+  fontSize: "30px",
+  paddingTop: "20px",
+  @media (max-width: 2800px) {
+    display: block;
+  }
+
+  @media (max-width: 800px) {
+      display: None
+    }
+`;
+
 const Sidebarsidebar = styled.div`
+
   background: #0d1117;
   color: #fff;
   height: 100%;
-  width: 30%;
   transition: all 0.5s;
+  
+  @media (max-width: 2800px) {
+    width: 25%
+  }
+
+  @media (max-width: 800px) {
+      width: 15%
+    }
+  
 `;
 
 const Topsection = styled.div`
@@ -120,20 +133,45 @@ const Topsection = styled.div`
 
 const Logo = styled.h1`
   font-size: 30px;
+  padding: 10px;
+  margin-top: 10px;
+
+  @media (max-width: 2800px) {
+    display: Block
+  }
+
+  @media (max-width: 800px) {
+    display: None
+  }
 `;
 
 const Bars = styled.div`
   display: flex;
   font-size: 25px;
-  margin-left: 50px;
+  
+  @media (max-width: 2800px) {
+    marginLeft: 10%
+  }
+
+  @media (max-width: 800px) {
+      marginLeft: 0px
+    }
 `;
 
 const Iconsidebar = styled.div`
-  font-size: 20px;
+  font-size: 30px;
 `;
 
 const Link_text = styled.div`
   font-size: 20px;
+
+  @media (max-width: 2800px) {
+    display: block;
+  }
+
+  @media (max-width: 800px) {
+      display: None;
+    }
 `;
 
 const Main = styled.main`
