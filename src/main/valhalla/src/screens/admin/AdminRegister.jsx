@@ -113,21 +113,3 @@ export default function LogInSide() {
     </>
   );
 }
-
-const Title = styled.h2`
-  color: black;
-  text-align: center; 
-`;
-
-const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap
-`;
-
-const SecondContainer = styled.div`
-  overflow-y: scroll;
-  height: 50%
-`;
-
-

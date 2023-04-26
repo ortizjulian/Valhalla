@@ -1,26 +1,72 @@
 
+
 import { Button, DialogActions } from "@mui/material";
-import EVENTS from "../../data/data";
+//import EVENTS from "../../data/data";
 import { Scheduler } from "@aldabil/react-scheduler";
 import styled from "styled-components";
-
+import React, { useEffect, useState } from "react";
 import type {
   ProcessedEvent,
+  ViewEvent
 } from "@aldabil/react-scheduler/types";
 
-const handleReservar = (event: ProcessedEvent) => {
-  alert(
-    event.event_id + " Con el profesor " + event.profesor + EVENTS.length
+interface Evento {
+  event_id: number;
+  title: string;
+  start: Date;
+  end: Date;
+  description: string;
+  profesor: string;
+}
 
-  );
-};
+
 
 export default function UserItineray() {
+
+
+  const handleReservar = (event: ProcessedEvent) => {
+    alert(
+      event.event_id + " Con el profesor " + event.profesor
+
+    );
+  };
+
+  const [clases, setClases] = useState<Evento[]>([]);
+
+
+
+  useEffect(() => {
+    fetch("/calendar")
+      .then((response) => response.json())
+      .then((data) => {
+
+
+        const eventos: Evento[] = data.map((clase: any) => {
+
+          return {
+
+
+            event_id: clase.id_clase,
+            title: clase.nombre,
+            start: new Date(clase.fecha_inicio),
+            end: new Date(clase.fecha_final),
+            description: clase.descripcion,
+            profesor: clase.id_profesor,
+          };
+        });
+        console.log(eventos);
+        setClases(eventos);
+      })
+      .catch((error) => console.error(error));
+  }, []);
+
+
   return (
     <div style={{ color: "#000" }}>
-      <Scheduler
 
-        events={EVENTS}
+      <Scheduler
+        events={clases}
+
         day={null}
         month={null}
         week={{
@@ -52,7 +98,8 @@ export default function UserItineray() {
             </div>
           );
         }}
-      />
+      /> :
+
     </div>
   );
 }

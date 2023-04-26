@@ -80,6 +80,32 @@ const CustomEditor = ({ scheduler }: CustomEditorProps) => {
          * start: Date|string
          * end: Date|string
          */
+
+
+
+        const clase = {
+          id_clase: 1,
+          nombre: state.title,
+          fecha_incio: scheduler.state.start.value,
+          fecha_final: scheduler.state.end.value,
+          descripcion: state.description,
+          id_profesor: 1,
+          id_sede: 1,
+          capacidad: 20,
+
+        };
+
+        fetch("/calendar/create", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(clase),
+        })
+          .then((response) => response.json())
+          .then((data) => console.log(data))
+          .catch((error) => console.error(error));
+
         const newEvent = {
           event_id: 1,
           title: state.title,
@@ -88,6 +114,8 @@ const CustomEditor = ({ scheduler }: CustomEditorProps) => {
           description: state.description,
           profesor: state.profesor
         };
+
+
 
         setTimeout(() => {
           res(newEvent);

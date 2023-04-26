@@ -1,11 +1,30 @@
+import React, { useEffect, useState } from "react";
+
+// const [clase, setClases] = useState([]);
+
+// useEffect(() => {
+//   fetch("/calendar")
+//     .then((response) => response.json())
+//     .then((data) => setClases(data))
+//     .catch((error) => console.error(error));
+// }, []);
+
 let EVENTS = [
   {
     event_id: 1,
     title: "Salsa",
-    start: new Date(new Date(new Date().setHours(10)).setMinutes(0)),
-    end: new Date(new Date(new Date().setHours(12)).setMinutes(0)),
+    start: new Date("2023/4/21 09:30"),
+    end: new Date("2023/4/21 10:30"),
     description: "Segundo Piso",
     profesor: "Julian",
+  },
+  {
+    event_id: 2,
+    title: "Calistenia",
+    start: new Date("2023/4/21 09:30"),
+    end: new Date("2023/4/21 10:30"),
+    description: "Puras barritas",
+    profesor: "Jose",
   },
 ];
 
