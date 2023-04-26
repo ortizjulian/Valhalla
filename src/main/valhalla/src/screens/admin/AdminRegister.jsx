@@ -77,6 +77,7 @@ export default function LogInSide() {
       <Title>
         Usuarios activos
       </Title>
+      <br />  
       <SecondContainer>
         <TableContainer component={Paper}>
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -113,3 +114,22 @@ export default function LogInSide() {
     </>
   );
 }
+
+const Container = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+`;
+
+const Title = styled.h1`
+  size: 10px;
+  color: black;
+  text-align:center;
+
+`;
+
+const SecondContainer = styled.div`
+  overflow-y: scroll;
+  height: 40%;
+`;
+
