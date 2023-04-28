@@ -13,9 +13,9 @@ import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 
 function createData(
-  cedula: string,
-  name: string,
-  time: string,
+  cedula,
+  name,
+  time,
 ) {
   return { cedula, name, time };
 }
