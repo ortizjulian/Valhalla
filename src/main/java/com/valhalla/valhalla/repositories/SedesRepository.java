@@ -1,11 +1,12 @@
 
-/*
- * package com.valhalla.valhalla.repositories;
- * 
- * import com.valhalla.valhalla.models.Sedes;
- * 
- * public interface ISedes extends CrudRepository<Sedes, Integer> {
- * 
- * 
- * }
- */
+package com.valhalla.valhalla.repositories;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.valhalla.valhalla.models.Sedes;
+
+@Repository
+public interface SedesRepository extends JpaRepository<Sedes, Integer> {
+
+}

@@ -1,14 +1,10 @@
-/*
- * package com.valhalla.valhalla.services;
- * 
- * public class SedesService {
- * 
- * @Autowired
- * private SedesRepository sedesRepository;
- * 
- * public List<Sedes> listarSedes(){
- * (List<Sedes>)userRepository.findAll();
- * }
- * 
- * }
- */
+
+package com.valhalla.valhalla.services;
+
+import java.util.List;
+
+import com.valhalla.valhalla.models.Sedes;
+
+public interface SedesService {
+    public List<Sedes> getSedes();
+}
