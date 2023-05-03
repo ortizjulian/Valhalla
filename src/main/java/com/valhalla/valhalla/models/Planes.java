@@ -1,47 +1,42 @@
 package com.valhalla.valhalla.models;
+import java.util.List;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.Table;
+
+import lombok.Data;
+
+@Data
+@Entity
+@Table(name="planes")
 
 public class Planes {
-    private int id;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id_planes;
+
+    @Column(name = "nombre", nullable = false)
     private String nombre;
+
+    @Column(name = "descripcion", nullable = false)
     private String descripcion;
+
+    @Column(name = "precio", nullable = false)
     private float precio;
 
-    public Planes(int id, String nombre, String descripcion, float precio) {
-        this.id = id;
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.precio = precio;
-    }
+    @ManyToMany
+    @JoinTable(
+        name = "beneficios_x_plan",
+        joinColumns = @JoinColumn(name = "id_plan"),
+        inverseJoinColumns = @JoinColumn(name = "id_beneficio"))
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getDescripcion() {
-        return this.descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    public float getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(float precio) {
-        this.precio = precio;
-    }
+    private List<Beneficios> beneficios;
 }

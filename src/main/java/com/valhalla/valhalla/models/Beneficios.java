@@ -1,27 +1,26 @@
 package com.valhalla.valhalla.models;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+import lombok.Data;
+
+@Data
+@Entity
+@Table(name="beneficios")
 
 public class Beneficios {
-    private int id_beneficio;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id_beneficios;
+
+    @Column(name = "nombre", nullable = false)
+    private String nombre;
+
+    @Column(name = "descripcion", nullable = false)
     private String descripcion;
-
-    public Beneficios(int id_beneficio, String descripcion) {
-        this.id_beneficio = id_beneficio;
-        this.descripcion = descripcion;
-    }
-
-    public int getId_beneficio() {
-        return id_beneficio;
-    }
-
-    public void setId_beneficio(int id_beneficio) {
-        this.id_beneficio = id_beneficio;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
 }

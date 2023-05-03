@@ -9,19 +9,7 @@ export default function Pricing() {
   useEffect(() => {
     fetch("/planes")
       .then((response) => response.json())
-      .then((data) => {
-        data.forEach((plan) => {
-          fetch(`/beneficios/${plan.id}`)
-            .then((response) => response.json())
-            .then((beneficios) => {
-              setPlanConBeneficios((prevState) => [
-                ...prevState,
-                { plan: plan, beneficios: beneficios },
-              ]);
-            })
-            .catch((error) => console.error(error));
-        });
-      })
+      .then((data) => setPlanConBeneficios(data))
       .catch((error) => console.error(error));
   }, []);
 
@@ -36,13 +24,13 @@ export default function Pricing() {
           {planesConBeneficios.map((planConBeneficios) => (
             <TableBox>
               <PricingTable
-                price={"$" + planConBeneficios.plan.precio + "/m"}
-                title={planConBeneficios.plan.nombre}
-                text={planConBeneficios.plan.descripcion}
+                price={"$" + planConBeneficios.precio + "/m"}
+                title={planConBeneficios.nombre}
+                text={planConBeneficios.descripcion}
                 offers={planConBeneficios.beneficios.map((beneficio) => ({
                   name: beneficio.descripcion,
                   cheked: true,
-                }))}
+                }))} 
                 action={() => alert("clicked")}
               />
             </TableBox>

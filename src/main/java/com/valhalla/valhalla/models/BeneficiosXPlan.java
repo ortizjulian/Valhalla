@@ -1,27 +1,31 @@
-package com.valhalla.valhalla.models;
+/* package com.valhalla.valhalla.models;
 
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.Table;
+import jakarta.persistence.ManyToOne;
+import lombok.Data;
+
+@Data
+@Entity
+@Table(name = "beneficiosxplan")
 public class BeneficiosXPlan {
-    private int id_plan;
-    private int id_beneficio;
 
-    public BeneficiosXPlan(int id_plan, int id_beneficio) {
-        this.id_plan = id_plan;
-        this.id_beneficio = id_beneficio;
-    }
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int idbeneficio_plan;
 
-    public int getId_plan() {
-        return id_plan;
-    }
+    @ManyToOne
+    @JoinColumn(name = "idbeneficio")
+    private Beneficios beneficio;
+    
+    @ManyToOne
+    @JoinColumn(name = "idplan")
+    private Planes plan;
 
-    public void setId_plan(int id_plan) {
-        this.id_plan = id_plan;
-    }
 
-    public int getId_beneficio() {
-        return id_beneficio;
-    }
-
-    public void setId_beneficio(int id_beneficio) {
-        this.id_beneficio = id_beneficio;
-    }
-}
+} */
