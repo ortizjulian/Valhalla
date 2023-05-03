@@ -13,18 +13,18 @@ const Roulette = ({ data }) => {
     setMustSpin(true);
   };
 
-  useEffect(() => {
+    useEffect(() => {
     const addShortString = data.map((item) => {
       return {
-        completeOption: item.text,
-        option:
-          item.text.length >= 30
-            ? item.text.substring(0, 30).trimEnd() + "..."
-            : item.text
+        completeOption: item.description,
+         option:
+          item.description.length >= 30
+            ? item.description.substring(0, 30).trimEnd() + "..."
+            : item.description
       };
     });
     setRouletteData(addShortString);
-  }, [data]);
+  }, [data]);  
 
   return (
     <>

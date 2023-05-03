@@ -1,27 +1,24 @@
 package com.valhalla.valhalla.models;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+import lombok.Data;
+
+@Data
+@Entity
+@Table(name = "prizes")
 public class Prizes {
-    private int id;
-    private String text;
 
-    public Prizes(int id, String text) {
-        this.id = id;
-        this.text = text;
-    }
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id_prize;
 
-    public int getId() {
-        return id;
-    }
+    @Column(name = "description", nullable = false)
+    private String description;
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getText() {
-        return text;
-    }
-
-    public void setText(String descripcion) {
-        this.text = text;
-    }
 }

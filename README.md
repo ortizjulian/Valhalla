@@ -3,7 +3,7 @@ Gimnasio
 Integrantes:
 Julián Ortiz
 Santiago Castro
-Jóse Rivillas
+Jose Rivillas
 Jerónimo Aguirre
 
 Backend: Spring
@@ -30,3 +30,11 @@ INSERT INTO `valhalla`.`sedes` (`ciudad`, `nombre`, `direccion`, `link_imagen`, 
 ('Cali', 'Palmaseca', 'Cra 87 # 98', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSy81RnK1uszjgY3CjMP00bg5SSrJXBju2KVjJXCMrISR1_3iPvqlNZ_j-wy5Km6zW_o5A&usqp=CAU', 555444333);
 
 -- Agregar aquí el resto de inserts
+
+-- insert para prizes
+INSERT INTO `valhalla`.`prizes` (`description`) VALUES ('Sudadera nike');
+INSERT INTO `valhalla`.`prizes` (`description`) VALUES ('Medias adidas');
+INSERT INTO `valhalla`.`prizes` (`description`) VALUES ('Pre entreno');
+INSERT INTO `valhalla`.`prizes` (`description`) VALUES ('-10% en mensualidad');
+INSERT INTO `valhalla`.`prizes` (`description`) VALUES ('-20% en mensualidad');
+INSERT INTO `valhalla`.`prizes` (`description`) VALUES ('Termo');

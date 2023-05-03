@@ -12,6 +12,7 @@ const RouletteDrift = () => {
       .catch((error) => console.error(error));
   }, []);
 
+  
   return (
     <div className="main-form-roulette">
       <Roulette data={prizes} />
