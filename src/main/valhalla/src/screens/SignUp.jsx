@@ -16,6 +16,7 @@ import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import { Link as Route } from "react-router-dom";
 import Link from "@mui/material/Link";
+import { useNavigate } from "react-router-dom";
 
 const theme = createTheme({
   palette: {
@@ -32,6 +33,9 @@ const theme = createTheme({
 });
 
 export default function LogInSide() {
+
+  const navigate = useNavigate();
+
   //Funcion para tomar los datos
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -45,7 +49,7 @@ export default function LogInSide() {
       cedula: data.get("cedula"),
       correo: data.get("correo"),
       contrasena: data.get("contrasena"),
-      sexo: data.get("sexo"),
+      sexoFront: data.get("sexo"),
     };
     fetch("/auth/register", {
       method: "POST",
@@ -53,10 +57,21 @@ export default function LogInSide() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(user),
+    })  .then((response) => {
+      if (response.ok) {
+        
+        navigate("/login");
+      } else {
+       
+        return response.json().then((data) => {
+          console.error(data);
+          alert("Hubo un error al registrar al usuario: " + data.message);
+        });
+      }
+      return response.json();
     })
-      .then((response) => response.json())
-      .then((data) => console.log(data))
-      .catch((error) => console.error(error));
+    .then((data) => console.log(data))
+    .catch((error) => console.error(error));
   };
 
   //Transicion
