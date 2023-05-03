@@ -3,24 +3,8 @@ import RouletteDrift from "../../components/Elements/RouletteDrift";
 import NavbarUser from "../../components/Nav/NavbarUser";
 import Coupon from "../../components/Elements/Coupon";
 export default function UserPrizes() {
-  // useEffect(() => {
-  //   fetch("/prizes")
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       data.forEach((coupon) => {
-  //         fetch(`/beneficios/${plan.id}`)
-  //           .then((response) => response.json())
-  //           .then((beneficios) => {
-  //             setPlanConBeneficios((prevState) => [
-  //               ...prevState,
-  //               { plan: plan, beneficios: beneficios },
-  //             ]);
-  //           })
-  //           .catch((error) => console.error(error));
-  //       });
-  //     })
-  //     .catch((error) => console.error(error));
-  // }, []);
+
+
   return (
     <>
       <RouletteDrift />

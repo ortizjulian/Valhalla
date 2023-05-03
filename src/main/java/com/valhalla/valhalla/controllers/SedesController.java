@@ -16,10 +16,10 @@ import com.valhalla.valhalla.services.SedesService;
 public class SedesController {
 
     @Autowired
-    private SedesService userService;
+    private SedesService sedesService;
 
     @GetMapping()
     public List<Sedes> getAllSedes() {
-        return userService.getSedes();
+        return sedesService.getSedes();
     }
 }

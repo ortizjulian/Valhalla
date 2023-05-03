@@ -2,6 +2,8 @@ package com.valhalla.valhalla.models;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -11,14 +13,15 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "prizes")
-public class Prizes {
+@Table(name = "sexos")
+public class Sexo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id_prize;
+    private Integer id;
 
-    @Column(name = "description", nullable = false)
-    private String description;
+    @Enumerated(EnumType.STRING)
+    @Column(length = 20)
+    private ESexo name;
 
 }

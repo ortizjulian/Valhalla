@@ -60,3 +60,13 @@ INSERT INTO `valhalla`.`beneficios_x_plan` (`id_beneficio`, `id_plan`) VALUES ('
 INSERT INTO `valhalla`.`beneficios_x_plan` (`id_beneficio`, `id_plan`) VALUES ('6', '3');
 INSERT INTO `valhalla`.`beneficios_x_plan` (`id_beneficio`, `id_plan`) VALUES ('7', '3');
 INSERT INTO `valhalla`.`beneficios_x_plan` (`id_beneficio`, `id_plan`) VALUES ('8', '3');
+-- Insert para Roles
+INSERT INTO `valhalla`.`roles` (`id`, `name`) VALUES ('1', 'CLIENTE');
+INSERT INTO `valhalla`.`roles` (`id`, `name`) VALUES ('2', 'PROFESOR');
+INSERT INTO `valhalla`.`roles` (`id`, `name`) VALUES ('3', 'ADMINISTRADOR');
+
+-- Insert para sexos
+INSERT INTO `valhalla`.`sexos` (`id`, `name`) VALUES ('1', 'FEMENINO');
+INSERT INTO `valhalla`.`sexos` (`id`, `name`) VALUES ('2', 'MASCULINO');
+
+-- Agregar aquí el resto de inserts
