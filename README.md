@@ -29,4 +29,13 @@ INSERT INTO `valhalla`.`sedes` (`ciudad`, `nombre`, `direccion`, `link_imagen`, 
 ('Bogotá', 'Chapinero', 'Avenida 100', 'https://andro4all.com/hero/2022/03/Las-mejores-8-aplicaciones-de-rutinas-para-el-gimnasio-1.jpg?width=1200', 987654321),
 ('Cali', 'Palmaseca', 'Cra 87 # 98', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSy81RnK1uszjgY3CjMP00bg5SSrJXBju2KVjJXCMrISR1_3iPvqlNZ_j-wy5Km6zW_o5A&usqp=CAU', 555444333);
 
+-- Insert para Roles
+INSERT INTO `valhalla`.`roles` (`id`, `name`) VALUES ('1', 'CLIENTE');
+INSERT INTO `valhalla`.`roles` (`id`, `name`) VALUES ('2', 'PROFESOR');
+INSERT INTO `valhalla`.`roles` (`id`, `name`) VALUES ('3', 'ADMINISTRADOR');
+
+-- Insert para sexos
+INSERT INTO `valhalla`.`sexos` (`id`, `name`) VALUES ('1', 'FEMENINO');
+INSERT INTO `valhalla`.`sexos` (`id`, `name`) VALUES ('2', 'MASCULINO');
+
 -- Agregar aquí el resto de inserts

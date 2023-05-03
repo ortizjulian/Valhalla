@@ -1,9 +1,9 @@
 package com.valhalla.valhalla.controllers;
 
 import java.util.Date;
-import java.util.List;
-import java.util.stream.Collectors;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,14 +11,29 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.valhalla.valhalla.models.ERol;
+import com.valhalla.valhalla.models.ESexo;
+import com.valhalla.valhalla.models.Rol;
+import com.valhalla.valhalla.models.Sexo;
 import com.valhalla.valhalla.models.User;
-
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
+import com.valhalla.valhalla.payload.response.MessageResponse;
+import com.valhalla.valhalla.services.RolService;
+import com.valhalla.valhalla.services.SexoService;
+import com.valhalla.valhalla.services.UserService;
 
 @RestController
 @RequestMapping("/auth")
+
 public class AuthController {
+
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private RolService rolService;
+
+    @Autowired
+    private SexoService sexService;
 
     @GetMapping()
     public boolean login(@RequestParam long cedula, @RequestParam String contrasena) {
@@ -33,53 +48,38 @@ public class AuthController {
 
     }
 
-    /*
-     * @PostMapping("user")
-     * public User login2(@RequestParam long cedula, @RequestParam String
-     * contrasena) {
-     * 
-     * String token = getJWTToken(cedula);
-     * User user = new User();
-     * // user.setCedula(cedula);
-     * // user.setToken(token);
-     * return user;
-     * 
-     * }
-     * 
-     * private String getJWTToken(Long username) {
-     * String secretKey = "mySecretKey";
-     * List<GrantedAuthority> grantedAuthorities = AuthorityUtils
-     * .commaSeparatedStringToAuthorityList("ROLE_USER");
-     * 
-     * String token = Jwts
-     * .builder()
-     * .setId("softtekJWT")
-     * .setSubject(username + "")
-     * .claim("authorities",
-     * grantedAuthorities.stream()
-     * .map(GrantedAuthority::getAuthority)
-     * .collect(Collectors.toList()))
-     * .setIssuedAt(new Date(System.currentTimeMillis()))
-     * .setExpiration(new Date(System.currentTimeMillis() + 86400000))
-     * .signWith(SignatureAlgorithm.HS512,
-     * secretKey.getBytes())
-     * .compact();
-     * 
-     * return "Bearer " + token;
-     * }
-     */
     @PostMapping(value = "/register")
-    public User RegisterUser(@RequestBody User usuario) {
-        User user = new User();
-        user.setNombre(usuario.getNombre());
-        user.setCorreo(usuario.getCorreo());
-        user.setContrasena(usuario.getContrasena());
-        // user.setFechaNacimiento(usuario.getFechaNacimiento());
-        // user.setTelefono(usuario.getTelefono());
-        user.setRol(User.Rol.CLIENTE);
-        user.setSexo(usuario.getSexo());
-        user.setCedula(usuario.getCedula());
-        return user;
+    public ResponseEntity<?> RegisterUser(@RequestBody User usuario) {
+        try {
+            if (userService.existsByCedula(usuario.getCedula())) {
+                System.out.println("Hola");
+                return ResponseEntity
+                        .badRequest()
+                        .body(new MessageResponse("Error: Username is already taken!"));
+
+            }
+
+            if (userService.existsByCorreo(usuario.getCorreo())) {
+                System.out.println("Hola2");
+                return ResponseEntity
+                        .badRequest()
+                        .body(new MessageResponse("Error: Correo is already taken!"));
+            }
+
+            Rol cliente = rolService.findByName(ERol.CLIENTE);
+
+            Sexo sexo = sexService.findByName(ESexo.fromString(usuario.getSexoFront()));
+            usuario.setFechaNacimiento(new Date(0, 0, 0, 0, 0, 0));
+            usuario.setSexo(sexo);
+            usuario.setRol(cliente);
+            userService.createUser(usuario);
+
+            return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
+        } catch (Exception e) {
+            return ResponseEntity
+                    .badRequest()
+                    .body(new MessageResponse("Error: No se pudo registrar el usuario"));
+        }
 
     }
 

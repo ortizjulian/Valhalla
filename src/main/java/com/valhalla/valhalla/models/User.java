@@ -2,124 +2,55 @@ package com.valhalla.valhalla.models;
 
 import java.util.Date;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+
+import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
+import lombok.Data;
+
+@Data
+@Entity
+@Table(name = "user")
 public class User {
 
-    public enum Rol {
-        CLIENTE,
-        ADMIN,
-    }
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    int id;
 
-    public enum Sexo {
-        MASCULINO,
-        FEMENINO,
-    }
-
-    private int id;
+    @Column(name = "nombre", nullable = false)
     private String nombre;
+
+    @Column(name = "correo", nullable = false, unique = true)
     private String correo;
+
+    @Column(name = "contrasena", nullable = false)
     private String contrasena;
+
+    @Column(name = "fechaNacimiento", nullable = false)
     private Date fechaNacimiento;
+
+    @Column(name = "telefono", nullable = false)
     private long telefono;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "rol_id")
     private Rol rol;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "sexo_id")
     private Sexo sexo;
+
+    @Transient
+    private String sexoFront;
+
+    @Column(name = "ciudad", nullable = false, unique = true)
     private long cedula;
-
-    public User(int id, String nombre, String correo, String contrasena, Date fechaNacimiento, long telefono, Rol rol,
-            Sexo sexo, long cedula) {
-        this.id = id;
-        this.nombre = nombre;
-        this.correo = correo;
-        this.contrasena = contrasena;
-        this.fechaNacimiento = fechaNacimiento;
-        this.telefono = telefono;
-        this.rol = rol;
-        this.sexo = sexo;
-        this.cedula = cedula;
-    }
-
-    public User() {
-    }
-
-    private int sede;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getCorreo() {
-        return correo;
-    }
-
-    public void setCorreo(String correo) {
-        this.correo = correo;
-    }
-
-    public String getContrasena() {
-        return contrasena;
-    }
-
-    public void setContrasena(String contraseña) {
-        this.contrasena = contraseña;
-    }
-
-    public Date getFechaNacimiento() {
-        return fechaNacimiento;
-    }
-
-    public void setFechaNacimiento(Date fecha_nacimiento) {
-        this.fechaNacimiento = fecha_nacimiento;
-    }
-
-    public long getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(long telefono) {
-        this.telefono = telefono;
-    }
-
-    public Rol getRol() {
-        return rol;
-    }
-
-    public void setRol(Rol rol) {
-        this.rol = rol;
-    }
-
-    public Sexo getSexo() {
-        return sexo;
-    }
-
-    public void setSexo(Sexo sexo) {
-        this.sexo = sexo;
-    }
-
-    public long getCedula() {
-        return cedula;
-    }
-
-    public void setCedula(long cedula) {
-        this.cedula = cedula;
-    }
-
-    public int getSede() {
-        return sede;
-    }
-
-    public void setSede(int sede) {
-        this.sede = sede;
-    }
 
 }
