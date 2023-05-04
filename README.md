@@ -69,4 +69,14 @@ INSERT INTO `valhalla`.`roles` (`id`, `name`) VALUES ('3', 'ADMINISTRADOR');
 INSERT INTO `valhalla`.`sexos` (`id`, `name`) VALUES ('1', 'FEMENINO');
 INSERT INTO `valhalla`.`sexos` (`id`, `name`) VALUES ('2', 'MASCULINO');
 
+-- insert para prizes
+INSERT INTO `valhalla`.`prizes` (`id_prize`, `description`) VALUES ('1', 'Juego de pesas');
+INSERT INTO `valhalla`.`prizes` (`id_prize`, `description`) VALUES ('2', 'Mancuernas de 10kg');
+INSERT INTO `valhalla`.`prizes` (`id_prize`, `description`) VALUES ('3', '-10% en mensualidad');
+INSERT INTO `valhalla`.`prizes` (`id_prize`, `description`) VALUES ('4', '-20% en mensualidad');
+INSERT INTO `valhalla`.`prizes` (`id_prize`, `description`) VALUES ('5', 'Termo');
+INSERT INTO `valhalla`.`prizes` (`id_prize`, `description`) VALUES ('6', 'Pre entreno');
+INSERT INTO `valhalla`.`prizes` (`id_prize`, `description`) VALUES ('7', 'Medias adidas');
+INSERT INTO `valhalla`.`prizes` (`id_prize`, `description`) VALUES ('8', 'Sudadera nike');
+
 -- Agregar aquí el resto de inserts
