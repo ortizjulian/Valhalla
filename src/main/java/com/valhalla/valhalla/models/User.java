@@ -50,7 +50,7 @@ public class User {
     @Transient
     private String sexoFront;
 
-    @Column(name = "ciudad", nullable = false, unique = true)
+    @Column(name = "cedula", nullable = false, unique = true)
     private long cedula;
 
 }

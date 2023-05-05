@@ -60,6 +60,7 @@ INSERT INTO `valhalla`.`beneficios_x_plan` (`id_beneficio`, `id_plan`) VALUES ('
 INSERT INTO `valhalla`.`beneficios_x_plan` (`id_beneficio`, `id_plan`) VALUES ('6', '3');
 INSERT INTO `valhalla`.`beneficios_x_plan` (`id_beneficio`, `id_plan`) VALUES ('7', '3');
 INSERT INTO `valhalla`.`beneficios_x_plan` (`id_beneficio`, `id_plan`) VALUES ('8', '3');
+
 -- Insert para Roles
 INSERT INTO `valhalla`.`roles` (`id`, `name`) VALUES ('1', 'CLIENTE');
 INSERT INTO `valhalla`.`roles` (`id`, `name`) VALUES ('2', 'PROFESOR');
@@ -68,6 +69,12 @@ INSERT INTO `valhalla`.`roles` (`id`, `name`) VALUES ('3', 'ADMINISTRADOR');
 -- Insert para sexos
 INSERT INTO `valhalla`.`sexos` (`id`, `name`) VALUES ('1', 'FEMENINO');
 INSERT INTO `valhalla`.`sexos` (`id`, `name`) VALUES ('2', 'MASCULINO');
+
+-- Insert para usuarios
+INSERT INTO `valhalla`.`user` (`id`, `cedula`, `contrasena`, `correo`, `fecha_nacimiento`, `nombre`, `telefono`, `rol_id`, `sexo_id`) VALUES ('1', '1000', '123', 'jose@email.com', '2000-11-11 12:00:00', 'Jose', '3000000000', '2', '1');
+
+-- Insert para clases
+INSERT INTO `valhalla`.`clases` (`id_clases`, `capacidad`, `descripcion`, `fecha_fin`, `fecha_inicio`, `link_imagen`, `nombre`, `id_profesor`, `id_sede`) VALUES ('1', '20', 'Clase de Zumba con el Ferxxo', '2023/05/05 11:00:00', '2023/05/05 12:00:00', 'https://azsstatic.com/1200/conversions/zumba-default.jpg', 'Zumba', '1', '1');
 
 -- insert para prizes
 INSERT INTO `valhalla`.`prizes` (`id_prize`, `description`) VALUES ('1', 'Juego de pesas');
