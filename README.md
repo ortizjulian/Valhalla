@@ -74,7 +74,7 @@ INSERT INTO `valhalla`.`sexos` (`id`, `name`) VALUES ('2', 'MASCULINO');
 INSERT INTO `valhalla`.`user` (`id`, `cedula`, `contrasena`, `correo`, `fecha_nacimiento`, `nombre`, `telefono`, `rol_id`, `sexo_id`) VALUES ('1', '1000', '123', 'jose@email.com', '2000-11-11 12:00:00', 'Jose', '3000000000', '2', '1');
 
 -- Insert para clases
-INSERT INTO `valhalla`.`clases` (`id_clases`, `capacidad`, `descripcion`, `fecha_fin`, `fecha_inicio`, `link_imagen`, `nombre`, `id_profesor`, `id_sede`) VALUES ('1', '20', 'Clase de Zumba con el Ferxxo', '2023/4/21 12:00', '2023/4/21 12:00', 'https://azsstatic.com/1200/conversions/zumba-default.jpg', 'Zumba', '1', '1');
+INSERT INTO `valhalla`.`clases` (`id_clases`, `capacidad`, `descripcion`, `fecha_fin`, `fecha_inicio`, `link_imagen`, `nombre`, `id_profesor`, `id_sede`) VALUES ('1', '20', 'Clase de Zumba con el Ferxxo', '2023/05/05 11:00:00', '2023/05/05 12:00:00', 'https://azsstatic.com/1200/conversions/zumba-default.jpg', 'Zumba', '1', '1');
 
 -- insert para prizes
 INSERT INTO `valhalla`.`prizes` (`id_prize`, `description`) VALUES ('1', 'Juego de pesas');

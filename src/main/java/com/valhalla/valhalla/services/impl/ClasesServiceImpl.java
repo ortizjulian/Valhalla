@@ -16,6 +16,11 @@ public class ClasesServiceImpl implements ClasesService {
     private ClasesRepository clasesRepository;
 
     @Override
+    public void createClases(Clases clase) {
+        clasesRepository.save(clase);
+    }
+
+    @Override
     public List<Clases> getClases() {
         return clasesRepository.findAll();
     }
