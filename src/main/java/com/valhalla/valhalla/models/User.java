@@ -39,18 +39,18 @@ public class User {
     @Column(name = "telefono", nullable = false)
     private long telefono;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "rol_id")
     private Rol rol;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "sexo_id")
     private Sexo sexo;
 
     @Transient
     private String sexoFront;
 
-    @Column(name = "ciudad", nullable = false, unique = true)
+    @Column(name = "cedula", nullable = false, unique = true)
     private long cedula;
 
 }

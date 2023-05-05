@@ -1,97 +1,54 @@
 package com.valhalla.valhalla.models;
 
-import java.util.Date;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+
+import lombok.Data;
+
+@Data
+@Entity
+@Table(name="clases")
 
 public class Clases {
 
-    private int id_clase;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id_clases;
+
+    @Column(name = "nombre", nullable = false)
     private String nombre;
+
+    @Column(name = "descripcion", nullable = false)
     private String descripcion;
 
-    private int id_profesor;
-    private int id_sede;
-    private int capacidad;
+    @Column(name = "link_imagen", nullable = false)
+    private String link_imagen;
+
+    @Column(name = "fecha_inicio", nullable = false)
     private String fecha_inicio;
-    private String fecha_final;
 
-    public Clases(int id_clase, String nombre, String descripcion, int id_profesor, int id_sede, int capacidad,
-            String fecha_inicio, String fecha_final) {
-        this.id_clase = id_clase;
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.id_profesor = id_profesor;
-        this.id_sede = id_sede;
-        this.capacidad = capacidad;
-        this.fecha_inicio = fecha_inicio;
-        this.fecha_final = fecha_final;
-    }
+    @Column(name = "fecha_fin", nullable = false)
+    private String fecha_fin;
 
-    public String getFecha_inicio() {
-        return fecha_inicio;
-    }
+    @Column(name = "capacidad", nullable = false)
+    private byte capacidad;
 
-    public void setFecha_inicio(String fecha_inicio) {
-        this.fecha_inicio = fecha_inicio;
-    }
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_profesor")
+    private User profesor;
 
-    public String getFecha_final() {
-        return fecha_final;
-    }
-
-    public void setFecha_final(String fecha_final) {
-        this.fecha_final = fecha_final;
-    }
-
-    public int getId_clase() {
-        return id_clase;
-    }
-
-    public void setId_clase(int id_clase) {
-        this.id_clase = id_clase;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    public int getId_profesor() {
-        return id_profesor;
-    }
-
-    public void setId_profesor(int id_profesor) {
-        this.id_profesor = id_profesor;
-    }
-
-    public int getId_sede() {
-        return id_sede;
-    }
-
-    public void setId_sede(int id_sede) {
-        this.id_sede = id_sede;
-    }
-
-    public int getCapacidad() {
-        return capacidad;
-    }
-
-    public void setCapacidad(int capacidad) {
-        this.capacidad = capacidad;
-    }
-
-    public Clases() {
-
-    }
-
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_sede")
+    private Sedes sede;
+    
 }
