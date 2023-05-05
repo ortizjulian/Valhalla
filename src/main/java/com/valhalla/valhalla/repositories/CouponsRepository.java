@@ -1,13 +1,11 @@
-
 package com.valhalla.valhalla.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.valhalla.valhalla.models.Sedes;
-
+import com.valhalla.valhalla.models.Coupon;
 
 @Repository
-public interface SedesRepository extends JpaRepository<Sedes, Integer> {
-    public Sedes findByIdsedes(int idsedes);
+public interface CouponsRepository extends JpaRepository<Coupon, Integer> {
+
 }

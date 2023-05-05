@@ -21,4 +21,9 @@ public class SedesServiceImpl implements SedesService {
         return sedesRepository.findAll();
     }
 
+    @Override 
+    public Sedes findByIdsedes(int idSedes){
+        return  sedesRepository.findByIdsedes(idSedes);
+    }
+
 }

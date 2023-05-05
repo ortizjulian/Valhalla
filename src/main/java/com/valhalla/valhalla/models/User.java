@@ -39,11 +39,11 @@ public class User {
     @Column(name = "telefono", nullable = false)
     private long telefono;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "rol_id")
     private Rol rol;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "sexo_id")
     private Sexo sexo;
 

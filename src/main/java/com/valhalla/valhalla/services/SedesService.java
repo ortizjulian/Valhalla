@@ -7,4 +7,6 @@ import com.valhalla.valhalla.models.Sedes;
 
 public interface SedesService {
     public List<Sedes> getSedes();
+
+    public Sedes findByIdsedes(int idsedes);
 }
