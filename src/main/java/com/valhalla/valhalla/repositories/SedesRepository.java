@@ -9,4 +9,5 @@ import com.valhalla.valhalla.models.Sedes;
 
 @Repository
 public interface SedesRepository extends JpaRepository<Sedes, Integer> {
+    public Sedes findByIdsedes(int idsedes);
 }
