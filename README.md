@@ -76,5 +76,14 @@ INSERT INTO `valhalla`.`user` (`id`, `cedula`, `contrasena`, `correo`, `fecha_na
 -- Insert para clases
 INSERT INTO `valhalla`.`clases` (`id_clases`, `capacidad`, `descripcion`, `fecha_fin`, `fecha_inicio`, `link_imagen`, `nombre`, `id_profesor`, `id_sede`) VALUES ('1', '20', 'Clase de Zumba con el Ferxxo', '2023/4/21 12:00', '2023/4/21 12:00', 'https://azsstatic.com/1200/conversions/zumba-default.jpg', 'Zumba', '1', '1');
 
+-- insert para prizes
+INSERT INTO `valhalla`.`prizes` (`id_prize`, `description`) VALUES ('1', 'Juego de pesas');
+INSERT INTO `valhalla`.`prizes` (`id_prize`, `description`) VALUES ('2', 'Mancuernas de 10kg');
+INSERT INTO `valhalla`.`prizes` (`id_prize`, `description`) VALUES ('3', '-10% en mensualidad');
+INSERT INTO `valhalla`.`prizes` (`id_prize`, `description`) VALUES ('4', '-20% en mensualidad');
+INSERT INTO `valhalla`.`prizes` (`id_prize`, `description`) VALUES ('5', 'Termo');
+INSERT INTO `valhalla`.`prizes` (`id_prize`, `description`) VALUES ('6', 'Pre entreno');
+INSERT INTO `valhalla`.`prizes` (`id_prize`, `description`) VALUES ('7', 'Medias adidas');
+INSERT INTO `valhalla`.`prizes` (`id_prize`, `description`) VALUES ('8', 'Sudadera nike');
 
 -- Agregar aquí el resto de inserts
