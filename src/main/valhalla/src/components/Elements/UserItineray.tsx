@@ -1,7 +1,6 @@
 
 
 import { Button, DialogActions } from "@mui/material";
-//import EVENTS from "../../data/data";
 import { Scheduler } from "@aldabil/react-scheduler";
 import styled from "styled-components";
 import React, { useEffect, useState } from "react";
@@ -36,7 +35,7 @@ export default function UserItineray() {
 
 
   useEffect(() => {
-    fetch("/calendar")
+    fetch("/clases")
       .then((response) => response.json())
       .then((data) => {
 
@@ -44,14 +43,12 @@ export default function UserItineray() {
         const eventos: Evento[] = data.map((clase: any) => {
 
           return {
-
-
-            event_id: clase.id_clase,
+            event_id: clase.id_clases,
             title: clase.nombre,
             start: new Date(clase.fecha_inicio),
             end: new Date(clase.fecha_final),
             description: clase.descripcion,
-            profesor: clase.id_profesor,
+            profesor: clase.profesor.id,
           };
         });
         console.log(eventos);
@@ -66,7 +63,6 @@ export default function UserItineray() {
 
       <Scheduler
         events={clases}
-
         day={null}
         month={null}
         week={{

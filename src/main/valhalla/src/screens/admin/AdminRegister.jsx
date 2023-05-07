@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useEffect, useState } from "react";
 import ButtonRegister from "../../components/Buttons/ButtonRegister";
 import Box from "@mui/material/Box";
 import TextField_register from "../../components/Elements/TextField_register";
@@ -20,32 +20,88 @@ function createData(
   return { cedula, name, time };
 }
 
-const rows = [
+/* const rows = [
+  
   createData('22100400', 'Julián Rios', '12:00 p.m.'),
   createData('19878172', 'Jennifer Pedraza', '3:00 p.m.'),
   createData('13412', 'Jennifer Pedraza', '4:00 p.m.'),
   createData('1987872', 'Julio Pedraza', '3:00 p.m.'),
   createData('19878172', 'Mary Pedraza', '3:00 p.m.'),
-];
+]; */
 
 
 
 export default function LogInSide() {
 
   //Funcion para tomar los datos
+
+  const fetchRegistros = () => {
+    fetch("/registros")
+      .then((response) => response.json())
+      .then((data) => setRegistros(data))
+      .catch((error) => console.error(error));
+  };
+  
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
 
-    const params = {
-      cedula: data.get("cedula")
+    const registro = {
+      cedula: data.get("cedula") 
     };
-    alert(params.cedula);
+
+    
+    fetch("/registros/crear?cedula="+ registro.cedula,{
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({}),
+    })  .then((response) => {
+      if (response.ok) {
+        
+        alert("Se resgistro")
+        fetchRegistros();
+      } else {
+       
+        return response.json().then((data) => {
+          console.error(data);
+          alert("Hubo un error al registrar " + data.message);
+        });
+      }
+      return response.json();
+    })
+    .then((data) => console.log(data))
+    .catch((error) => console.error(error));
+    
   };
+  const [registros, setRegistros] = useState([]);
+
+  useEffect(() => {
+    fetchRegistros();
+  }, []);
+
+/*    const [registro, setRegistros] = useState([]);
+
+  useEffect(() => {
+    fetch("/registros")
+      .then((response) => response.json())
+      .then((data) => setRegistros(data))
+      .catch((error) => console.error(error));
+  }, []);
+
+  
+  const rows = [
+    registro.map((item) => (
+      createData(item.id_user.cedula,item.id_user.nombre,item.fecha_hora_entrada)
+    )),
+
+    
+  ];  */
 
   //Estado con valor inicial false
   const [checked, setChecked] = React.useState(false);
-
 
   return (
     <>
@@ -90,16 +146,15 @@ export default function LogInSide() {
               </TableRow>
             </TableHead>
             <TableBody>
-              {rows.map((row) => (
+              {registros.map((registro) => (
                 <TableRow
-                  key={row.name}
+                  key={registro.id_user.cedula}
                   sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                 >
-                  <TableCell align="center" component="th" scope="row">
-                    {row.cedula}
-                  </TableCell>
-                  <TableCell align="center">{row.name}</TableCell>
-                  <TableCell align="center">{row.time}</TableCell>
+                  
+                  <TableCell align="center">{registro.id_user.cedula}</TableCell>
+                  <TableCell align="center">{registro.id_user.nombre}</TableCell>
+                  <TableCell align="center">{registro.fecha_hora_entrada}</TableCell>
                   <TableCell align="center"><Button variant="outlined" color="error">
                     Cerrar
                   </Button></TableCell>
