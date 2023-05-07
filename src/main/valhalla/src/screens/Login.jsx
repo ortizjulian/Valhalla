@@ -11,6 +11,8 @@ import TextField from "../components/Elements/TextField_sessions";
 import Slide from "@mui/material/Slide";
 import { Link as Route } from "react-router-dom";
 import Link from "@mui/material/Link";
+import { useNavigate } from "react-router-dom";
+import AuthService from "../services/auth-service";
 
 const theme = createTheme({
   palette: {
@@ -28,21 +30,40 @@ const theme = createTheme({
 
 //Funcion para tomar los datos
 export default function LogInSide() {
+
+  
+  const navigate = useNavigate();
+
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
 
     const params = {
       cedula: data.get("cedula"),
-      contrasena: data.get("contrasena"),
+      password: data.get("contrasena"),
     };
-    alert(params.cedula);
+   
+    AuthService.login(params.cedula, params.password).then(
+      (data) => {
+        if (data.roles.includes("ADMINISTRADOR")) {
+          navigate("/admin");
+        } else if (data.roles.includes("CLIENTE")) {
+          navigate("/user");
+        }
+      },
+      (error) => {
+        const resMessage =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+    
+        alert(resMessage);
+      }
+    );
 
-    fetch("/auth?cedula=" + params.cedula + "&contrasena=" + params.contrasena)
-      .then((response) => response.json())
-      .then((response) => {
-        alert(response);
-      });
   };
   //Estado con valor inicial false
   const [checked, setChecked] = React.useState(false);

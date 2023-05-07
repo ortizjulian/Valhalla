@@ -28,13 +28,12 @@ import jakarta.persistence.Id;
 @RequestMapping("/registros")
 public class RegistrosController {
 
-
     @Autowired
     private RegistrosService registroService;
 
     @Autowired
     private UserService userService;
-    
+
     @Autowired
     private SedesService sedeService;
 
@@ -42,37 +41,34 @@ public class RegistrosController {
     public List<Registros> getAllRegistros() {
         return registroService.getRegistros();
     }
-    
 
     @PostMapping("/crear")
     public ResponseEntity<?> RegisterEntry(@RequestParam long cedula) {
 
-
         try {
-            User usuario= userService.findByCedula(cedula);
-            System.out.println(usuario);
-            
-            if(usuario == null){
+            User usuario = userService.findByCedula(cedula);
+
+            if (usuario == null) {
                 return ResponseEntity
-                            .badRequest()
-                            .body(new MessageResponse("Error: Usuario no encontrado"));
+                        .badRequest()
+                        .body(new MessageResponse("Error: Usuario no encontrado"));
             }
-    
-            else{
-                
-                 Registros registro = new Registros();
-                 new MessageResponse("Usuaio ingresado");
-                 registro.setId_user(usuario);
-                 registro.setId_sede(sedeService.findByIdsedes(1));
-                 registro.setFecha_hora_entrada(new Date());
-                 registro.setFecha_hora_salida(new Date());
-                 registroService.createRegistro(registro);
-                 return ResponseEntity.ok(new MessageResponse("Usuario ingresado"));
-            } 
+
+            else {
+
+                Registros registro = new Registros();
+                new MessageResponse("Usuaio ingresado");
+                registro.setId_user(usuario);
+                registro.setId_sede(sedeService.findByIdsedes(1));
+                registro.setFecha_hora_entrada(new Date());
+                registro.setFecha_hora_salida(new Date());
+                registroService.createRegistro(registro);
+                return ResponseEntity.ok(new MessageResponse("Usuario ingresado"));
+            }
         } catch (Exception e) {
             return ResponseEntity
                     .badRequest()
-                    .body(new MessageResponse("Error: No se pudo ingresar el usuario\n"+e.getMessage()));
+                    .body(new MessageResponse("Error: No se pudo ingresar el usuario\n" + e.getMessage()));
         }
     }
 }

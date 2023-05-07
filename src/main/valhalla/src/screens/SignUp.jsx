@@ -18,6 +18,8 @@ import { Link as Route } from "react-router-dom";
 import Link from "@mui/material/Link";
 import { useNavigate } from "react-router-dom";
 
+import AuthService from "../services/auth-service";
+
 const theme = createTheme({
   palette: {
     primary: {
@@ -51,27 +53,23 @@ export default function LogInSide() {
       contrasena: data.get("contrasena"),
       sexoFront: data.get("sexo"),
     };
-    fetch("/auth/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(user),
-    })  .then((response) => {
+
+    AuthService.register(user.nombre, user.cedula, user.contrasena, user.correo, user.sexoFront)
+    .then(response => {
       if (response.ok) {
-        
         navigate("/login");
       } else {
-       
         return response.json().then((data) => {
           console.error(data);
           alert("Hubo un error al registrar al usuario: " + data.message);
         });
       }
-      return response.json();
     })
-    .then((data) => console.log(data))
-    .catch((error) => console.error(error));
+    .catch(error => {
+      console.error(error);
+      alert("Hubo un error al registrar al usuario.");
+    });    
+
   };
 
   //Transicion

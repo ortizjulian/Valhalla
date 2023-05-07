@@ -70,8 +70,17 @@ INSERT INTO `valhalla`.`roles` (`id`, `name`) VALUES ('3', 'ADMINISTRADOR');
 INSERT INTO `valhalla`.`sexos` (`id`, `name`) VALUES ('1', 'FEMENINO');
 INSERT INTO `valhalla`.`sexos` (`id`, `name`) VALUES ('2', 'MASCULINO');
 
--- Insert para usuarios
-INSERT INTO `valhalla`.`user` (`id`, `cedula`, `contrasena`, `correo`, `fecha_nacimiento`, `nombre`, `telefono`, `rol_id`, `sexo_id`) VALUES ('1', '1000', '123', 'jose@email.com', '2000-11-11 12:00:00', 'Jose', '3000000000', '2', '1');
+-- Insert de admin
+
+INSERT INTO `valhalla`.`user` (`id`, `cedula`, `contrasena`, `correo`, `nombre`, `telefono`) VALUES ('1', '1', '$2a$10$pV80PGtxQAbtLzkHXxPG9ejmB5va1ce6BnJaqtVL/ePGBAFQmaiSK', 'ADMIN@GMAIL.COM', 'Administrador', '0');
+INSERT INTO `valhalla`.`user_roles` (`user_id`, `role_id`) VALUES ('1', '3');
+
+-- Insert de profesores
+
+INSERT INTO `valhalla`.`user` (`cedula`, `contrasena`, `correo`, `nombre`, `telefono`, `sexo_id`) VALUES ('2', '$2a$10$pV80PGtxQAbtLzkHXxPG9ejmB5va1ce6BnJaqtVL/ePGBAFQmaiSK', 'Profesor1@Gmail.com', 'Jero', '0', '1');
+INSERT INTO `valhalla`.`user` (`cedula`, `contrasena`, `correo`, `nombre`, `telefono`, `sexo_id`) VALUES ('3', '$2a$10$pV80PGtxQAbtLzkHXxPG9ejmB5va1ce6BnJaqtVL/ePGBAFQmaiSK', 'Profesor2@Gmail.com', 'Jose', '0', '1');
+INSERT INTO `valhalla`.`user_roles` (`user_id`, `role_id`) VALUES ('2', '2');
+INSERT INTO `valhalla`.`user_roles` (`user_id`, `role_id`) VALUES ('3', '2');
 
 -- Insert para clases
 INSERT INTO `valhalla`.`clases` (`id_clases`, `capacidad`, `descripcion`, `fecha_fin`, `fecha_inicio`, `link_imagen`, `nombre`, `id_profesor`, `id_sede`) VALUES ('1', '20', 'Clase de Zumba con el Ferxxo', '2023/05/05 11:00:00', '2023/05/05 12:00:00', 'https://azsstatic.com/1200/conversions/zumba-default.jpg', 'Zumba', '1', '1');

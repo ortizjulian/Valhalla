@@ -11,9 +11,8 @@ import com.valhalla.valhalla.models.Clases;
 import com.valhalla.valhalla.services.ClasesService;
 
 @RestController
-@RequestMapping("/clases")
+@RequestMapping("api/clases")
 public class ClasesController {
-
 
     @GetMapping()
     public List<Clases> getAllClases() {
@@ -22,7 +21,5 @@ public class ClasesController {
 
     @Autowired
     private ClasesService clasesService;
-
-
 
 }

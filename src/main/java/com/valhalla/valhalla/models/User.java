@@ -1,6 +1,8 @@
 package com.valhalla.valhalla.models;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -9,6 +11,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 
 import jakarta.persistence.Table;
@@ -33,15 +37,12 @@ public class User {
     @Column(name = "contrasena", nullable = false)
     private String contrasena;
 
-    @Column(name = "fechaNacimiento", nullable = false)
-    private Date fechaNacimiento;
-
     @Column(name = "telefono", nullable = false)
     private long telefono;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "rol_id")
-    private Rol rol;
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Rol> roles = new HashSet<>();
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "sexo_id")
@@ -53,4 +54,11 @@ public class User {
     @Column(name = "cedula", nullable = false, unique = true)
     private long cedula;
 
+    public Set<Rol> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Rol> roles) {
+        this.roles = roles;
+    }
 }
