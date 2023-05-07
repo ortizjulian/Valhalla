@@ -32,17 +32,42 @@ const theme = createTheme({
   },
 });
 
-export default function LogInSide() {
+export default function SignInSide() {
 
   const navigate = useNavigate();
+
+  //Estado para guardas valor de la cedula
+  const [cedula, setCedula] = React.useState("");
+  //Estado para guardar error de validacion
+  const [cedulaError, setCedulaError] = React.useState("");
+  //Funcion que actualiza el estado de la cedula y llama a validateCedula
+  const handleCedulaChange = (event) => {
+    
+    const cedulaValue = event.target.value;
+    setCedula(cedulaValue);
+    validateCedula(cedulaValue);
+  };
+  //Comprueba que cedula tenga el formato correcto
+  const validateCedula = (cedula) => {
+    if (!/^[0-9]{10}$/.test(cedula)) {
+      setCedulaError("La cédula contener 10 dígitos y solo numeros");
+    } else {
+      setCedulaError("");
+    }
+  };
+
+  
 
   //Funcion para tomar los datos
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    // alert(
-    //   "Cedula: " + data.get("nombre") + "Apellido: "+ data.get("apellidos") + " Password: " + data.get("contrasena") + data.get("sexo")
-    // );
+
+    //Comprobar que la cedula no tenga error
+    if (cedulaError !== "") {
+      alert("Por favor, corrige los errores en el formulario");
+      return;
+    }
 
     const user = {
       nombre: data.get("nombre"),
@@ -149,9 +174,9 @@ export default function LogInSide() {
                 onSubmit={handleSubmit}
                 sx={{ mt: 1 }}
               >
-                <TextField label={"Nombres y apellidos"} id={"nombre"} />
-                <TextField label={"Cedula"} id={"cedula"} />
-                <TextField label={"Correo"} id={"correo"} />
+                <TextField label={"Nombres y apellidos"} id={"nombre"}/>
+                <TextField label={"Cedula"} id={"cedula"} value={cedula} onChange={handleCedulaChange} helperText={cedulaError} />
+                <TextField label={"Correo"} id={"correo"} type="email" />
                 <TextField
                   label={"Contraseña"}
                   id={"contrasena"}
