@@ -18,7 +18,7 @@ import { Link as Route } from "react-router-dom";
 import Link from "@mui/material/Link";
 import { useNavigate } from "react-router-dom";
 
-import AuthService from "../services/auth-service";
+import AuthService from "../services/authService";
 
 const theme = createTheme({
   palette: {
@@ -162,8 +162,9 @@ export default function SignInSide() {
       contrasena: data.get("contrasena"),
       sexoFront: data.get("sexo"),
     };
-
-    AuthService.register(user.nombre, user.cedula, user.contrasena, user.correo, user.sexoFront)
+    alert(contrasena);
+    alert(user.contrasena);
+    AuthService.register(user.nombre, user.cedula, contrasena, user.correo, user.sexoFront)
     .then(response => {
       if (response.ok) {
         navigate("/login");

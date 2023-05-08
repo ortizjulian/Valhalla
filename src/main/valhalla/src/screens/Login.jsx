@@ -12,7 +12,7 @@ import Slide from "@mui/material/Slide";
 import { Link as Route } from "react-router-dom";
 import Link from "@mui/material/Link";
 import { useNavigate } from "react-router-dom";
-import AuthService from "../services/auth-service";
+import AuthService from "../services/authService";
 
 const theme = createTheme({
   palette: {
