@@ -10,7 +10,7 @@ export default function ProjectBox({ imagen, title, text, action }) {
       >
         <ImageWrapper>
           <Image src={imagen} />
-          <HoverText>Reservar</HoverText>
+      
         </ImageWrapper>
       </ImgBtn>
       <h3 className="font20 extraBold">{title}</h3>
@@ -72,7 +72,7 @@ const ImgBtn = styled.button`
   }
 `;
 
-const HoverText = styled.div`
+/* const HoverText = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
@@ -86,3 +86,4 @@ const HoverText = styled.div`
     opacity: 1;
   }
 `;
+ */

@@ -28,13 +28,13 @@ const theme = createTheme({
   },
 });
 
-//Funcion para tomar los datos
+
 export default function LogInSide() {
 
   
   const navigate = useNavigate();
 
-
+  //Funcion para tomar los datos
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -136,7 +136,7 @@ export default function LogInSide() {
                 onSubmit={handleSubmit}
                 sx={{ mt: 1 }}
               >
-                <TextField label={"Cedula"} id={"cedula"} type="number" />
+                <TextField label={"Cedula"} id={"cedula"} />
                 <TextField
                   label={"Contraseña"}
                   id={"contrasena"}

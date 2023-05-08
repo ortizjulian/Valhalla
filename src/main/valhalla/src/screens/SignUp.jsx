@@ -38,6 +38,28 @@ export default function SignInSide() {
 
   const navigate = useNavigate();
 
+    // Estado para guardar valor del nombre y apellido combinados
+    const [nombreApellido, setNombreApellido] = React.useState("");
+    // Estado para guardar error de validacion
+    const [nombreApellidoError, setNombreApellidoError] = React.useState("");
+  
+    // Funcion que actualiza el estado del nombre y apellido y llama a validateNombreApellido
+    const handleNombreApellidoChange = (event) => {
+      const nombreApellidoValue = event.target.value;
+      setNombreApellido(nombreApellidoValue);
+      validateNombreApellido(nombreApellidoValue);
+    };
+  
+    // Comprueba que el campo de texto de nombre y apellido tenga el formato correcto
+    const validateNombreApellido = (nombreApellido) => {
+      const [nombre, apellido] = nombreApellido.split(" ");
+      if (!nombre || !apellido) {
+        setNombreApellidoError("Por favor, ingrese su nombre y su apellido.");
+      } else {
+        setNombreApellidoError("");
+      }
+    };
+
   //Estado para guardas valor de la cedula
   const [cedula, setCedula] = React.useState("");
   //Estado para guardar error de validacion
@@ -58,6 +80,68 @@ export default function SignInSide() {
     }
   };
 
+
+  //Estado para guardar valor de correo
+  const [correo, setCorreo] = React.useState("");
+  //Estado para guardar error de validacion
+  const [correoError, setCorreoError] = React.useState("");
+  //Funcion que actualiza el estado de correo y llama a validateCorreo
+  const handleCorreoChange = (event) => {
+    const correoValue = event.target.value;
+    setCorreo(correoValue);
+    validateCorreo(correoValue);
+  };
+  //Comprueba que el correo tenga el formato correcto
+  const validateCorreo = (correo) => {
+    if (!/\S+@\S+\.\S+/.test(correo)) {
+      setCorreoError("Por favor, ingrese un correo válido");
+    } else {
+      setCorreoError("");
+    }
+  };
+
+  //Estado para guardar valor de la contrasena
+  const [contrasena, setContrasena] = React.useState("");
+  //Estado para guardar erro de validacion
+  const [contrasenaError, setContrasenaError] = React.useState("");
+  //Funcion que actualiza el estado de caontrasena y llama a validateContrasena
+  const handleContrasenaChange = (event) => {
+    const contrasenaValue = event.target.value;
+    setContrasena(contrasenaValue);
+    validateContrasena(contrasenaValue);
+  };
+  //Compruab que la contrasena empiece por letra mayuscula, tenga minimo 8 caracteres y contener numeros
+  const validateContrasena = (contrasena) => {
+    if (
+      !/^[A-Z][a-zA-Z0-9]{7,}$/.test(contrasena)) {
+      setContrasenaError(
+        "La contraseña debe tener al menos 8 caracteres, comenzar con una letra mayúscula, contener números"
+      );
+    } else {
+      setContrasenaError("");
+    }
+  };
+  
+  //Estado para guardar valor de la confrimacion de contrasena
+  const [confirmContrasena, setConfirmContrasena] = React.useState("");
+  //Estado para guardar error de validacion
+  const [confirmError, setConfirmError] = React.useState("");
+  //Actualiza el estado de la confirmacion y la valida
+  const handleConfirm = (event) => {
+    const confirmValue = event.target.value;
+    setConfirmContrasena(confirmValue);
+    validateConfirmacion(confirmValue);
+  };
+  //COmprueba que la confirmacion coincida con la contrasena
+  const validateConfirmacion = (confirmContrasena) => {
+    if (confirmContrasena !== contrasena){
+      setConfirmError("Las contraseñas deben de coincidir.")
+    }else {
+      setConfirmError("");
+    }
+  };
+  
+
   
 
   //Funcion para tomar los datos
@@ -66,7 +150,7 @@ export default function SignInSide() {
     const data = new FormData(event.currentTarget);
 
     //Comprobar que la cedula no tenga error
-    if (cedulaError !== "") {
+    if (cedulaError !== "" || correoError !== "" || contrasenaError !== "" || confirmError !== "" || nombreApellidoError !== "") {
       alert("Por favor, corrige los errores en el formulario");
       return;
     }
@@ -172,19 +256,12 @@ export default function SignInSide() {
                 onSubmit={handleSubmit}
                 sx={{ mt: 1 }}
               >
-                <TextField label={"Nombres y apellidos"} id={"nombre"}/>
+                <TextField label={"Nombres y apellidos"} id={"nombre"} value={nombreApellido} onChange={handleNombreApellidoChange} helperText={nombreApellidoError}/>
                 <TextField label={"Cedula"} id={"cedula"} value={cedula} onChange={handleCedulaChange} helperText={cedulaError} />
-                <TextField label={"Correo"} id={"correo"} type="email" />
-                <TextField
-                  label={"Contraseña"}
-                  id={"contrasena"}
-                  type="password"
-                />
-                <TextField
-                  label={"Confirmar contraseña"}
-                  id={"confirmContrasena"}
-                  type="password"
-                />
+                <TextField label={"Correo electrónico"} id={"correo"} value={correo} onChange={handleCorreoChange} helperText={correoError}/>
+                <TextField label="Contraseña" type="password" value={contrasena} onChange={handleContrasenaChange} helperText={contrasenaError} />
+                <TextField label={"Confirmar contraseña"} id={"confirmContrasena"} type="password" value={confirmContrasena} onChange={handleConfirm} helperText={confirmError}/>
+
                 <FormControl>
                   <FormLabel
                     id="sexo"
