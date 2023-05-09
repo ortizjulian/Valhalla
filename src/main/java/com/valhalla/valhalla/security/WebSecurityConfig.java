@@ -19,10 +19,7 @@ import com.valhalla.valhalla.security.jwt.AuthTokenFilter;
 import com.valhalla.valhalla.security.services.UserDetailsServiceImpl;
 
 @Configuration
-@EnableGlobalMethodSecurity(
-        // securedEnabled = true,
-        // jsr250Enabled = true,
-        prePostEnabled = true)
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig { // extends WebSecurityConfigurerAdapter {
     @Autowired
     UserDetailsServiceImpl userDetailsService;
@@ -35,12 +32,6 @@ public class WebSecurityConfig { // extends WebSecurityConfigurerAdapter {
         return new AuthTokenFilter();
     }
 
-    // @Override
-    // public void configure(AuthenticationManagerBuilder
-    // authenticationManagerBuilder) throws Exception {
-    // authenticationManagerBuilder.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
-    // }
-
     @Bean
     public DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
@@ -50,12 +41,6 @@ public class WebSecurityConfig { // extends WebSecurityConfigurerAdapter {
 
         return authProvider;
     }
-
-    // @Bean
-    // @Override
-    // public AuthenticationManager authenticationManagerBean() throws Exception {
-    // return super.authenticationManagerBean();
-    // }
 
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authConfig) throws Exception {
@@ -67,26 +52,13 @@ public class WebSecurityConfig { // extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
-    // @Override
-    // protected void configure(HttpSecurity http) throws Exception {
-    // http.cors().and().csrf().disable()
-    // .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
-    // .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-    // .authorizeRequests().antMatchers("/api/auth/**").permitAll()
-    // .antMatchers("/api/test/**").permitAll()
-    // .anyRequest().authenticated();
-    //
-    // http.addFilterBefore(authenticationJwtTokenFilter(),
-    // UsernamePasswordAuthenticationFilter.class);
-    // }
-
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable()
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                 .authorizeHttpRequests()
-                .requestMatchers("/api/**").denyAll().anyRequest().permitAll();
+                .requestMatchers("/api/**").authenticated().anyRequest().permitAll();
 
         http.authenticationProvider(authenticationProvider());
 

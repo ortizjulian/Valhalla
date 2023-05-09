@@ -6,7 +6,7 @@ export default function Admin() {
   const [currentUser, setCurrentUser] = useState(JSON.parse(localStorage.getItem('user')));
 
 
-  if (!currentUser || !currentUser.roles.includes('ADMINISTRADOR')) {
+  if (!currentUser || !currentUser.roles.includes('ROLE_ADMINISTRADOR')) {
      return <Navigate to="/login" />;
   }
   return (

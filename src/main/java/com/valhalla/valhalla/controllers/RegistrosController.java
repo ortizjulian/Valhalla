@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,18 +15,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.valhalla.valhalla.models.Registros;
-import com.valhalla.valhalla.models.Sedes;
+
 import com.valhalla.valhalla.models.User;
 import com.valhalla.valhalla.payload.response.MessageResponse;
-import com.valhalla.valhalla.repositories.SedesRepository;
+
 import com.valhalla.valhalla.services.RegistrosService;
 import com.valhalla.valhalla.services.SedesService;
 import com.valhalla.valhalla.services.UserService;
 
-import jakarta.persistence.Id;
-
 @RestController
-@RequestMapping("/registros")
+@RequestMapping("api/registros")
 public class RegistrosController {
 
     @Autowired
@@ -37,11 +36,14 @@ public class RegistrosController {
     @Autowired
     private SedesService sedeService;
 
+    @PreAuthorize("hasRole('ROLE_ADMINISTRADOR')")
     @GetMapping()
     public List<Registros> getAllRegistros() {
+        System.out.println("Hola");
         return registroService.getRegistros();
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMINISTRADOR')")
     @PostMapping("/crear")
     public ResponseEntity<?> RegisterEntry(@RequestParam long cedula) {
 

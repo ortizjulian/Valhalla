@@ -7,7 +7,7 @@ function User() {
   const [currentUser, setCurrentUser] = useState(JSON.parse(localStorage.getItem('user')));
 
 
-  if (!currentUser || !currentUser.roles.includes('CLIENTE')) {
+  if (!currentUser || !currentUser.roles.includes('ROLE_USER')) {
      return <Navigate to="/login" />;
   }
 

@@ -12,6 +12,8 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 
+import RegistrosService from "../../services/registrosService";
+
 function createData(
   cedula,
   name,
@@ -36,10 +38,14 @@ export default function LogInSide() {
   //Funcion para tomar los datos
 
   const fetchRegistros = () => {
-    fetch("/registros")
-      .then((response) => response.json())
-      .then((data) => setRegistros(data))
-      .catch((error) => console.error(error));
+
+    RegistrosService.getRegistros()
+    .then(data => {
+      setRegistros(data);
+    })
+    .catch(error => {
+      console.error(error);
+    });
   };
   
 
@@ -50,30 +56,32 @@ export default function LogInSide() {
     const registro = {
       cedula: data.get("cedula") 
     };
+  
+
 
     
-    fetch("/registros/crear?cedula="+ registro.cedula,{
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({}),
-    })  .then((response) => {
-      if (response.ok) {
-        
-        alert("Se resgistro")
-        fetchRegistros();
-      } else {
-       
-        return response.json().then((data) => {
-          console.error(data);
-          alert("Hubo un error al registrar " + data.message);
-        });
-      }
-      return response.json();
-    })
-    .then((data) => console.log(data))
-    .catch((error) => console.error(error));
+  RegistrosService.saveRegistro(registro.cedula)
+  .then((response) => {
+    if (response.ok) {        
+      alert("Se registro");
+      fetchRegistros();
+    } else {
+      console.error(response );
+      alert("Hubo un error al registrar " + response .message);         
+    }
+  })
+  .catch((error) => {
+    const resMessage =
+      (error.response &&
+        error.response.data &&
+        error.response.data.message) ||
+      error.message ||
+      error.toString();
+
+    alert(resMessage);
+  });
+
+
     
   };
   const [registros, setRegistros] = useState([]);

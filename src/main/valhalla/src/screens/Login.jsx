@@ -46,9 +46,9 @@ export default function LogInSide() {
    
     AuthService.login(params.cedula, params.password).then(
       (data) => {
-        if (data.roles.includes("ADMINISTRADOR")) {
+        if (data.roles.includes("ROLE_ADMINISTRADOR")) {
           navigate("/admin");
-        } else if (data.roles.includes("CLIENTE")) {
+        } else if (data.roles.includes("ROLE_USER")) {
           navigate("/user");
         }
       },

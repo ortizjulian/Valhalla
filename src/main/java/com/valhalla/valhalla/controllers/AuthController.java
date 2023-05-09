@@ -102,7 +102,7 @@ public class AuthController {
             usuario.setContrasena(encoder.encode(usuario.getContrasena()));
             Set<Rol> roles = new HashSet<>();
 
-            Rol userRol = rolService.findByName(ERol.CLIENTE);
+            Rol userRol = rolService.findByName(ERol.ROLE_USER);
             roles.add(userRol);
 
             usuario.setRoles(roles);
