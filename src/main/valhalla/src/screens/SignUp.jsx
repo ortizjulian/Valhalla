@@ -73,8 +73,8 @@ export default function SignInSide() {
   };
   //Comprueba que cedula tenga el formato correcto
   const validateCedula = (cedula) => {
-    if (!/^[0-9]{10}$/.test(cedula)) {
-      setCedulaError("La cédula contener 10 dígitos y solo numeros");
+    if (!/^[0-9]{8,10}$/.test(cedula)) {
+      setCedulaError("La cédula contener de 8 a 10 dígitos y solo numeros");
     } else {
       setCedulaError("");
     }

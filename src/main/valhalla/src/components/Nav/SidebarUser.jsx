@@ -1,9 +1,15 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-scroll";
+import { Link } from "react-router-dom";
 // Assets
 import CloseIcon from "../../assets/svg/CloseIcon";
 import ButtonNavBar from "../Buttons/ButtonNavBar";
+//Icons
+import {
+  AiOutlineBarChart,
+  AiFillCalendar,
+  AiFillTrophy,
+} from "react-icons/ai";
 
 export default function SidebarUser({ sidebarOpen, toggleSidebar }) {
   return (
@@ -23,10 +29,11 @@ export default function SidebarUser({ sidebarOpen, toggleSidebar }) {
             activeClass="active"
             className="whiteColor"
             style={{ padding: "10px 15px" }}
-            to="Sedes"
+            to="/user"
           >
-            Sedes
+            Home
           </Link>
+          
         </li>
 
         <li className="semiBold font15 pointer">
@@ -35,10 +42,12 @@ export default function SidebarUser({ sidebarOpen, toggleSidebar }) {
             activeClass="active"
             className="whiteColor"
             style={{ padding: "10px 15px" }}
-            to="Servicios"
+            to="/user/stats"
           >
-            Servicios
+            Estadisticas
           </Link>
+          <AiOutlineBarChart/>
+          
         </li>
 
         <li className="semiBold font15 pointer">
@@ -47,10 +56,11 @@ export default function SidebarUser({ sidebarOpen, toggleSidebar }) {
             activeClass="active"
             className="whiteColor"
             style={{ padding: "10px 15px" }}
-            to="Clases"
+            to="/user/calendar"
           >
-            Clases
+            Calendario
           </Link>
+          <AiFillCalendar/>
         </li>
         <li className="semiBold font15 pointer">
           <Link
@@ -58,25 +68,13 @@ export default function SidebarUser({ sidebarOpen, toggleSidebar }) {
             activeClass="active"
             className="whiteColor"
             style={{ padding: "10px 15px" }}
-            to="Precios"
+            to="/user/prizes"
           >
-            Precios
+            Premios
           </Link>
+          <AiFillTrophy/>
         </li>
-        <li className="semiBold font15 pointer">
-          <Link
-            onClick={() => toggleSidebar(!sidebarOpen)}
-            activeClass="active"
-            className="whiteColor"
-            style={{ padding: "10px 15px" }}
-            to="Contacto"
-          >
-            Contacto
-          </Link>
-        </li>
-        <ButtonNavBar title="Ingresar" route="/login" />
-
-        <ButtonNavBar title="Registrarse" route="/signup" />
+      
       </UlStyle>
     </Wrapper>
   );
