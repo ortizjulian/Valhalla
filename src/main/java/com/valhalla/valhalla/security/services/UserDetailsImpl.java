@@ -15,6 +15,17 @@ import com.valhalla.valhalla.models.User;
 public class UserDetailsImpl implements UserDetails {
     private static final long serialVersionUID = 1L;
 
+
+    private String nombre;
+    
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
     private int id;
 
     private String username;
@@ -27,12 +38,13 @@ public class UserDetailsImpl implements UserDetails {
     private Collection<? extends GrantedAuthority> authorities;
 
     public UserDetailsImpl(int id, String username, String email, String password,
-            Collection<? extends GrantedAuthority> authorities) {
+            Collection<? extends GrantedAuthority> authorities,String nombre) {
         this.id = id;
         this.username = username;
         this.email = email;
         this.password = password;
         this.authorities = authorities;
+        this.nombre = nombre;
     }
 
     public static UserDetailsImpl build(User user) {
@@ -45,7 +57,7 @@ public class UserDetailsImpl implements UserDetails {
                 user.getCedula() + "",
                 user.getCorreo(),
                 user.getContrasena(),
-                authorities);
+                authorities,user.getNombre());
     }
 
     @Override

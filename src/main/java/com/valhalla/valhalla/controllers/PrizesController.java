@@ -11,7 +11,7 @@ import com.valhalla.valhalla.models.Prizes;
 import com.valhalla.valhalla.services.PrizesService;
 
 @RestController
-@RequestMapping("/prizes")
+@RequestMapping("api/prizes")
 public class PrizesController {
 
 

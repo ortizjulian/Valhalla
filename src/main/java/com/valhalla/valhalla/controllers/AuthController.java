@@ -75,7 +75,7 @@ public class AuthController {
                 Long.valueOf(userDetails.getId()),
                 userDetails.getUsername(),
                 userDetails.getEmail(),
-                roles);
+                roles,userDetails.getNombre());
 
         return ResponseEntity.ok(response);
 

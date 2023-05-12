@@ -43,7 +43,7 @@ export default function NavbarUser() {
           <Wrapper>
             <NavInner className="container flexSpaceCenter">
               <Titulo>
-                <h1>Buenos dias, nombre</h1>
+                <h1>Hola, {JSON.parse(localStorage.getItem('user')).nombre}!</h1>
               </Titulo>
               <BurderWrapper
                 className="pointer"
