@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
 import Landing from "./screens/Landing";
 import Login from "./screens/Login";
 import SignUp from "./screens/SignUp";
@@ -20,6 +19,8 @@ import UserWelcome from "./screens/user/UserWelcome";
 //Error 404
 import PageNotFound from "./screens/PageNotFound";
 
+
+
 const Router = () => {
   return (
     <>
@@ -28,6 +29,7 @@ const Router = () => {
           <Route path="/" element={<Landing />} />
           <Route path="/signup" element={<SignUp />} />
           <Route exact path="/login" element={<Login />} />
+
           <Route path="/user" element={<User />}>
             **
             <Route index element={<UserWelcome />} />
@@ -43,7 +45,11 @@ const Router = () => {
             <Route path="calendar" element={<AdminCalendar />} />
             <Route path="stats" element={<AdminStats />} />
             <Route path="gift" element={<AdminPrizes />} />
-          </Route>
+          </Route> 
+
+        
+
+
           **<Route path="*" element={<PageNotFound />}></Route>**
         </Routes>
       </BrowserRouter>

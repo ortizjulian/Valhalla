@@ -1,7 +1,7 @@
 package com.valhalla.valhalla.models;
 
 public enum ERol {
-    CLIENTE,
-    ADMIN,
-    PROFESOR
+    ROLE_USER,
+    ROLE_ADMINISTRADOR,
+    ROLE_PROFESOR
 }

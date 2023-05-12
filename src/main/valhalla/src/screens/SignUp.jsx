@@ -18,6 +18,8 @@ import { Link as Route } from "react-router-dom";
 import Link from "@mui/material/Link";
 import { useNavigate } from "react-router-dom";
 
+import AuthService from "../services/authService";
+
 const theme = createTheme({
   palette: {
     primary: {
@@ -32,17 +34,126 @@ const theme = createTheme({
   },
 });
 
-export default function LogInSide() {
+export default function SignInSide() {
 
   const navigate = useNavigate();
+
+    // Estado para guardar valor del nombre y apellido combinados
+    const [nombreApellido, setNombreApellido] = React.useState("");
+    // Estado para guardar error de validacion
+    const [nombreApellidoError, setNombreApellidoError] = React.useState("");
+  
+    // Funcion que actualiza el estado del nombre y apellido y llama a validateNombreApellido
+    const handleNombreApellidoChange = (event) => {
+      const nombreApellidoValue = event.target.value;
+      setNombreApellido(nombreApellidoValue);
+      validateNombreApellido(nombreApellidoValue);
+    };
+  
+    // Comprueba que el campo de texto de nombre y apellido tenga el formato correcto
+    const validateNombreApellido = (nombreApellido) => {
+      const [nombre, apellido] = nombreApellido.split(" ");
+      if (!nombre || !apellido) {
+        setNombreApellidoError("Por favor, ingrese su nombre y su apellido.");
+      } else {
+        setNombreApellidoError("");
+      }
+    };
+
+  //Estado para guardas valor de la cedula
+  const [cedula, setCedula] = React.useState("");
+  //Estado para guardar error de validacion
+  const [cedulaError, setCedulaError] = React.useState("");
+  //Funcion que actualiza el estado de la cedula y llama a validateCedula
+  const handleCedulaChange = (event) => {
+    
+    const cedulaValue = event.target.value;
+    setCedula(cedulaValue);
+    validateCedula(cedulaValue);
+  };
+  //Comprueba que cedula tenga el formato correcto
+  const validateCedula = (cedula) => {
+    if (!/^[0-9]{8,10}$/.test(cedula)) {
+      setCedulaError("La cédula contener de 8 a 10 dígitos y solo numeros");
+    } else {
+      setCedulaError("");
+    }
+  };
+
+
+  //Estado para guardar valor de correo
+  const [correo, setCorreo] = React.useState("");
+  //Estado para guardar error de validacion
+  const [correoError, setCorreoError] = React.useState("");
+  //Funcion que actualiza el estado de correo y llama a validateCorreo
+  const handleCorreoChange = (event) => {
+    const correoValue = event.target.value;
+    setCorreo(correoValue);
+    validateCorreo(correoValue);
+  };
+  //Comprueba que el correo tenga el formato correcto
+  const validateCorreo = (correo) => {
+    if (!/\S+@\S+\.\S+/.test(correo)) {
+      setCorreoError("Por favor, ingrese un correo válido");
+    } else {
+      setCorreoError("");
+    }
+  };
+
+  //Estado para guardar valor de la contrasena
+  const [contrasena, setContrasena] = React.useState("");
+  //Estado para guardar erro de validacion
+  const [contrasenaError, setContrasenaError] = React.useState("");
+  //Funcion que actualiza el estado de caontrasena y llama a validateContrasena
+  const handleContrasenaChange = (event) => {
+    const contrasenaValue = event.target.value;
+    setContrasena(contrasenaValue);
+    validateContrasena(contrasenaValue);
+  };
+  //Compruab que la contrasena empiece por letra mayuscula, tenga minimo 8 caracteres y contener numeros
+  const validateContrasena = (contrasena) => {
+    if (
+      !/^[A-Z][a-zA-Z0-9]{7,}$/.test(contrasena)) {
+      setContrasenaError(
+        "La contraseña debe tener al menos 8 caracteres, comenzar con una letra mayúscula, contener números"
+      );
+    } else {
+      setContrasenaError("");
+    }
+  };
+  
+  //Estado para guardar valor de la confrimacion de contrasena
+  const [confirmContrasena, setConfirmContrasena] = React.useState("");
+  //Estado para guardar error de validacion
+  const [confirmError, setConfirmError] = React.useState("");
+  //Actualiza el estado de la confirmacion y la valida
+  const handleConfirm = (event) => {
+    const confirmValue = event.target.value;
+    setConfirmContrasena(confirmValue);
+    validateConfirmacion(confirmValue);
+  };
+  //COmprueba que la confirmacion coincida con la contrasena
+  const validateConfirmacion = (confirmContrasena) => {
+    if (confirmContrasena !== contrasena){
+      setConfirmError("Las contraseñas deben de coincidir.")
+    }else {
+      setConfirmError("");
+    }
+  };
+  
+
+  
 
   //Funcion para tomar los datos
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    // alert(
-    //   "Cedula: " + data.get("nombre") + "Apellido: "+ data.get("apellidos") + " Password: " + data.get("contrasena") + data.get("sexo")
-    // );
+
+    //Comprobar que la cedula no tenga error
+    if (cedulaError !== "" || correoError !== "" || contrasenaError !== "" || confirmError !== "" || nombreApellidoError !== "") {
+      alert("Por favor, corrige los errores en el formulario");
+      return;
+    }
 
     const user = {
       nombre: data.get("nombre"),
@@ -51,27 +162,24 @@ export default function LogInSide() {
       contrasena: data.get("contrasena"),
       sexoFront: data.get("sexo"),
     };
-    fetch("/auth/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(user),
-    })  .then((response) => {
+    alert(contrasena);
+    alert(user.contrasena);
+    AuthService.register(user.nombre, user.cedula, contrasena, user.correo, user.sexoFront)
+    .then(response => {
       if (response.ok) {
-        
         navigate("/login");
       } else {
-       
         return response.json().then((data) => {
           console.error(data);
           alert("Hubo un error al registrar al usuario: " + data.message);
         });
       }
-      return response.json();
     })
-    .then((data) => console.log(data))
-    .catch((error) => console.error(error));
+    .catch(error => {
+      console.error(error);
+      alert("Hubo un error al registrar al usuario.");
+    });    
+
   };
 
   //Transicion
@@ -149,19 +257,12 @@ export default function LogInSide() {
                 onSubmit={handleSubmit}
                 sx={{ mt: 1 }}
               >
-                <TextField label={"Nombres y apellidos"} id={"nombre"} />
-                <TextField label={"Cedula"} id={"cedula"} />
-                <TextField label={"Correo"} id={"correo"} />
-                <TextField
-                  label={"Contraseña"}
-                  id={"contrasena"}
-                  type="password"
-                />
-                <TextField
-                  label={"Confirmar contraseña"}
-                  id={"confirmContrasena"}
-                  type="password"
-                />
+                <TextField label={"Nombres y apellidos"} id={"nombre"} value={nombreApellido} onChange={handleNombreApellidoChange} helperText={nombreApellidoError}/>
+                <TextField label={"Cedula"} id={"cedula"} value={cedula} onChange={handleCedulaChange} helperText={cedulaError} />
+                <TextField label={"Correo electrónico"} id={"correo"} value={correo} onChange={handleCorreoChange} helperText={correoError}/>
+                <TextField label="Contraseña" type="password" value={contrasena} onChange={handleContrasenaChange} helperText={contrasenaError} />
+                <TextField label={"Confirmar contraseña"} id={"confirmContrasena"} type="password" value={confirmContrasena} onChange={handleConfirm} helperText={confirmError}/>
+
                 <FormControl>
                   <FormLabel
                     id="sexo"

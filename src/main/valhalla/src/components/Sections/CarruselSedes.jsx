@@ -4,16 +4,20 @@ import CardSede from "../Elements/CardSede";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
+import SedesService from "../../services/sedesService";
 export default function CarruselSedes() {
   const [sedes, setSedes] = useState([]);
 
-  useEffect(() => {
-    fetch("/sedes")
-      .then((response) => response.json())
-      .then((data) => setSedes(data))
-      .catch((error) => console.error(error));
-  }, []);
+useEffect(() => {
+  SedesService.getSedes()
+    .then(data => {
+      setSedes(data);
+    })
+    .catch(error => {
+      console.error(error);
+    });
+}, []);
+
 
   const settings = {
     dots: true,

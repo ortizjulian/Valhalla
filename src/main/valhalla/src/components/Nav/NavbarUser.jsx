@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Backdrop from "../Elements/Backdrop";
 
 import { BiMenu } from "react-icons/bi";
-import Sidebar from "./Sidebar";
+import Sidebar from "./SidebarUser";
 import { Link } from "react-router-dom";
 import {
   AiOutlineBarChart,

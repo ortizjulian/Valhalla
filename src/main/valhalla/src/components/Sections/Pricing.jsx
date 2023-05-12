@@ -2,15 +2,20 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 // Components
 import PricingTable from "../Elements/PricingTable";
+import PlanesService from "../../services/planesService";
+
 
 export default function Pricing() {
   const [planesConBeneficios, setPlanConBeneficios] = useState([]);
 
   useEffect(() => {
-    fetch("/planes")
-      .then((response) => response.json())
-      .then((data) => setPlanConBeneficios(data))
-      .catch((error) => console.error(error));
+    PlanesService.getPlanes()
+      .then(data => {
+        setPlanConBeneficios(data);
+      })
+      .catch(error => {
+        console.error(error);
+      });
   }, []);
 
   return (
