@@ -27,7 +27,7 @@ create database valhalla;
 INSERT INTO `valhalla`.`sedes` (`ciudad`, `nombre`, `direccion`, `link_imagen`, `telefono`) VALUES
 ('Medellín', 'Centro', 'Cra 54', 'https://metropolitano.gal/wp-content/uploads/2022/12/gimnasiog-4.jpg', 123456789),
 ('Bogotá', 'Chapinero', 'Avenida 100', 'https://andro4all.com/hero/2022/03/Las-mejores-8-aplicaciones-de-rutinas-para-el-gimnasio-1.jpg?width=1200', 987654321),
-('Cali', 'Palmaseca', 'Cra 87 # 98', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSy81RnK1uszjgY3CjMP00bg5SSrJXBju2KVjJXCMrISR1_3iPvqlNZ_j-wy5Km6zW_o5A&usqp=CAU', 555444333);
+('Cali', 'Palmaseca', 'Cra 87 # 98', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSy81RnK1uszjgY3CjMP00bg5SSrJXBju2KVjJXCMrISR1_3iPvqlNZ_j-wy5Km6zW_o5A&usqp=CAU', 555444333),('Medellín ', 'Calle 10', 'https://i.blogs.es/c2a266/burn_50_21480104_294340901049484_1535366888954003456_n/450_1000.jpg', 'Poblado', '6045403030');
 
 -- insert para planes
 INSERT INTO `valhalla`.`planes` (`id_planes`, `descripcion`, `nombre`, `precio`) VALUES ('1', 'Nuestro plan básico, que te permitirá acceder a la sede de tu preferencia.', 'Guerrero', '59900');
@@ -74,7 +74,7 @@ INSERT INTO `valhalla`.`sexos` (`id`, `name`) VALUES ('2', 'MASCULINO');
 INSERT INTO `valhalla`.`user` (`id`, `cedula`, `contrasena`, `correo`, `fecha_nacimiento`, `nombre`, `telefono`, `rol_id`, `sexo_id`) VALUES ('1', '1000', '123', 'jose@email.com', '2000-11-11 12:00:00', 'Jose', '3000000000', '2', '1');
 
 -- Insert para clases
-INSERT INTO `valhalla`.`clases` (`id_clases`, `capacidad`, `descripcion`, `fecha_fin`, `fecha_inicio`, `link_imagen`, `nombre`, `id_profesor`, `id_sede`) VALUES ('1', '20', 'Clase de Zumba con el Ferxxo', '2023/05/05 11:00:00', '2023/05/05 12:00:00', 'https://azsstatic.com/1200/conversions/zumba-default.jpg', 'Zumba', '1', '1');
+INSERT INTO `valhalla`.`clases` (`id_clases`, `capacidad`, `descripcion`, `fecha_fin`, `fecha_inicio`, `link_imagen`, `nombre`, `id_profesor`, `id_sede`) VALUES ('1', '20', 'Clase de Zumba con el Ferxxo', '2023/05/05 10:00:00', '2023/05/05 12:00:00', 'https://azsstatic.com/1200/conversions/zumba-default.jpg', 'Zumba', '1', '1');
 
 -- insert para prizes
 INSERT INTO `valhalla`.`prizes` (`id_prize`, `description`) VALUES ('1', 'Juego de pesas');

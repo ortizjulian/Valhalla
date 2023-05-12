@@ -8,6 +8,7 @@ import type {
   ProcessedEvent,
   ViewEvent
 } from "@aldabil/react-scheduler/types";
+import EVENTS from "../../data/data";
 
 interface Evento {
   event_id: number;
@@ -30,6 +31,8 @@ export default function UserItineray() {
     );
   };
 
+
+  
   const [clases, setClases] = useState<Evento[]>([]);
 
 
@@ -42,29 +45,36 @@ export default function UserItineray() {
 
         const eventos: Evento[] = data.map((clase: any) => {
 
-          return {
+          /* return {
             event_id: clase.id_clases,
             title: clase.nombre,
             start: new Date(clase.fecha_inicio),
             end: new Date(clase.fecha_final),
             description: clase.descripcion,
             profesor: clase.profesor.id,
+          }; */
+          return {
+            event_id: 1,
+            title: "aaassasas",
+            start: new Date("2023/5/5 10:00"),
+            end: new Date("2023/5/5 12:00"),
+            description: "aaaa",
+            profesor: 1,
           };
         });
-        console.log(eventos);
         setClases(eventos);
+        
       })
       .catch((error) => console.error(error));
   }, []);
 
-
   return (
     <div style={{ color: "#000" }}>
-
+      
       <Scheduler
-        events={clases}
+        events={EVENTS}
         day={null}
-        month={null}
+        
         week={{
           weekDays: [0, 1, 2, 3, 4, 5, 6],
           weekStartOn: 1,

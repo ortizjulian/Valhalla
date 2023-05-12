@@ -43,7 +43,7 @@ export default function NavbarUser() {
           <Wrapper>
             <NavInner className="container flexSpaceCenter">
               <Titulo>
-                <h1>Buenos dias, nombre</h1>
+                <h1>Buenos tardes, Valeria🌻</h1>
               </Titulo>
               <BurderWrapper
                 className="pointer"
