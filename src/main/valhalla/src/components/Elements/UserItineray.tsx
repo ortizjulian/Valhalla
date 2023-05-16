@@ -9,6 +9,9 @@ import type {
   ViewEvent
 } from "@aldabil/react-scheduler/types";
 import EVENTS from "../../data/data";
+/* import EVENTS from "../../data/data"; */
+import planesService from "../../services/planesService";
+import clasesService from "../../services/clasesService";
 
 interface Evento {
   event_id: number;
@@ -32,47 +35,51 @@ export default function UserItineray() {
   };
 
 
+  const [registros, setRegistros] =  useState<Evento[]>([]);
   
-  const [clases, setClases] = useState<Evento[]>([]);
+  //const [clases, setClases] = useState<Evento[]>([]);
 
 
 
   useEffect(() => {
-    fetch("/clases")
+    clasesService.getClases()
+   /*  fetch("/clases") */
       .then((response) => response.json())
       .then((data) => {
 
 
         const eventos: Evento[] = data.map((clase: any) => {
 
-          /* return {
+          return {
             event_id: clase.id_clases,
             title: clase.nombre,
             start: new Date(clase.fecha_inicio),
-            end: new Date(clase.fecha_final),
+            end: new Date(clase.fecha_fin),
             description: clase.descripcion,
-            profesor: clase.profesor.id,
-          }; */
-          return {
+            profesor: clase.profesor.nombre,
+          };
+          /* return {
             event_id: 1,
             title: "aaassasas",
             start: new Date("2023/5/5 10:00"),
             end: new Date("2023/5/5 12:00"),
             description: "aaaa",
             profesor: 1,
-          };
+          }; */
         });
-        setClases(eventos);
+        setRegistros(eventos);
+        console.log("Eventos: " + eventos);
+        
         
       })
       .catch((error) => console.error(error));
   }, []);
-
+  /* console.log(EVENTS); */
   return (
     <div style={{ color: "#000" }}>
       
       <Scheduler
-        events={EVENTS}
+        events={registros}
         day={null}
         
         week={{

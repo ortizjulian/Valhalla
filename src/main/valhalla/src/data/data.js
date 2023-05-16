@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 
+
+
 let EVENTS = [
   {
     event_id: 1,
     title: "Salsa",
-    start: new Date("2023/5/5 10:00"),
-    end: new Date("2023/5/5 12:00"),
+    start: new Date("2023/5/11 10:00"),
+    end: new Date("2023/5/11 12:00"),
     description: "Segundo Piso",
     profesor: "Julian",
   },

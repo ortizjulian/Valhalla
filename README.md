@@ -27,7 +27,7 @@ create database valhalla;
 INSERT INTO `valhalla`.`sedes` (`ciudad`, `nombre`, `direccion`, `link_imagen`, `telefono`) VALUES
 ('Medellín', 'Centro', 'Cra 54', 'https://metropolitano.gal/wp-content/uploads/2022/12/gimnasiog-4.jpg', 123456789),
 ('Bogotá', 'Chapinero', 'Avenida 100', 'https://andro4all.com/hero/2022/03/Las-mejores-8-aplicaciones-de-rutinas-para-el-gimnasio-1.jpg?width=1200', 987654321),
-('Cali', 'Palmaseca', 'Cra 87 # 98', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSy81RnK1uszjgY3CjMP00bg5SSrJXBju2KVjJXCMrISR1_3iPvqlNZ_j-wy5Km6zW_o5A&usqp=CAU', 555444333),('Medellín ', 'Calle 10', 'https://i.blogs.es/c2a266/burn_50_21480104_294340901049484_1535366888954003456_n/450_1000.jpg', 'Poblado', '6045403030');
+('Cali', 'Palmaseca', 'Cra 87 # 98', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSy81RnK1uszjgY3CjMP00bg5SSrJXBju2KVjJXCMrISR1_3iPvqlNZ_j-wy5Km6zW_o5A&usqp=CAU', 555444333),('Medellín ', 'Poblado', 'Calle 10', 'https://i.blogs.es/c2a266/burn_50_21480104_294340901049484_1535366888954003456_n/450_1000.jpg', '6045403030');
 
 -- insert para planes
 INSERT INTO `valhalla`.`planes` (`id_planes`, `descripcion`, `nombre`, `precio`) VALUES ('1', 'Nuestro plan básico, que te permitirá acceder a la sede de tu preferencia.', 'Guerrero', '59900');

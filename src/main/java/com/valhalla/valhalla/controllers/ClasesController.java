@@ -11,7 +11,7 @@ import com.valhalla.valhalla.models.Clases;
 import com.valhalla.valhalla.services.ClasesService;
 
 @RestController
-@RequestMapping("api/clases")
+@RequestMapping("/clases")
 public class ClasesController {
 
     @GetMapping()
