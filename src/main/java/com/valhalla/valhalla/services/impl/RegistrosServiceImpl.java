@@ -14,16 +14,26 @@ import com.valhalla.valhalla.services.RegistrosService;
 public class RegistrosServiceImpl implements RegistrosService {
 
     @Autowired
-    private RegistrosRepository RegistrosRepository;
+    private RegistrosRepository registrosRepository;
 
     @Override
     public List<Registros> getRegistros() {
-        return RegistrosRepository.findAll();
+        return registrosRepository.findAll();
     }
 
     @Override
-    public Registros createRegistro(Registros registro){
-        return RegistrosRepository.save(registro);
+    public Registros createRegistro(Registros registro) {
+        return registrosRepository.save(registro);
+    }
+
+    @Override
+    public Registros findByIdregistro(int idregistro) {
+        return registrosRepository.findByIdregistro(idregistro);
+    }
+
+    @Override
+    public void updateRegistro(Registros registro) {
+        registrosRepository.save(registro);
     }
 
 }
