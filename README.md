@@ -86,19 +86,18 @@ INSERT INTO `valhalla`.`user_roles` (`user_id`, `role_id`) VALUES ('3', '2');
 INSERT INTO `valhalla`.`clases` (`id_clases`, `capacidad`, `descripcion`, `fecha_fin`, `fecha_inicio`, `link_imagen`, `nombre`, `id_profesor`, `id_sede`) VALUES ('1', '20', 'Clase de Zumba con el Ferxxo', '2023/05/05 10:00:00', '2023/05/05 12:00:00', 'https://azsstatic.com/1200/conversions/zumba-default.jpg', 'Zumba', '2', '1');
 
 -- insert para prizes
-INSERT INTO `valhalla`.`prizes` (`id_prize`, `description`) VALUES ('1', 'Juego de pesas');
-INSERT INTO `valhalla`.`prizes` (`id_prize`, `description`) VALUES ('2', 'Mancuernas de 10kg');
-INSERT INTO `valhalla`.`prizes` (`id_prize`, `description`) VALUES ('3', '-10% en mensualidad');
-INSERT INTO `valhalla`.`prizes` (`id_prize`, `description`) VALUES ('4', '-20% en mensualidad');
-INSERT INTO `valhalla`.`prizes` (`id_prize`, `description`) VALUES ('5', 'Termo');
-INSERT INTO `valhalla`.`prizes` (`id_prize`, `description`) VALUES ('6', 'Pre entreno');
-INSERT INTO `valhalla`.`prizes` (`id_prize`, `description`) VALUES ('7', 'Medias adidas');
-INSERT INTO `valhalla`.`prizes` (`id_prize`, `description`) VALUES ('8', 'Sudadera nike');
-
--- Agregar aquí el resto de inserts
+INSERT INTO `valhalla`.`prizes` ( `description`) VALUES ( 'Juego de pesas');
+INSERT INTO `valhalla`.`prizes` ( `description`) VALUES ( 'Mancuernas de 10kg');
+INSERT INTO `valhalla`.`prizes` (`description`) VALUES ( '-10% en mensualidad');
+INSERT INTO `valhalla`.`prizes`  (`description`) VALUES ( '-20% en mensualidad');
+INSERT INTO `valhalla`.`prizes` ( `description`) VALUES ( 'Termo');
+INSERT INTO `valhalla`.`prizes` ( `description`) VALUES ( 'Pre entreno');
+INSERT INTO `valhalla`.`prizes` (`description`) VALUES ( 'Medias adidas');
+INSERT INTO `valhalla`.`prizes` ( `description`) VALUES ( 'Sudadera nike');
 
 -- inserts para cupones
 
-INSERT INTO `valhalla`.`coupons` (`status`, `validity`, `id_prize`, `iduser`) VALUES ('0', '2023-10-10', '1', '4');
-INSERT INTO `valhalla`.`coupons` (`status`, `validity`, `id_prize`, `iduser`) VALUES ('0', '2022-10-10', '2', '4');
-INSERT INTO `valhalla`.`coupons` (`status`, `validity`, `id_prize`, `iduser`) VALUES ('1', '2023-10-10', '3', '4');
+INSERT INTO `valhalla`.`coupons` (`status`, `validity`, `idprize`, `iduser`) VALUES ('0', '2023-10-10', '1', '4');
+INSERT INTO `valhalla`.`coupons` (`status`, `validity`, `idprize`, `iduser`) VALUES ('0', '2022-10-10', '2', '4');
+INSERT INTO `valhalla`.`coupons` (`status`, `validity`, `idprize`, `iduser`) VALUES ('1', '2023-10-10', '3', '4');
+
