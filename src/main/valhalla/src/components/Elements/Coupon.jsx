@@ -17,6 +17,8 @@ export default function Coupon({
       </Wrapper>
     );
   }
+
+  
   
   const Wrapper = styled.div`
     width: 100%;
