@@ -59,9 +59,9 @@ const CustomEditor = ({ scheduler }: CustomEditorProps) => {
   };
 
 
-
   const handleSubmit = async () => {
 
+    
     //Condiciones para validadir si se agrega o no
     if (state.title.length < 3) {
       return setError("Min 3 letters");
@@ -77,36 +77,13 @@ const CustomEditor = ({ scheduler }: CustomEditorProps) => {
         scheduler.state.start.value,
         scheduler.state.end.value,
         20,
-        1,
+        state.profesor,
         1
       );
 
       /**Simulate remote data saving */
       const added_updated_event = (await new Promise((res) => {
-        /**
-         * Make sure the event have 4 mandatory fields
-         * event_id: string|number
-         * title: string
-         * start: Date|string
-         * end: Date|string
-         */
 
-        
-
-
-        const clase = {
-          id_clase: 1,
-          nombre: state.title,
-          fecha_incio: scheduler.state.start.value,
-          fecha_final: scheduler.state.end.value,
-          descripcion: state.description,
-          id_profesor: 1,
-          id_sede: 1,
-          capacidad: 20,
-
-        };
-
-        
 
         const newEvent = {
           event_id: 1,
@@ -116,8 +93,6 @@ const CustomEditor = ({ scheduler }: CustomEditorProps) => {
           description: state.description,
           profesor: state.profesor
         };
-
-
 
         setTimeout(() => {
           res(newEvent);
@@ -135,7 +110,7 @@ const CustomEditor = ({ scheduler }: CustomEditorProps) => {
   };
   return (
     <div>
-      <div className="purpleBg" style={{ padding: "1rem" }}>
+      <div className="lightBg" style={{ padding: "1rem" }}>
         <p style={{ color: "#FFFFFF" }}>Crea la clase</p>
 
         <CssTextField
@@ -177,9 +152,9 @@ const CustomEditor = ({ scheduler }: CustomEditorProps) => {
 
             }}
           >
-            <MenuItem value={"Santiago"} >Santiago</MenuItem>
-            <MenuItem value={"Julian"}>Julian</MenuItem>
-            <MenuItem value={"Jose"}>Jose</MenuItem>
+            <MenuItem value={2} >Jeronimo</MenuItem>
+            <MenuItem value={3}>Jose</MenuItem>
+            
           </Select>
         </FormControl>
       </div>
@@ -192,43 +167,9 @@ const CustomEditor = ({ scheduler }: CustomEditorProps) => {
 };
 
 export default function AdminItinerary() {
-/*   interface Clase {
-    id_clase: number;
-    nombre: string;
-    fecha_inicio: string;
-    fecha_final: string;
-    descripcion: string;
-    id_profesor: number;
-  }
-
-  interface Evento {
-    event_id: number;
-    title: string;
-    start: Date;
-    end: Date;
-    description: string;
-    profesor: number;
-  } */
 
   const [clases, setClases] = useState([]);
 
-/*   useEffect(() => {
-    ClasesService.getClases()
-  .then((data: Clase[]) => {
-    // Transformar las clases al formato de EVENTS
-    const transformedClases = data.map((clase: Clase) => ({
-      event_id: clase.id_clase,
-      title: clase.nombre,
-      start: new Date(clase.fecha_inicio),
-      end: new Date(clase.fecha_final),
-      description: clase.descripcion,
-      profesor: clase.id_profesor,
-    }));
-    setClases(transformedClases);
-  })
-  .catch((error) => console.error(error));
-  }, []); */
-  
   useEffect(() => {
     ClasesService.getClases()
       .then((mappedEvents) => setClases(mappedEvents))

@@ -38,42 +38,7 @@ export default function UserItineray() {
       .then((mappedEvents) => setClases(mappedEvents))
       .catch((error) => console.error(error));
   }, []);
-/*
-  useEffect(() => {
-    
-    clasesService.getClases()
-      .then((response) => response.json())
-      .then((data) => {
 
-
-        const eventos: Evento[] = data.map((clase: any) => {
-
-          return {
-            event_id: clase.id_clases,
-            title: clase.nombre,
-            start: new Date(clase.fecha_inicio),
-            end: new Date(clase.fecha_fin),
-            description: clase.descripcion,
-            profesor: clase.profesor.nombre,
-          };
-          /* return {
-            event_id: 1,
-            title: "aaassasas",
-            start: new Date("2023/5/5 10:00"),
-            end: new Date("2023/5/5 12:00"),
-            description: "aaaa",
-            profesor: 1,
-          }; 
-        });
-        setRegistros(eventos);
-        console.log("Eventos: " + eventos);
-        
-        
-      })
-      .catch((error) => console.error(error));
-  }, []);
-  */
-  /* console.log(EVENTS); */
 
 console.log(clases)
 

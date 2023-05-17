@@ -8,12 +8,12 @@ class ClasesService {
       .then((response) => response.json())
       .then((data) => {
         const mappedEvents = data.map((clase) => ({
-          event_id: clase.id_clase,
+          event_id: clase.id_clases,
           title: clase.nombre,
           start: new Date(clase.fecha_inicio),
           end: new Date(clase.fecha_fin),
           description: clase.descripcion,
-          profesor: clase.profesor,
+          profesor: clase.profesor.nombre,
         }));
         return mappedEvents;
       })
