@@ -47,7 +47,7 @@ export default function Navbar() {
           <Content>
             <Heading>
               <br />
-              Valhalla, el paraíso
+              El paraíso
               <br />
               para alcanzar la grandeza
             </Heading>

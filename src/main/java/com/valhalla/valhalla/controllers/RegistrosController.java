@@ -39,7 +39,6 @@ public class RegistrosController {
     @PreAuthorize("hasRole('ROLE_ADMINISTRADOR')")
     @GetMapping()
     public List<Registros> getAllRegistros() {
-        System.out.println("Hola");
         return registroService.getRegistros();
     }
 

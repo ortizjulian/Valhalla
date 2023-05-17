@@ -8,15 +8,12 @@ import type {
   ProcessedEvent,
   ViewEvent
 } from "@aldabil/react-scheduler/types";
+//import EVENTS from "../../data/data";
+/* import EVENTS from "../../data/data"; */
+import planesService from "../../services/planesService";
+import ClasesService from "../../services/clasesService";
 
-interface Evento {
-  event_id: number;
-  title: string;
-  start: Date;
-  end: Date;
-  description: string;
-  profesor: string;
-}
+
 
 
 
@@ -30,12 +27,21 @@ export default function UserItineray() {
     );
   };
 
-  const [clases, setClases] = useState<Evento[]>([]);
 
+  // const [registros, setRegistros] =  useState([]);
+  
+  const [clases, setClases] = useState([]);
 
-
+ 
   useEffect(() => {
-    fetch("/clases")
+    ClasesService.getClases()
+      .then((mappedEvents) => setClases(mappedEvents))
+      .catch((error) => console.error(error));
+  }, []);
+/*
+  useEffect(() => {
+    
+    clasesService.getClases()
       .then((response) => response.json())
       .then((data) => {
 
@@ -46,25 +52,39 @@ export default function UserItineray() {
             event_id: clase.id_clases,
             title: clase.nombre,
             start: new Date(clase.fecha_inicio),
-            end: new Date(clase.fecha_final),
+            end: new Date(clase.fecha_fin),
             description: clase.descripcion,
-            profesor: clase.profesor.id,
+            profesor: clase.profesor.nombre,
           };
+          /* return {
+            event_id: 1,
+            title: "aaassasas",
+            start: new Date("2023/5/5 10:00"),
+            end: new Date("2023/5/5 12:00"),
+            description: "aaaa",
+            profesor: 1,
+          }; 
         });
-        console.log(eventos);
-        setClases(eventos);
+        setRegistros(eventos);
+        console.log("Eventos: " + eventos);
+        
+        
       })
       .catch((error) => console.error(error));
   }, []);
+  */
+  /* console.log(EVENTS); */
 
+console.log(clases)
 
   return (
-    <div style={{ color: "#000" }}>
 
+    <div style={{ color: "#000" }}>
+      {clases.length > 0 ?(
       <Scheduler
         events={clases}
         day={null}
-        month={null}
+        
         week={{
           weekDays: [0, 1, 2, 3, 4, 5, 6],
           weekStartOn: 1,
@@ -94,7 +114,10 @@ export default function UserItineray() {
             </div>
           );
         }}
-      /> :
+      /> ) :
+      (
+        <p>Cargando clases...</p>
+      )}
 
     </div>
   );
