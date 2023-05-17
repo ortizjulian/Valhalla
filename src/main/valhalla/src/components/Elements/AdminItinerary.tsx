@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState } from "react";
+import React, { useEffect, useState } from 'react';
 import { TextField, Button, DialogActions } from "@mui/material";
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
@@ -12,6 +11,7 @@ import type {
   ProcessedEvent,
   SchedulerHelpers
 } from "@aldabil/react-scheduler/types";
+import ClasesService from '../../services/clasesService';
 
 
 const CssTextField = styled(TextField)({
@@ -70,6 +70,16 @@ const CustomEditor = ({ scheduler }: CustomEditorProps) => {
     try {
       scheduler.loading(true);
 
+      
+      await ClasesService.saveClases(
+        state.title,
+        state.description,
+        scheduler.state.start.value,
+        scheduler.state.end.value,
+        20,
+        1,
+        1
+      );
 
       /**Simulate remote data saving */
       const added_updated_event = (await new Promise((res) => {
@@ -81,6 +91,7 @@ const CustomEditor = ({ scheduler }: CustomEditorProps) => {
          * end: Date|string
          */
 
+        
 
 
         const clase = {
@@ -95,16 +106,7 @@ const CustomEditor = ({ scheduler }: CustomEditorProps) => {
 
         };
 
-        fetch("/calendar/create", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(clase),
-        })
-          .then((response) => response.json())
-          .then((data) => console.log(data))
-          .catch((error) => console.error(error));
+        
 
         const newEvent = {
           event_id: 1,
@@ -175,7 +177,7 @@ const CustomEditor = ({ scheduler }: CustomEditorProps) => {
 
             }}
           >
-            <MenuItem value={"Santiago"}>Santiago</MenuItem>
+            <MenuItem value={"Santiago"} >Santiago</MenuItem>
             <MenuItem value={"Julian"}>Julian</MenuItem>
             <MenuItem value={"Jose"}>Jose</MenuItem>
           </Select>
@@ -190,10 +192,56 @@ const CustomEditor = ({ scheduler }: CustomEditorProps) => {
 };
 
 export default function AdminItinerary() {
+/*   interface Clase {
+    id_clase: number;
+    nombre: string;
+    fecha_inicio: string;
+    fecha_final: string;
+    descripcion: string;
+    id_profesor: number;
+  }
+
+  interface Evento {
+    event_id: number;
+    title: string;
+    start: Date;
+    end: Date;
+    description: string;
+    profesor: number;
+  } */
+
+  const [clases, setClases] = useState([]);
+
+/*   useEffect(() => {
+    ClasesService.getClases()
+  .then((data: Clase[]) => {
+    // Transformar las clases al formato de EVENTS
+    const transformedClases = data.map((clase: Clase) => ({
+      event_id: clase.id_clase,
+      title: clase.nombre,
+      start: new Date(clase.fecha_inicio),
+      end: new Date(clase.fecha_final),
+      description: clase.descripcion,
+      profesor: clase.id_profesor,
+    }));
+    setClases(transformedClases);
+  })
+  .catch((error) => console.error(error));
+  }, []); */
+  
+  useEffect(() => {
+    ClasesService.getClases()
+      .then((mappedEvents) => setClases(mappedEvents))
+      .catch((error) => console.error(error));
+  }, []);
+
+  console.log(clases);
   return (
     <div style={{ color: "#000" }}>
-      <Scheduler
-        events={EVENTS}
+      {clases.length > 0 ?(
+        
+        <Scheduler
+        events={clases}
         day={null}
         month={null}
         week={{
@@ -216,7 +264,10 @@ export default function AdminItinerary() {
           );
         }}
 
-      />
+      />) :
+      (
+        <p>Cargando clases...</p>
+      )}
     </div>
   );
 }

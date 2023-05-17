@@ -35,7 +35,7 @@ function createData(
 
 export default function LogInSide() {
 
-  //Funcion para tomar los datos
+  
 
   const fetchRegistros = () => {
 
@@ -48,7 +48,7 @@ export default function LogInSide() {
     });
   };
   
-
+  //Funcion para tomar los datos
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
