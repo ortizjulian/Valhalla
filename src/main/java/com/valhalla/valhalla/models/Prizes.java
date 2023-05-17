@@ -16,7 +16,7 @@ public class Prizes {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id_prize;
+    private int idprize;
 
     @Column(name = "description", nullable = false)
     private String description;

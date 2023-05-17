@@ -8,19 +8,12 @@ import type {
   ProcessedEvent,
   ViewEvent
 } from "@aldabil/react-scheduler/types";
-import EVENTS from "../../data/data";
+//import EVENTS from "../../data/data";
 /* import EVENTS from "../../data/data"; */
 import planesService from "../../services/planesService";
-import clasesService from "../../services/clasesService";
+import ClasesService from "../../services/clasesService";
 
-interface Evento {
-  event_id: number;
-  title: string;
-  start: Date;
-  end: Date;
-  description: string;
-  profesor: string;
-}
+
 
 
 
@@ -35,15 +28,20 @@ export default function UserItineray() {
   };
 
 
-  const [registros, setRegistros] =  useState<Evento[]>([]);
+  // const [registros, setRegistros] =  useState([]);
   
-  //const [clases, setClases] = useState<Evento[]>([]);
+  const [clases, setClases] = useState([]);
 
-
-
+ 
   useEffect(() => {
+    ClasesService.getClases()
+      .then((mappedEvents) => setClases(mappedEvents))
+      .catch((error) => console.error(error));
+  }, []);
+/*
+  useEffect(() => {
+    
     clasesService.getClases()
-   /*  fetch("/clases") */
       .then((response) => response.json())
       .then((data) => {
 
@@ -65,7 +63,7 @@ export default function UserItineray() {
             end: new Date("2023/5/5 12:00"),
             description: "aaaa",
             profesor: 1,
-          }; */
+          }; 
         });
         setRegistros(eventos);
         console.log("Eventos: " + eventos);
@@ -74,12 +72,17 @@ export default function UserItineray() {
       })
       .catch((error) => console.error(error));
   }, []);
+  */
   /* console.log(EVENTS); */
+
+console.log(clases)
+
   return (
+
     <div style={{ color: "#000" }}>
-      
+      {clases.length > 0 ?(
       <Scheduler
-        events={registros}
+        events={clases}
         day={null}
         
         week={{
@@ -111,7 +114,10 @@ export default function UserItineray() {
             </div>
           );
         }}
-      /> :
+      /> ) :
+      (
+        <p>Cargando clases...</p>
+      )}
 
     </div>
   );

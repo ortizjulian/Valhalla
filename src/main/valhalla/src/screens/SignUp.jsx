@@ -73,8 +73,8 @@ export default function SignInSide() {
   };
   //Comprueba que cedula tenga el formato correcto
   const validateCedula = (cedula) => {
-    if (!/^[0-9]{8,10}$/.test(cedula)) {
-      setCedulaError("La cédula contener de 8 a 10 dígitos y solo numeros");
+    if (!/^[0-9]{7,10}$/.test(cedula)) {
+      setCedulaError("La cédula contener de 7 a 10 dígitos y solo números");
     } else {
       setCedulaError("");
     }
@@ -113,9 +113,9 @@ export default function SignInSide() {
   //Compruab que la contrasena empiece por letra mayuscula, tenga minimo 8 caracteres y contener numeros
   const validateContrasena = (contrasena) => {
     if (
-      !/^[A-Z][a-zA-Z0-9]{7,}$/.test(contrasena)) {
+      !/^[a-zA-Z0-9]{7,}$/.test(contrasena)) {
       setContrasenaError(
-        "La contraseña debe tener al menos 8 caracteres, comenzar con una letra mayúscula, contener números"
+        "La contraseña debe tener al menos 8 caracteres, mezclando números y letras."
       );
     } else {
       setContrasenaError("");
@@ -162,8 +162,6 @@ export default function SignInSide() {
       contrasena: data.get("contrasena"),
       sexoFront: data.get("sexo"),
     };
-    alert(contrasena);
-    alert(user.contrasena);
     AuthService.register(user.nombre, user.cedula, contrasena, user.correo, user.sexoFront)
     .then(response => {
       if (response.ok) {
@@ -285,7 +283,7 @@ export default function SignInSide() {
                     <FormControlLabel
                       value="MASCULINO"
                       control={<Radio color="secondary" />}
-                      label="Maculino"
+                      label="Masculino"
                       sx={{ color: "white" }}
                     />
                   </RadioGroup>

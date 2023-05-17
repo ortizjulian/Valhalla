@@ -21,21 +21,9 @@ function createData(
 ) {
   return { cedula, name, time };
 }
-
-/* const rows = [
-  
-  createData('22100400', 'Julián Rios', '12:00 p.m.'),
-  createData('19878172', 'Jennifer Pedraza', '3:00 p.m.'),
-  createData('13412', 'Jennifer Pedraza', '4:00 p.m.'),
-  createData('1987872', 'Julio Pedraza', '3:00 p.m.'),
-  createData('19878172', 'Mary Pedraza', '3:00 p.m.'),
-]; */
-
-
-
 export default function LogInSide() {
 
-  //Funcion para tomar los datos
+  
 
   const fetchRegistros = () => {
 
@@ -61,6 +49,7 @@ export default function LogInSide() {
   };
 
 
+  //Funcion para tomar los datos
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);

@@ -1,19 +1,24 @@
 import React, { useState, useEffect } from "react";
 import { Wheel } from "react-custom-roulette";
 import styled from "styled-components";
+import CouponsService from "../../services/couponsService";
+import prizesService from "../../services/prizesService";
 
 const Roulette = ({ data }) => {
   const [mustSpin, setMustSpin] = useState(false);
   const [prizeNumber, setPrizeNumber] = useState(0);
   const [rouletteData, setRouletteData] = useState(data);
+  const [mensajePremio, setMensajePremio] = useState(null);
 
   const handleSpinClick = () => {
     const newPrizeNumber = Math.floor(Math.random() * data.length);
     setPrizeNumber(newPrizeNumber);
     setMustSpin(true);
+
   };
 
     useEffect(() => {
+      
     const addShortString = data.map((item) => {
       return {
         completeOption: item.description,
@@ -58,22 +63,42 @@ const Roulette = ({ data }) => {
           ]}
           onStopSpinning={() => {
             setMustSpin(false);
+            const premio = rouletteData[prizeNumber].completeOption;
+            setMensajePremio(<Alert message={`¡Felicidades! ganaste: ${premio}.`} onClose={() => setMensajePremio(null)} />);
+
+            CouponsService.saveCoupon(premio)
+              .then((response) => {
+                if (response.ok) {        
+                  alert("Premio guardado");
+                } else {
+                  console.error(response );
+                  alert("Hubo un error al registrar " + response .message);         
+                }
+              })
+              .catch((error) => {
+                const resMessage =
+                  (error.response &&
+                    error.response.data &&
+                    error.response.data.message) ||
+                  error.message ||
+                  error.toString();
+
+                alert(resMessage);
+              });
+
+            
+
           }}
+
+
         />
         <Girador className="button-roulette" onClick={handleSpinClick}>
           GIRA
         </Girador>
       </div>
       <br />
-
-
-      {/* <MensajePremio
-        onClick={handleSpinClick}
-        disabled={mustSpin}
-      >
-        {!mustSpin ? rouletteData[prizeNumber].completeOption : "Girando..."}
-      </MensajePremio> */}
-
+      {mensajePremio && <Alert message={mensajePremio} onClose={() => setMensajePremio(null)} />}
+      
 
     </>
   );
@@ -82,6 +107,41 @@ const Roulette = ({ data }) => {
 export default Roulette;
 
 //Estilos
+
+const AlertContainer = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 999;
+`;
+
+const AlertBox = styled.div`
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  max-width: 80%;
+  text-align: center;
+  color: #000;
+`;
+
+const Alert = ({ message, onClose }) => {
+  return (
+    <AlertContainer>
+      <AlertBox>
+        <p>{message}</p>
+        <button onClick={onClose}>OK</button>
+      </AlertBox>
+    </AlertContainer>
+  );
+};
+
 
 const Girador = styled.button`
     position: absolute;
