@@ -8,5 +8,6 @@ import com.valhalla.valhalla.models.Registros;
 
 @Repository
 public interface RegistrosRepository extends JpaRepository<Registros, Integer> {
+    Registros findByIdregistro(int idregistro);
 
 }

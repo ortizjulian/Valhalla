@@ -62,7 +62,6 @@ public class RegistrosController {
                 registro.setId_user(usuario);
                 registro.setId_sede(sedeService.findByIdsedes(1));
                 registro.setFecha_hora_entrada(new Date());
-                registro.setFecha_hora_salida(new Date());
                 registroService.createRegistro(registro);
                 return ResponseEntity.ok(new MessageResponse("Usuario ingresado"));
             }
@@ -72,4 +71,24 @@ public class RegistrosController {
                     .body(new MessageResponse("Error: No se pudo ingresar el usuario\n" + e.getMessage()));
         }
     }
+
+    @PreAuthorize("hasRole('ROLE_ADMINISTRADOR')")
+    @PostMapping("/salida")
+    public ResponseEntity<?> updateExitDate(@RequestParam int registroId) {
+
+        try {
+            Registros registro = registroService.findByIdregistro(registroId);
+
+            registro.setFecha_hora_salida(new Date());
+            registroService.createRegistro(registro);
+
+            return ResponseEntity.ok(new MessageResponse("Fecha de salida actualizada correctamente"));
+
+        } catch (Exception e) {
+            return ResponseEntity
+                    .badRequest()
+                    .body(new MessageResponse("Error: No se pudo actualizar la fecha de salida\n" + e.getMessage()));
+        }
+    }
+
 }

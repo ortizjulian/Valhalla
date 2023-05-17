@@ -96,3 +96,9 @@ INSERT INTO `valhalla`.`prizes` (`id_prize`, `description`) VALUES ('7', 'Medias
 INSERT INTO `valhalla`.`prizes` (`id_prize`, `description`) VALUES ('8', 'Sudadera nike');
 
 -- Agregar aquí el resto de inserts
+
+-- inserts para cupones
+
+INSERT INTO `valhalla`.`coupons` (`status`, `validity`, `id_prize`, `iduser`) VALUES ('0', '2023-10-10', '1', '4');
+INSERT INTO `valhalla`.`coupons` (`status`, `validity`, `id_prize`, `iduser`) VALUES ('0', '2022-10-10', '2', '4');
+INSERT INTO `valhalla`.`coupons` (`status`, `validity`, `id_prize`, `iduser`) VALUES ('1', '2023-10-10', '3', '4');

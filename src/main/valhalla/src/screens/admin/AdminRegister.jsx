@@ -21,18 +21,6 @@ function createData(
 ) {
   return { cedula, name, time };
 }
-
-/* const rows = [
-  
-  createData('22100400', 'Julián Rios', '12:00 p.m.'),
-  createData('19878172', 'Jennifer Pedraza', '3:00 p.m.'),
-  createData('13412', 'Jennifer Pedraza', '4:00 p.m.'),
-  createData('1987872', 'Julio Pedraza', '3:00 p.m.'),
-  createData('19878172', 'Mary Pedraza', '3:00 p.m.'),
-]; */
-
-
-
 export default function LogInSide() {
 
   
@@ -41,6 +29,7 @@ export default function LogInSide() {
 
     RegistrosService.getRegistros()
     .then(data => {
+      console.log(data);
       setRegistros(data);
     })
     .catch(error => {
@@ -48,6 +37,18 @@ export default function LogInSide() {
     });
   };
   
+  const closeRegistros = (id_registro) => {
+    console.log(id_registro);
+    RegistrosService.closeRegistro(id_registro)
+    .then(data => {
+      fetchRegistros();
+    })
+    .catch(error => {
+      console.error(error);
+    });
+  };
+
+
   //Funcion para tomar los datos
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -163,7 +164,7 @@ export default function LogInSide() {
                   <TableCell align="center">{registro.id_user.cedula}</TableCell>
                   <TableCell align="center">{registro.id_user.nombre}</TableCell>
                   <TableCell align="center">{registro.fecha_hora_entrada}</TableCell>
-                  <TableCell align="center"><Button variant="outlined" color="error">
+                  <TableCell align="center"><Button variant="outlined" color="error" onClick={() => closeRegistros(registro.idregistro)}>
                     Cerrar
                   </Button></TableCell>
                 </TableRow>

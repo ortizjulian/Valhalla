@@ -8,5 +8,7 @@ import com.valhalla.valhalla.models.Prizes;
 
 @Repository
 public interface PrizesRepository extends JpaRepository<Prizes, Integer> {
+    Prizes findByIdprize(int idprize);
+    Prizes findByDescription(String description);
 
 }

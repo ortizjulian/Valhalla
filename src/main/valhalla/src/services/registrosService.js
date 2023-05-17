@@ -15,6 +15,15 @@ class RegistrosService {
             ,
           });
     }
+
+    closeRegistro(idRegistro){
+      return fetch("api/registros/salida?idRegistro="+ idRegistro,{
+          method: "POST",
+          headers: 
+            authHeader()
+          ,
+        });
+  }
 }
 
 export default new RegistrosService();

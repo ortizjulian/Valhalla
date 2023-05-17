@@ -14,11 +14,21 @@ import com.valhalla.valhalla.services.PrizesService;
 public class PrizesServiceImpl implements PrizesService {
 
     @Autowired
-    private PrizesRepository PrizesRepository;
+    private PrizesRepository prizesRepository;
 
     @Override
     public List<Prizes> getPrizes() {
-        return PrizesRepository.findAll();
+        return prizesRepository.findAll();
+    }
+
+    @Override
+    public Prizes findByIdprize(int idprize) {
+        return prizesRepository.findByIdprize(idprize);
+    }
+
+    @Override
+    public Prizes findByDescription(String description) {
+        return prizesRepository.findByDescription(description);
     }
 
 }

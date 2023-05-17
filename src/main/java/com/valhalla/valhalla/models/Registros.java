@@ -2,7 +2,6 @@ package com.valhalla.valhalla.models;
 
 import java.util.Date;
 
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -22,8 +21,7 @@ public class Registros {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id_registro;
-
+    private int idregistro;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_user")
@@ -34,9 +32,9 @@ public class Registros {
     private Sedes id_sede;
 
     @Column(name = "fecha_hora_entrada", nullable = false)
-    private Date fecha_hora_entrada; //0 available, 1 used
+    private Date fecha_hora_entrada;
 
-    @Column(name = "fecha_hora_salida", nullable = false)
+    @Column(name = "fecha_hora_salida")
     private Date fecha_hora_salida;
 
 }
