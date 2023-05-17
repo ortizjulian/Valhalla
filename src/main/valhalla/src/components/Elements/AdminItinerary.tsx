@@ -31,6 +31,11 @@ const CssTextField = styled(TextField)({
     '&.Mui-focused fieldset': {
       borderColor: 'white',
     },
+    '& input': {   
+      color: 'white',
+    },
+
+
   },
 });
 
@@ -123,7 +128,8 @@ const CustomEditor = ({ scheduler }: CustomEditorProps) => {
             }
           }}
           sx={{ marginTop: "16px" }}
-          fullWidth />
+          fullWidth 
+          autoComplete='off'/>
         <CssTextField
           label="Descripción"
           value={state.description}
@@ -134,7 +140,8 @@ const CustomEditor = ({ scheduler }: CustomEditorProps) => {
             }
           }}
           sx={{ marginTop: "16px", marginBottom: "16px" }}
-          fullWidth />
+          fullWidth 
+          autoComplete='off'/>
         <FormControl variant="filled" fullWidth>
           <InputLabel sx={{
             color: "white",
@@ -158,9 +165,9 @@ const CustomEditor = ({ scheduler }: CustomEditorProps) => {
           </Select>
         </FormControl>
       </div>
-      <DialogActions className="purpleBg">
-        <Button style={{ backgroundColor: "white", color: "#7620FF" }} onClick={scheduler.close}>Cancel</Button>
-        <Button style={{ backgroundColor: "white", color: "#7620FF" }} onClick={handleSubmit}>Confirm</Button>
+      <DialogActions className="lightBg">
+        <Button style={{ backgroundColor: "white", color: "#1f6feb" }} onClick={scheduler.close}>Cancel</Button>
+        <Button style={{ backgroundColor: "white", color: "#1f6feb" }} onClick={handleSubmit}>Confirm</Button>
       </DialogActions>
     </div>
   );
